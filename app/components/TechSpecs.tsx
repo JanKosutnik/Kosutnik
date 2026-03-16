@@ -33,11 +33,11 @@ const rows: { label: string; value: React.ReactNode }[] = [
 
 export default function TechSpecs() {
   return (
-    <section className="border-b border-black/10 py-10">
+    <section className="border-b border-white/10 py-10">
       <div className="grid grid-cols-[160px_1fr] gap-y-3">
         {rows.map(({ label, value }) => (
           <div key={label} className="contents">
-            <span className="text-xs tracking-[0.2em] uppercase text-black/40">
+            <span className="text-xs tracking-[0.2em] uppercase text-white/40">
               {label}
             </span>
             <span className="text-xs tracking-[0.2em] uppercase tabular-nums">

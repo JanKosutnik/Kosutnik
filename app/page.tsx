@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <div className="flex min-h-screen bg-background text-foreground">
       {/* Sidebar */}
-      <aside className="fixed top-0 left-0 h-screen w-64 border-r border-black/10 flex flex-col px-8 py-10">
+      <aside className="fixed top-0 left-0 h-screen w-64 border-r border-white/10 flex flex-col px-8 py-10">
         <span className="font-black text-xs tracking-[0.25em] uppercase mb-12">
           KOSUTNIK
         </span>
@@ -21,7 +21,7 @@ export default function Home() {
             <a
               key={item}
               href="#"
-              className="text-xs tracking-widest text-black/35 hover:text-black transition-colors duration-150 py-1"
+              className="text-xs tracking-widest text-white/35 hover:text-white transition-colors duration-150 py-1"
             >
               {item}
             </a>
@@ -32,8 +32,8 @@ export default function Home() {
       {/* Main */}
       <main className="ml-64 flex-1 px-20">
         {/* Hero */}
-        <section className="py-24 border-b border-black/10">
-          <p className="text-xs tracking-[0.3em] uppercase text-black/35 mb-6">
+        <section className="py-24 border-b border-white/10">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/35 mb-6">
             Identity Statement
           </p>
           <h1 className="text-[8vw] font-black tracking-tighter leading-[0.9] uppercase">
@@ -45,22 +45,22 @@ export default function Home() {
 
         {/* Selected Works */}
         <section className="pt-12 pb-24">
-          <p className="text-xs tracking-[0.3em] uppercase text-black/35 mb-8">
+          <p className="text-xs tracking-[0.3em] uppercase text-white/35 mb-8">
             Selected Works
           </p>
           <div>
             {works.map((work) => (
               <div
                 key={work.index}
-                className="group border-t border-black/10 last:border-b py-5 flex items-center gap-8 cursor-pointer hover:bg-[#F2F2F2] transition-colors duration-150"
+                className="group border-t border-white/10 last:border-b py-5 flex items-center gap-8 cursor-pointer hover:bg-white/5 transition-colors duration-150"
               >
-                <span className="text-xs text-black/30 w-10 shrink-0 tabular-nums">
+                <span className="text-xs text-white/30 w-10 shrink-0 tabular-nums">
                   {work.index}
                 </span>
                 <span className="font-black text-sm uppercase tracking-tight flex-1 transition-transform duration-200 ease-out group-hover:translate-x-2">
                   {work.title}
                 </span>
-                <span className="text-xs text-black/40 shrink-0">
+                <span className="text-xs text-white/40 shrink-0">
                   {work.category}
                 </span>
               </div>
