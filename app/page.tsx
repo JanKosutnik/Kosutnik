@@ -68,9 +68,7 @@ export default function Home() {
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
             002 — MANIFESTO
           </p>
-          <p className="text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 mb-6 font-semibold text-zinc-900">
-            Manifesto
-          </p>
+
           <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             {[
               "Most software is furniture that asks for attention.",
