@@ -62,6 +62,31 @@ export default function Home() {
             </p>
           </div>
         </section>
+
+        <section className="max-w-2xl py-16 border-b border-zinc-200">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
+            002 — MANIFESTO
+          </p>
+          <p className="text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 mb-6 font-semibold text-zinc-900">
+            Manifesto
+          </p>
+          <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            {[
+              "Most software is furniture that asks for attention.",
+              "The best tool is the one you forget exists.",
+              "Shipping in days beats planning for months.",
+              "Saying \"no\" to features is harder and more valuable than saying \"yes.\"",
+              "AI should do the boring work so humans can do the interesting work.",
+              "Simplicity isn't laziness — it's discipline.",
+              "Outcomes over hours.",
+            ].map((line, i) => (
+              <li key={i} className="flex gap-4">
+                <span className="text-zinc-300 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
+                <span>{line}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </main>
 
     </div>
