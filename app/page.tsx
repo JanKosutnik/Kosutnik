@@ -17,7 +17,7 @@ export default function Home() {
           KOSUTNIK
         </span>
         <nav className="flex flex-col gap-1">
-          {["INDEX", "SPEC", "LOGS"].map((item) => (
+          {["INDEX"].map((item) => (
             <a
               key={item}
               href="#"
