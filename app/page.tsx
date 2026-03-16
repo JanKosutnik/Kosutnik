@@ -14,10 +14,7 @@ export default function Home() {
             <span className="animate-blink ml-[2px]">█</span>
           </span>
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-400">
-            ARCHIVE
-          </span>
-          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-400">
-            ©2025
+            ©2026
           </span>
         </div>
 
