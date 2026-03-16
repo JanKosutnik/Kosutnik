@@ -41,6 +41,28 @@ export default function Home() {
 
       {/* ── Main ── */}
       <main className="pt-36 px-8 md:px-16 lg:px-24">
+        <section className="max-w-2xl py-16 border-b border-zinc-200">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
+            001 — STATEMENT
+          </p>
+          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            <p>
+              Your time is worth more than any software subscription.
+              Yet the average worker spends 3 hours a day managing tools
+              instead of doing work. Dashboards that demand attention.
+              Notifications that interrupt. Features designed to impress
+              in demos, not help you on a Tuesday afternoon.
+            </p>
+            <p className="text-zinc-900 font-semibold">
+              This is the opposite.
+            </p>
+            <p>
+              Software that disappears. Does the job, then shuts up.
+              No interface to babysit. No alerts to clear. Just outcomes,
+              delivered quietly — while you do the work that actually matters.
+            </p>
+          </div>
+        </section>
       </main>
 
     </div>
