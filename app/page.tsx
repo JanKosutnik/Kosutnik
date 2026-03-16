@@ -47,6 +47,7 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
+              Your time is worth more than any software subscription.
               Yet the average worker spends 3 hours a day managing tools
               instead of doing work. Dashboards that demand attention.
               Notifications that interrupt. Features designed to impress
