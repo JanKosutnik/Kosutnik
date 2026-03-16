@@ -41,16 +41,6 @@ export default function Home() {
 
       {/* ── Main ── */}
       <main className="pt-36 px-8 md:px-16 lg:px-24">
-        <section className="pb-16 border-b border-zinc-200">
-          <p style={{ fontSize: "clamp(0.65rem, 1.8vw, 0.875rem)" }}
-             className="tracking-[0.2em] uppercase text-zinc-400 leading-relaxed">
-            Work
-          </p>
-          <p style={{ fontSize: "clamp(0.65rem, 1.8vw, 0.875rem)" }}
-             className="tracking-[0.2em] uppercase text-zinc-400 leading-relaxed">
-            Archive
-          </p>
-        </section>
       </main>
 
     </div>
