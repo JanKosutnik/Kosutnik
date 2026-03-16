@@ -3,8 +3,8 @@
 @theme inline {
   --font-sans: var(--font-jetbrains-mono), monospace;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --color-background: #111111;
-  --color-foreground: #F0F0F0;
+  --color-background: #FAFAFA;
+  --color-foreground: #111111;
 }
 
 html {
@@ -17,6 +17,15 @@ body {
   font-family: var(--font-jetbrains-mono), monospace;
 }
 
+@keyframes blink {
+  0%, 100% { opacity: 1 }
+  50%       { opacity: 0 }
+}
+
+@utility animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
 @utility border-subtle {
-  border: 1px solid rgb(255 255 255 / 0.07);
+  border: 1px solid theme(colors.zinc.200);
 }
