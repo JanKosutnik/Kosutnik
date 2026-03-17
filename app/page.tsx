@@ -86,6 +86,32 @@ export default function Home() {
             ))}
           </ul>
         </section>
+
+        <section className="max-w-2xl py-16 md:mx-auto">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
+            004 — PRICING
+          </p>
+          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            <p>
+              No subscriptions.<br />
+              No monthly fees.<br />
+              You pay once. That's it.
+            </p>
+            <p>
+              I only build fixed-price, outcome-based quiet systems.
+            </p>
+            <p>
+              One-time builds that take over a painful repetitive workflow, run silently
+              in the background, deliver clean results, then disappear completely.<br />
+              No interface. No alerts. No babysitting.
+            </p>
+            <p>
+              Prices are locked upfront.<br />
+              Typical range: €4,500 (focused automation) to €14,000 (full background system).<br />
+              Fast delivery is standard.
+            </p>
+          </div>
+        </section>
       </main>
 
       <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
