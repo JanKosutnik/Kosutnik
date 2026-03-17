@@ -2,7 +2,7 @@ import Clock from "./components/Clock";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-stone-50 text-zinc-900 font-mono">
+    <div className="min-h-screen bg-stone-50 text-zinc-900 font-mono font-medium">
 
       {/* ── Nav ── */}
       <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 bg-stone-50">
