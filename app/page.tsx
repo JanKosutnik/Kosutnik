@@ -89,6 +89,26 @@ export default function Home() {
 
         <section className="max-w-2xl py-16 md:mx-auto">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
+            003 — NOW
+          </p>
+          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            <p className="text-zinc-900 font-semibold">
+              Building software that disappears.
+            </p>
+            <p>
+              My current focus is quiet AI systems that take over repetitive, painful workflows
+              for teams and individuals.<br />
+              Tools that replace noisy apps with zero interface — handling the boring work
+              silently so you never have to babysit anything.
+            </p>
+            <p>
+              No dashboards. No alerts. Just clean outcomes delivered quietly.
+            </p>
+          </div>
+        </section>
+
+        <section className="max-w-2xl py-16 md:mx-auto">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             004 — PRICING
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
@@ -109,6 +129,25 @@ export default function Home() {
               Prices are locked upfront.<br />
               Typical range: €4,500 (focused automation) to €14,000 (full background system).<br />
               Fast delivery is standard.
+            </p>
+          </div>
+        </section>
+
+        <section className="max-w-2xl py-16 md:mx-auto">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
+            005 — LET'S BUILD
+          </p>
+          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            <p>
+              If you have one workflow that constantly eats your time and attention,
+              I'm in Ljubljana and available.
+            </p>
+            <p>
+              <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors">jan@kindspace.studio</a><br />
+              <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors">@JanKosutnik on X</a>
+            </p>
+            <p>
+              Just email me the pain. I'll reply with a fixed quote in 24 hours. No decks. No calendars.
             </p>
           </div>
         </section>
