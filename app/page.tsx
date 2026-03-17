@@ -13,7 +13,7 @@ export default function Home() {
             KOSUTNIK
             <span className="animate-blink ml-[2px]">█</span>
           </span>
-          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-400">
+          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">
             ©2026
           </span>
         </div>
@@ -21,19 +21,19 @@ export default function Home() {
         {/* Right: metadata — hidden on mobile */}
         <div className="flex items-start gap-4 md:gap-10 text-[0.65rem] tracking-widest uppercase">
           <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-400">LOCATION</span>
+            <span className="text-zinc-500">LOCATION</span>
             <span>LJUBLJANA</span>
           </div>
           <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-400">STATUS</span>
+            <span className="text-zinc-500">STATUS</span>
             <span>ACTIVE</span>
           </div>
           <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-400">FOCUS</span>
+            <span className="text-zinc-500">FOCUS</span>
             <span>DESIGN ENGINEERING</span>
           </div>
           <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-400">LOCAL TIME</span>
+            <span className="text-zinc-500">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
           </div>
         </div>
@@ -42,7 +42,7 @@ export default function Home() {
       {/* ── Main ── */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
         <section className="max-w-2xl py-16">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             001 — STATEMENT
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
@@ -65,7 +65,7 @@ export default function Home() {
         </section>
 
         <section className="max-w-2xl py-16">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             002 — MANIFESTO
           </p>
 
@@ -80,7 +80,7 @@ export default function Home() {
               "Outcomes over hours.",
             ].map((line, i) => (
               <li key={i} className="flex gap-4">
-                <span className="text-zinc-300 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
+                <span className="text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
                 <span>{line}</span>
               </li>
             ))}
