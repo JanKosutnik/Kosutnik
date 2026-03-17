@@ -41,6 +41,7 @@ export default function Home() {
 
       {/* ── Main ── */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
+
         <section className="max-w-2xl py-16 md:mx-auto">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             001 — STATEMENT
@@ -68,7 +69,6 @@ export default function Home() {
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             002 — MANIFESTO
           </p>
-
           <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             {[
               "Most software is furniture that asks for attention.",
@@ -93,16 +93,24 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p className="text-zinc-900 font-semibold">
-              Building software that disappears.
+              Building software that disappears into the background.
             </p>
             <p>
-              My current focus is quiet AI systems that take over repetitive, painful workflows
-              for teams and individuals.<br />
-              Tools that replace noisy apps with zero interface — handling the boring work
-              silently so you never have to babysit anything.
+              My current focus is quiet AI systems that quietly handle repetitive, painful
+              workflows for teams and individuals.
             </p>
             <p>
-              No dashboards. No alerts. Just clean outcomes delivered quietly.
+              You set it once. It runs silently, replaces the noisy apps you're tired of
+              checking, and just delivers clean results — while you do the work that actually matters.
+            </p>
+            <p>
+              On the side, I also run one-time UX strategy sessions to help you figure out
+              what to build (and what to kill) before anything gets built.
+            </p>
+            <p>
+              No daily dashboards.<br />
+              No constant alerts.<br />
+              Just outcomes.
             </p>
           </div>
         </section>
@@ -117,19 +125,30 @@ export default function Home() {
               No monthly fees.<br />
               You pay once. That's it.
             </p>
-            <p>
-              I only build fixed-price, outcome-based quiet systems.
-            </p>
-            <p>
-              One-time builds that take over a painful repetitive workflow, run silently
-              in the background, deliver clean results, then disappear completely.<br />
-              No interface. No alerts. No babysitting.
-            </p>
-            <p>
-              Prices are locked upfront.<br />
-              Typical range: €4,500 (focused automation) to €14,000 (full background system).<br />
-              Fast delivery is standard.
-            </p>
+            <p>I build two kinds of fixed-price, outcome-based work:</p>
+            <div className="space-y-2">
+              <p className="text-zinc-900 font-semibold">Quiet AI Systems</p>
+              <p>
+                One-time builds that take over a painful repetitive workflow, run silently
+                in the background, and keep delivering results long after you've forgotten
+                about them.
+              </p>
+              <p>
+                Set it once. Forget it. No babysitting required.
+              </p>
+              <p>
+                Typical range: €4,500 (focused automation) to €20,000 (full background system).<br />
+                Fast delivery is standard.
+              </p>
+            </div>
+            <div className="space-y-2">
+              <p className="text-zinc-900 font-semibold">UX Consulting</p>
+              <p>
+                One-time deep dives: I review your workflows, tell you exactly what to simplify,
+                what to automate, and how to make it feel obvious. You get a clear, actionable plan.
+              </p>
+              <p>From €2,500 — ships in 3–5 days.</p>
+            </div>
           </div>
         </section>
 
@@ -139,18 +158,44 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              If you have one workflow that constantly eats your time and attention,
-              I'm in Ljubljana and available.
+              If you have one workflow that constantly eats your time and attention —
+              or need help figuring out what to simplify first — I'm in Ljubljana and available.
             </p>
             <p>
               <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors">jan@kindspace.studio</a><br />
               <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors">@JanKosutnik on X</a>
             </p>
             <p>
-              Just email me the pain. I'll reply with a fixed quote in 24 hours. No decks. No calendars.
+              Just email me the pain. I'll reply with a fixed quote in 24 hours.<br />
+              No decks. No calendars.
             </p>
           </div>
         </section>
+
+        <section className="max-w-2xl py-16 md:mx-auto">
+          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
+            006 — ABOUT
+          </p>
+          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+            <p>
+              I design experiences and consult for a living.<br />
+              Tried frontend and QA — learned fast, moved on faster.
+            </p>
+            <p>
+              The real obsession has always been the thinking before the pixels:
+              what to build, what to kill, how to make it feel obvious.
+            </p>
+            <p>
+              Now I use AI to ship tools that do the job and then vanish.<br />
+              No interface. No noise. Just outcomes.
+            </p>
+            <p>
+              Based in Ljubljana, Slovenia.<br />
+              Working with teams and individuals worldwide.
+            </p>
+          </div>
+        </section>
+
       </main>
 
       <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
