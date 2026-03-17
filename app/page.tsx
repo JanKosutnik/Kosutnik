@@ -49,15 +49,15 @@ export default function Home() {
             <p>
               Your time is worth more than any software subscription.
               Yet the average worker spends 3 hours a day managing tools
-              instead of doing work. Dashboards that demand attention.
+              instead of doing real work. Dashboards that demand attention.
               Notifications that interrupt. Features designed to impress
-              in demos, not help you on a Tuesday afternoon.
+              in demos, not to help you on a Tuesday afternoon.
             </p>
             <p className="text-zinc-900 font-semibold">
               This is the opposite.
             </p>
             <p>
-              Software that disappears. Does the job, then shuts up.
+              Software that disappears. It does the job, then shuts up.
               No interface to babysit. No alerts to clear. Just outcomes,
               delivered quietly — while you do the work that actually matters.
             </p>
