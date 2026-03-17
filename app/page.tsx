@@ -19,7 +19,7 @@ export default function Home() {
         </div>
 
         {/* Right: metadata — hidden on mobile */}
-        <div className="hidden md:flex items-start gap-10 text-[0.65rem] tracking-widest uppercase">
+        <div className="flex items-start gap-4 md:gap-10 text-[0.65rem] tracking-widest uppercase">
           <div className="flex flex-col gap-[2px]">
             <span className="text-zinc-400">LOCATION</span>
             <span>LJUBLJANA</span>
