@@ -41,7 +41,7 @@ export default function Home() {
 
       {/* ── Main ── */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
-        <section className="max-w-2xl py-16">
+        <section className="max-w-2xl py-16 md:mx-auto">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             001 — STATEMENT
           </p>
@@ -64,7 +64,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-2xl py-16">
+        <section className="max-w-2xl py-16 md:mx-auto">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             002 — MANIFESTO
           </p>
