@@ -96,7 +96,7 @@ export default function Home() {
               Building software that disappears into the background.
             </p>
             <p>
-              My current focus is quiet AI systems that quietly handle repetitive, painful
+              My current focus is quiet AI systems that handle repetitive, painful
               workflows for teams and individuals.
             </p>
             <p>
@@ -133,16 +133,14 @@ export default function Home() {
                 in the background, and keep delivering results long after you've forgotten
                 about them.
               </p>
+              <p>Set it once. Forget it. No babysitting required.</p>
               <p>
-                Set it once. Forget it. No babysitting required.
-              </p>
-              <p>
-                Typical range: €4,500 (focused automation) to €20,000 (full background system).<br />
+                Typical range: €4,500 (focused automation) to €18,000 (full background system).<br />
                 Fast delivery is standard.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">UX Consulting</p>
+              <p className="text-zinc-900 font-semibold">UX Consulting (on the side)</p>
               <p>
                 One-time deep dives: I review your workflows, tell you exactly what to simplify,
                 what to automate, and how to make it feel obvious. You get a clear, actionable plan.
@@ -158,16 +156,14 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              If you have one workflow that constantly eats your time and attention —
-              or need help figuring out what to simplify first — I'm in Ljubljana and available.
+              If you have one workflow that constantly eats your time and attention — or need
+              help figuring out what to simplify first, just email me the pain and your problems.
+              I'll reply with a fixed quote in 24 hours.<br />
+              No decks. No calendars.
             </p>
             <p>
               <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors">jan@kindspace.studio</a><br />
               <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors">@JanKosutnik on X</a>
-            </p>
-            <p>
-              Just email me the pain. I'll reply with a fixed quote in 24 hours.<br />
-              No decks. No calendars.
             </p>
           </div>
         </section>
@@ -178,16 +174,12 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              I design experiences and consult for a living.<br />
-              Tried frontend and QA — learned fast, moved on faster.
+              I've spent most of my career as an experience designer and consultant.<br />
+              Tried frontend development and QA along the way — learned plenty, then moved on.
             </p>
             <p>
-              The real obsession has always been the thinking before the pixels:
-              what to build, what to kill, how to make it feel obvious.
-            </p>
-            <p>
-              Now I use AI to ship tools that do the job and then vanish.<br />
-              No interface. No noise. Just outcomes.
+              These days I combine that background with AI to build quiet systems and offer
+              focused UX consulting on the side.
             </p>
             <p>
               Based in Ljubljana, Slovenia.<br />
