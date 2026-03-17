@@ -88,6 +88,10 @@ export default function Home() {
         </section>
       </main>
 
+      <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
+        Made with discipline in Ljubljana • No tracking, no cookies, no bullshit.
+      </footer>
+
     </div>
   );
 }
