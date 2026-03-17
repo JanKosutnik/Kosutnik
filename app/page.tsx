@@ -5,7 +5,7 @@ export default function Home() {
     <div className="min-h-screen bg-stone-50 text-zinc-900 font-mono">
 
       {/* ── Nav ── */}
-      <nav className="fixed top-0 inset-x-0 z-20 flex items-start justify-between px-8 py-6 border-b border-zinc-200 bg-stone-50">
+      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 border-b border-zinc-200 bg-stone-50">
 
         {/* Left: identity stack */}
         <div className="flex flex-col gap-[2px]">
@@ -40,7 +40,7 @@ export default function Home() {
       </nav>
 
       {/* ── Main ── */}
-      <main className="pt-36 px-8 md:px-16 lg:px-24">
+      <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
         <section className="max-w-2xl py-16 border-b border-zinc-200">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-400 mb-8">
             001 — STATEMENT
