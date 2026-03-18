@@ -9,7 +9,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "kosutnik archive",
+  title: "Jan Kosutnik — Quiet systems & Clear thinking",
   description: "",
 };
 
