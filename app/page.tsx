@@ -10,7 +10,7 @@ export default function Home() {
         {/* Left: identity stack */}
         <div className="flex flex-col gap-[2px]">
           <span className="text-[0.65rem] tracking-widest uppercase font-bold">
-            KOSUTNIK
+            JAN KOSUTNIK
             <span className="animate-blink ml-[2px]">█</span>
           </span>
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">
