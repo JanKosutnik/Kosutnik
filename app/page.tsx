@@ -28,7 +28,7 @@ export default function Home() {
     <div className="min-h-screen text-zinc-900 font-mono font-medium" style={{backgroundColor:"#f3f3f2"}}>
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#f3f3f2e6"}}>
+      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm relative" style={{backgroundColor:"#f3f3f2e6"}}>
         <div className="flex flex-col gap-[2px]">
           <span className="text-[0.65rem] tracking-widest uppercase font-bold">
             JAN KOSUTNIK
@@ -49,10 +49,10 @@ export default function Home() {
             <span className="tabular-nums"><Clock /></span>
           </div>
         </div>
-      </nav>
 
-      {/* Blur fade below nav */}
-      <div className="fixed inset-x-0 z-10 pointer-events-none" style={{ top: "var(--nav-height, 80px)", height: "48px", background: "linear-gradient(to bottom, #f3f3f2, transparent)" }} />
+        {/* Gradient fade below nav */}
+        <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, #f3f3f2, transparent)"}} />
+      </nav>
 
       {/* Main */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
