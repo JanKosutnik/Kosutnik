@@ -18,7 +18,7 @@ const manifesto = [
   { lead: "Simplicity is discipline.",         rest: "Anyone can add. Removing takes guts." },
   { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
   { lead: "AI does the boring parts.",         rest: "Humans do the interesting parts. That's the deal." },
-  { lead: "Outcomes over hours.",              rest: "I don't sell time. I sell things that work." },
+  { lead: "Outcomes over hours.",              rest: "That is it." },
   { lead: "Scroll jacking is still a thing.",  rest: "Somehow. It's the most annoying pattern on the web and it refuses to go away." },
   { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point. Keep learning, don't get precious about it." },
 ];
