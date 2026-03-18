@@ -134,8 +134,7 @@ export default function Home() {
                 Set it once. Forget it. No babysitting required.
               </p>
               <p>
-                €4,500 (focused automation) to €18,000 (full background system).<br />
-                Fast delivery is standard.
+                €4,500 (focused automation) to €18,000 (full background system).
               </p>
             </div>
             <div className="space-y-2">
