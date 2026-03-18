@@ -64,8 +64,8 @@ export default function Home() {
             </p>
             <p>
               This is the opposite. Software that does the job, then shuts up.
-              No interface to babysit. No alerts to clear. Just outcomes,
-              delivered quietly — while you do the work that actually matters.
+              No interface to babysit. No alerts to clear. You get results
+              discreetly while you focus on what really matters.
             </p>
           </div>
         </section>
@@ -100,16 +100,16 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              My current focus is quiet AI systems that handle repetitive, painful
-              workflows for teams and individuals.
+              I'm currently focused on quiet AI systems. These systems manage repetitive
+              and painful workflows for teams and individuals.
             </p>
             <p>
-              You set it once. It runs silently, replaces the noisy apps you're tired of
-              checking, and just delivers clean results — while you do the work that actually matters.
+              You set it once. It runs quietly. It replaces the noisy apps you're tired of.
+              It gives clear results while you focus on what really matters.
             </p>
             <p>
-              Occasionally, I also run one-time UX strategy sessions to help figure out
-              what to build (and what to kill) before anything gets coded.
+              Sometimes, I lead one-time UX strategy sessions. These help decide what to
+              build and what to drop before coding starts.
             </p>
             <p>
               No daily dashboards.<br />
@@ -130,8 +130,8 @@ export default function Home() {
             <div className="space-y-2">
               <p className="text-zinc-900 font-semibold">Quiet AI Systems</p>
               <p>
-                One-time builds that take over a painful workflow, run silently
-                in the background, and keep delivering long after you've forgotten about them.
+                One-time builds take over a tough workflow. They run quietly in the background
+                and keep delivering even after you forget about them.
                 Set it once. Forget it. No babysitting required.
               </p>
               <p>
@@ -157,9 +157,9 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              If you have one workflow that constantly eats your time and attention — or need
-              help figuring out what to simplify first — just email me the pain. Describe the
-              problem in a few sentences. I'll reply with a fixed quote in 24 hours.
+              If you have a workflow that wastes your time and focus, or if you're unsure
+              what to simplify first, just email me about it. Describe the problem in a few
+              sentences. I'll reply with a fixed quote in 24 hours.
             </p>
             <p>No decks. No discovery calls. No calendars to navigate.</p>
             <p>
@@ -176,11 +176,11 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              I've spent most of my career as an experience designer and consultant.<br />
-              Tried frontend development and QA along the way — learned plenty, then moved on.
+              I've spent most of my career as an experience designer and consultant.
+              I tried front-end development and QA along the way — learned plenty, then moved on.
             </p>
             <p>
-              These days I combine that background with AI to build quiet systems and offer
+              I now use my background with AI to create quiet systems. I also provide
               focused UX consulting on the side.
             </p>
             <p>
