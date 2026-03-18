@@ -127,26 +127,25 @@ export default function Home() {
         <section className={SECTION}>
           <p className={LABEL}>004 — PRICING</p>
           <div className={BODY}>
-            <p>No subscriptions. No monthly fees. You pay once, and that's it.</p>
+            <p>No subscriptions. No monthly fees. You pay once.</p>
             <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">Quiet AI Systems</p>
+              <p className="text-zinc-900 font-semibold">Complexity Diagnostic</p>
               <p>
-                One-time builds take over a tough workflow. They run quietly in the background
-                and keep delivering even after you forget about them.
-                Set it once. Forget it. No babysitting required.
+                Before building anything new, it helps to see what you already have — and what's
+                quietly draining your time. This is a full inventory of your tools, subscriptions,
+                and workflows. You get a complexity score, a dollar figure on what it's costing you,
+                and a short list of things to kill.
               </p>
-              <p>
-                €4,500 (focused automation) to €18,000 (full background system).
-              </p>
+              <p>€2,500. Delivered in 5 days.</p>
             </div>
             <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">UX Consulting</p>
+              <p className="text-zinc-900 font-semibold">Quiet System Build</p>
               <p>
-                One-time deep dives. I review your workflows, tell you what to simplify,
-                what to automate, and how to make it obvious. You get a clear, actionable plan —
-                not a deck full of buzzwords.
+                Most teams use a dozen tools that each do a fraction of what's needed. I replace
+                the noisy ones with one quiet system — purpose-built for your workflow, nothing extra.
+                You set it once. It runs silently. It delivers results while you focus on work that matters.
               </p>
-              <p>From €2,500. Ships in 3–5 days.</p>
+              <p>€5,000 – €18,000 depending on scope.</p>
             </div>
           </div>
         </section>
