@@ -15,12 +15,12 @@ const navItems = [
 const manifesto = [
   { lead: "Attention is sacred.",              rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
   { lead: "The best tool disappears.",         rest: "You forget it's running. That's the goal." },
-  { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
   { lead: "Simplicity is discipline.",         rest: "Anyone can add. Removing takes guts." },
+  { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
   { lead: "AI does the boring parts.",         rest: "Humans do the interesting parts. That's the deal." },
   { lead: "Outcomes over hours.",              rest: "I don't sell time. I sell things that work." },
-  { lead: "Generic landing pages are a disease.", rest: "Honestly, I can't stand them. If this one looks like everyone else's, something went wrong." },
-  { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point — stay lean, keep learning, don't get precious about it." },
+  { lead: "Scroll jacking is still a thing.",  rest: "Somehow. It's the most annoying pattern on the web and it refuses to go away." },
+  { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point. Keep learning, don't get precious about it." },
 ];
 
 export default function Home() {
