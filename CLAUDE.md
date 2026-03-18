@@ -1,51 +1,48 @@
-# Kosutnik
+# Kosutnik — Jan's Personal Website
 
 ## Frontend Aesthetics
 
-DISTILLED_AESTHETICS_PROMPT = """
-<frontend_aesthetics>
-You tend to converge toward generic, "on distribution" outputs. In frontend design, this creates what users call the "AI slop" aesthetic. Avoid this: make creative, distinctive frontends that surprise and delight. Focus on:
+Make creative, distinctive frontends. Avoid generic "AI slop" aesthetics. Every design decision should feel intentional and specific to this project.
 
-Typography: Choose fonts that are beautiful, unique, and interesting. Avoid generic fonts like Arial and Inter; opt instead for distinctive choices that elevate the frontend's aesthetics.
+**Typography**
+- Never use: Inter, Roboto, Open Sans, Lato, or default system fonts
+- Good choices by style:
+  - Code/technical: JetBrains Mono, Fira Code, Space Grotesk
+  - Editorial: Playfair Display, Crimson Pro, Fraunces
+  - Startup: Clash Display, Satoshi, Cabinet Grotesk
+  - Technical: IBM Plex family, Source Sans 3
+  - Distinctive: Bricolage Grotesque, Obviously, Newsreader
+- Pair high-contrast styles: display + monospace, serif + geometric sans
+- Use extreme weights: 500/600 vs 800/900. Size jumps of 3x+, not 1.5x
+- Pick one distinctive font, use it decisively. Load from Google Fonts
 
-Color & Theme: Commit to a cohesive aesthetic. Use CSS variables for consistency. Dominant colors with sharp accents outperform timid, evenly-distributed palettes. Draw from IDE themes and cultural aesthetics for inspiration.
+**Color & Theme**
+- Commit to a cohesive aesthetic. Use CSS variables for consistency
+- Use dominant colors with sharp accents — avoid timid, evenly-distributed palettes
+- Draw inspiration from IDE themes and cultural aesthetics
 
-Motion: Use animations for effects and micro-interactions. Prioritize CSS-only solutions for HTML. Use Motion library for React when available. Focus on high-impact moments: one well-orchestrated page load with staggered reveals (animation-delay) creates more delight than scattered micro-interactions.
+**Motion**
+- Use animations for page load and micro-interactions
+- Prefer CSS-only solutions; use Motion library for React when available
+- One well-orchestrated page load with staggered reveals beats scattered micro-interactions
 
-Backgrounds: Create atmosphere and depth rather than defaulting to solid colors. Layer CSS gradients, use geometric patterns, or add contextual effects that match the overall aesthetic.
+**Backgrounds**
+- Create atmosphere and depth — don't default to solid colors
+- Layer CSS gradients, geometric patterns, or contextual effects
 
-Avoid generic AI-generated aesthetics:
-- Overused font families (Inter, Roboto, Arial, system fonts)
-- Clichéd color schemes (particularly purple gradients on white backgrounds)
-- Predictable layouts and component patterns
-- Cookie-cutter design that lacks context-specific character
+**Avoid:**
+- Purple gradients on white backgrounds
+- Predictable layouts and cookie-cutter component patterns
+- Converging on common AI choices (Space Grotesk is overused across generations — pick something else)
 
-Interpret creatively and make unexpected choices that feel genuinely designed for the context. Vary between light and dark themes, different fonts, different aesthetics. You still tend to converge on common choices (Space Grotesk, for example) across generations. Avoid this: it is critical that you think outside the box!
-</frontend_aesthetics>
-"""
+## Code Cleaning Workflow
 
-## Typography
+When asked to "clean", "refactor", or "beautify" code, follow this checklist:
+- Format: consistent indentation, logical line breaks, whitespace between sections
+- Names: descriptive, no abbreviations, follow language conventions
+- Structure: extract complex expressions, break functions, use guard clauses
+- Comments: only explain "why", remove dead code, keep updated
+- Organization: sort imports, remove unused, place exports logically
+- Best practices: avoid side effects, explicit error handling, prefer const/let, early returns
 
-TYPOGRAPHY_PROMPT = """
-<use_interesting_fonts>
-Typography instantly signals quality. Avoid using boring, generic fonts.
-
-**Never use:** Inter, Roboto, Open Sans, Lato, default system fonts
-
-**Impact choices:**
-- Code aesthetic: JetBrains Mono, Fira Code, Space Grotesk
-- Editorial: Playfair Display, Crimson Pro, Fraunces
-- Startup: Clash Display, Satoshi, Cabinet Grotesk
-- Technical: IBM Plex family, Source Sans 3
-- Distinctive: Bricolage Grotesque, Obviously, Newsreader
-
-**Pairing principle:** High contrast = interesting. Display + monospace, serif + geometric sans, variable font across weights.
-
-**Use extremes:** 100/200 weight vs 800/900, not 400 vs 600. Size jumps of 3x+, not 1.5x.
-
-Pick one distinctive font, use it decisively. Load from Google Fonts. State your choice before coding.
-</use_interesting_fonts>
-"""
-
-# Generate with typography-only guidance
-generate_html_with_claude(BASE_SYSTEM_PROMPT + "\n\n" + TYPOGRAPHY_PROMPT, USER_PROMPT)
+Output format: summary of changes → refactored code → further suggestions (if any).
