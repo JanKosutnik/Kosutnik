@@ -42,23 +42,28 @@ export default function Home() {
       {/* ── Main ── */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
 
+        {/* ── Tagline ── */}
+        <section className="max-w-2xl py-8 md:mx-auto">
+          <p className="text-[1.1rem] leading-snug tracking-wide text-zinc-900 font-semibold">
+            Software that stays out of your way.
+          </p>
+        </section>
+
         <section className="max-w-2xl py-16 md:mx-auto">
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             001 — STATEMENT
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              Your time is worth more than any software subscription.
-              Yet the average worker spends 3 hours a day managing tools
-              instead of doing real work. Dashboards that demand attention.
-              Notifications that interrupt. Features designed to impress
-              in demos, not to help you on a Tuesday afternoon.
+              The average worker spends three hours a day managing tools instead of doing real work.
+              Think about that. Three hours of dashboards, notifications, and apps that demand
+              attention like needy pets.
             </p>
             <p className="text-zinc-900 font-semibold">
-              This is the opposite.
+              That's not productivity. That's overhead with a monthly fee.
             </p>
             <p>
-              Software that disappears. It does the job, then shuts up.
+              This is the opposite. Software that does the job, then shuts up.
               No interface to babysit. No alerts to clear. Just outcomes,
               delivered quietly — while you do the work that actually matters.
             </p>
@@ -69,19 +74,21 @@ export default function Home() {
           <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
             002 — MANIFESTO
           </p>
-          <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+          <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             {[
-              "Most software is furniture that asks for attention.",
-              "The best tool is the one you forget exists.",
-              "Shipping in days beats planning for months.",
-              "Saying \"no\" to features is harder and more valuable than saying \"yes.\"",
-              "AI should do the boring work so humans can do the interesting work.",
-              "Simplicity isn't laziness — it's discipline.",
-              "Outcomes over hours.",
-            ].map((line, i) => (
+              { lead: "Attention is sacred.", rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
+              { lead: "The best tool disappears.", rest: "You forget it's running. That's the goal." },
+              { lead: "No is harder than yes.", rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
+              { lead: "Ship in days, not months.", rest: "Planning forever feels productive. It isn't." },
+              { lead: "Simplicity is discipline.", rest: "Anyone can add. Removing takes guts." },
+              { lead: "AI does the boring parts.", rest: "Humans do the interesting parts. That's the deal." },
+              { lead: "Outcomes over hours.", rest: "I don't sell time. I sell things that work." },
+              { lead: "Generic landing pages are a disease.", rest: "Honestly, I can't stand them. If this one looks like everyone else's, something went wrong." },
+              { lead: "This will change.", rest: "So will the services. So will this website. That's the point — stay lean, keep learning, don't get precious about it." },
+            ].map(({ lead, rest }, i) => (
               <li key={i} className="flex gap-4">
                 <span className="text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
-                <span>{line}</span>
+                <span><span className="text-zinc-900 font-semibold">{lead}</span> {rest}</span>
               </li>
             ))}
           </ul>
@@ -92,9 +99,6 @@ export default function Home() {
             003 — NOW
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
-            <p className="text-zinc-900 font-semibold">
-              Building software that disappears into the background.
-            </p>
             <p>
               My current focus is quiet AI systems that handle repetitive, painful
               workflows for teams and individuals.
@@ -104,8 +108,8 @@ export default function Home() {
               checking, and just delivers clean results — while you do the work that actually matters.
             </p>
             <p>
-              On the side, I also run one-time UX strategy sessions to help you figure out
-              what to build (and what to kill) before anything gets built.
+              Occasionally, I also run one-time UX strategy sessions to help figure out
+              what to build (and what to kill) before anything gets coded.
             </p>
             <p>
               No daily dashboards.<br />
@@ -121,31 +125,28 @@ export default function Home() {
           </p>
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
-              No subscriptions.<br />
-              No monthly fees.<br />
-              You pay once. That's it.
+              No subscriptions. No monthly fees. You pay once, and that's it.
             </p>
-            <p>I build two kinds of fixed-price, outcome-based work:</p>
             <div className="space-y-2">
               <p className="text-zinc-900 font-semibold">Quiet AI Systems</p>
               <p>
-                One-time builds that take over a painful repetitive workflow, run silently
-                in the background, and keep delivering results long after you've forgotten
-                about them.
+                One-time builds that take over a painful workflow, run silently
+                in the background, and keep delivering long after you've forgotten about them.
+                Set it once. Forget it. No babysitting required.
               </p>
-              <p>Set it once. Forget it. No babysitting required.</p>
               <p>
-                Typical range: €4,500 (focused automation) to €18,000 (full background system).<br />
+                €4,500 (focused automation) to €18,000 (full background system).<br />
                 Fast delivery is standard.
               </p>
             </div>
             <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">UX Consulting (on the side)</p>
+              <p className="text-zinc-900 font-semibold">UX Consulting</p>
               <p>
-                One-time deep dives: I review your workflows, tell you exactly what to simplify,
-                what to automate, and how to make it feel obvious. You get a clear, actionable plan.
+                One-time deep dives. I review your workflows, tell you what to simplify,
+                what to automate, and how to make it obvious. You get a clear, actionable plan —
+                not a deck full of buzzwords.
               </p>
-              <p>From €2,500 — ships in 3–5 days.</p>
+              <p>From €2,500. Ships in 3–5 days.</p>
             </div>
           </div>
         </section>
@@ -157,13 +158,14 @@ export default function Home() {
           <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             <p>
               If you have one workflow that constantly eats your time and attention — or need
-              help figuring out what to simplify first, just email me the pain and your problems.
-              I'll reply with a fixed quote in 24 hours.<br />
-              No decks. No calendars.
+              help figuring out what to simplify first — just email me the pain. Describe the
+              problem in a few sentences. I'll reply with a fixed quote in 24 hours.
             </p>
+            <p>No decks. No discovery calls. No calendars to navigate.</p>
             <p>
-              <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors">jan@kindspace.studio</a><br />
-              <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors">@JanKosutnik on X</a>
+              <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">jan@kindspace.studio</a><br />
+              <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">@JanKosutnik on X</a><br />
+              <a href="https://www.linkedin.com/in/jankosutnik/" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">LinkedIn</a>
             </p>
           </div>
         </section>
