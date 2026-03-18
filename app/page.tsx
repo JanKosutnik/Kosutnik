@@ -1,37 +1,50 @@
 import Clock from "./components/Clock";
 
+const SECTION = "max-w-2xl py-16 md:mx-auto";
+const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8";
+const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700";
+const LINK = "hover:opacity-70 transition-opacity underline";
+const LINK_COLOR = { color: "#aa99ff" };
+
+const navItems = [
+  { label: "LOCATION", value: "LJUBLJANA" },
+  { label: "STATUS",   value: "ACTIVE" },
+  { label: "FOCUS",    value: "DESIGN ENGINEERING" },
+];
+
+const manifesto = [
+  { lead: "Attention is sacred.",              rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
+  { lead: "The best tool disappears.",         rest: "You forget it's running. That's the goal." },
+  { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
+  { lead: "Ship in days, not months.",         rest: "Planning forever feels productive. It isn't." },
+  { lead: "Simplicity is discipline.",         rest: "Anyone can add. Removing takes guts." },
+  { lead: "AI does the boring parts.",         rest: "Humans do the interesting parts. That's the deal." },
+  { lead: "Outcomes over hours.",              rest: "I don't sell time. I sell things that work." },
+  { lead: "Generic landing pages are a disease.", rest: "Honestly, I can't stand them. If this one looks like everyone else's, something went wrong." },
+  { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point — stay lean, keep learning, don't get precious about it." },
+];
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-stone-50 text-zinc-900 font-mono font-medium">
 
-      {/* ── Nav ── */}
+      {/* Nav */}
       <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 bg-stone-50">
-
-        {/* Left: identity stack */}
         <div className="flex flex-col gap-[2px]">
           <span className="text-[0.65rem] tracking-widest uppercase font-bold">
             JAN KOSUTNIK
             <span className="animate-blink ml-[2px]">█</span>
           </span>
-          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">
-            ©2026
-          </span>
+          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">©2026</span>
         </div>
 
-        {/* Right: metadata — hidden on mobile */}
         <div className="flex items-start gap-4 md:gap-10 text-[0.65rem] tracking-widest uppercase">
-          <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-500">LOCATION</span>
-            <span>LJUBLJANA</span>
-          </div>
-          <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-500">STATUS</span>
-            <span>ACTIVE</span>
-          </div>
-          <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-500">FOCUS</span>
-            <span>DESIGN ENGINEERING</span>
-          </div>
+          {navItems.map(({ label, value }) => (
+            <div key={label} className="flex flex-col gap-[2px]">
+              <span className="text-zinc-500">{label}</span>
+              <span>{value}</span>
+            </div>
+          ))}
           <div className="flex flex-col gap-[2px]">
             <span className="text-zinc-500">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
@@ -39,21 +52,20 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* ── Main ── */}
+      {/* Main */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
 
-        {/* ── Tagline ── */}
+        {/* Tagline */}
         <section className="max-w-2xl py-8 md:mx-auto">
           <p className="text-[1.1rem] leading-snug tracking-wide text-zinc-900 font-semibold">
             Software that stays out of your way.
           </p>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            001 — STATEMENT
-          </p>
-          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+        {/* 001 — Statement */}
+        <section className={SECTION}>
+          <p className={LABEL}>001 — STATEMENT</p>
+          <div className={BODY}>
             <p>
               The average worker spends three hours a day managing tools instead of doing real work.
               Think about that. Three hours of dashboards, notifications, and apps that demand
@@ -70,35 +82,25 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            002 — MANIFESTO
-          </p>
+        {/* 002 — Manifesto */}
+        <section className={SECTION}>
+          <p className={LABEL}>002 — MANIFESTO</p>
           <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
-            {[
-              { lead: "Attention is sacred.", rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
-              { lead: "The best tool disappears.", rest: "You forget it's running. That's the goal." },
-              { lead: "No is harder than yes.", rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
-              { lead: "Ship in days, not months.", rest: "Planning forever feels productive. It isn't." },
-              { lead: "Simplicity is discipline.", rest: "Anyone can add. Removing takes guts." },
-              { lead: "AI does the boring parts.", rest: "Humans do the interesting parts. That's the deal." },
-              { lead: "Outcomes over hours.", rest: "I don't sell time. I sell things that work." },
-              { lead: "Generic landing pages are a disease.", rest: "Honestly, I can't stand them. If this one looks like everyone else's, something went wrong." },
-              { lead: "This will change.", rest: "So will the services. So will this website. That's the point — stay lean, keep learning, don't get precious about it." },
-            ].map(({ lead, rest }, i) => (
+            {manifesto.map(({ lead, rest }, i) => (
               <li key={i} className="flex gap-4">
                 <span className="text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
-                <span><span className="text-zinc-900 font-semibold">{lead}</span> {rest}</span>
+                <span>
+                  <span className="text-zinc-900 font-semibold">{lead}</span> {rest}
+                </span>
               </li>
             ))}
           </ul>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            003 — NOW
-          </p>
-          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+        {/* 003 — Now */}
+        <section className={SECTION}>
+          <p className={LABEL}>003 — NOW</p>
+          <div className={BODY}>
             <p>
               I'm currently focused on quiet AI systems. These systems manage repetitive
               and painful workflows for teams and individuals.
@@ -119,14 +121,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            004 — PRICING
-          </p>
-          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
-            <p>
-              No subscriptions. No monthly fees. You pay once, and that's it.
-            </p>
+        {/* 004 — Pricing */}
+        <section className={SECTION}>
+          <p className={LABEL}>004 — PRICING</p>
+          <div className={BODY}>
+            <p>No subscriptions. No monthly fees. You pay once, and that's it.</p>
             <div className="space-y-2">
               <p className="text-zinc-900 font-semibold">Quiet AI Systems</p>
               <p>
@@ -151,11 +150,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            005 — LET'S BUILD
-          </p>
-          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+        {/* 005 — Let's Build */}
+        <section className={SECTION}>
+          <p className={LABEL}>005 — LET'S BUILD</p>
+          <div className={BODY}>
             <p>
               If you have a workflow that wastes your time and focus, or if you're unsure
               what to simplify first, just email me about it. Describe the problem in a few
@@ -163,18 +161,17 @@ export default function Home() {
             </p>
             <p>No decks. No discovery calls. No calendars to navigate.</p>
             <p>
-              <a href="mailto:jan@kindspace.studio" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>jan@kindspace.studio</a><br />
-              <a href="https://x.com/JanKosutnik" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>@JanKosutnik on X</a><br />
-              <a href="https://www.linkedin.com/in/jankosutnik/" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>LinkedIn</a>
+              <a href="mailto:jan@kindspace.studio" className={LINK} style={LINK_COLOR}>jan@kindspace.studio</a><br />
+              <a href="https://x.com/JanKosutnik" className={LINK} style={LINK_COLOR}>@JanKosutnik on X</a><br />
+              <a href="https://www.linkedin.com/in/jankosutnik/" className={LINK} style={LINK_COLOR}>LinkedIn</a>
             </p>
           </div>
         </section>
 
-        <section className="max-w-2xl py-16 md:mx-auto">
-          <p className="text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8">
-            006 — ABOUT
-          </p>
-          <div className="space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+        {/* 006 — About */}
+        <section className={SECTION}>
+          <p className={LABEL}>006 — ABOUT</p>
+          <div className={BODY}>
             <p>
               I've spent most of my career as an experience designer and consultant.
               I tried front-end development and QA along the way — learned plenty, then moved on.
