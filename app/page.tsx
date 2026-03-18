@@ -163,9 +163,9 @@ export default function Home() {
             </p>
             <p>No decks. No discovery calls. No calendars to navigate.</p>
             <p>
-              <a href="mailto:jan@kindspace.studio" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">jan@kindspace.studio</a><br />
-              <a href="https://x.com/JanKosutnik" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">@JanKosutnik on X</a><br />
-              <a href="https://www.linkedin.com/in/jankosutnik/" className="text-zinc-900 hover:text-zinc-500 transition-colors underline">LinkedIn</a>
+              <a href="mailto:jan@kindspace.studio" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>jan@kindspace.studio</a><br />
+              <a href="https://x.com/JanKosutnik" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>@JanKosutnik on X</a><br />
+              <a href="https://www.linkedin.com/in/jankosutnik/" className="hover:opacity-70 transition-opacity underline" style={{color:"#aa99ff"}}>LinkedIn</a>
             </p>
           </div>
         </section>
