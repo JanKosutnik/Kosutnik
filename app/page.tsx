@@ -1,4 +1,5 @@
 import Clock from "./components/Clock";
+import ScrollBlur from "./components/ScrollBlur";
 
 const SECTION = "max-w-2xl py-16 md:mx-auto";
 const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8";
@@ -54,6 +55,7 @@ export default function Home() {
 
       {/* Main */}
       <main className="pt-48 md:pt-36 px-8 md:px-16 lg:px-24">
+      <ScrollBlur>
 
         {/* Tagline */}
         <section className="max-w-2xl py-8 md:mx-auto">
@@ -186,6 +188,7 @@ export default function Home() {
           </div>
         </section>
 
+      </ScrollBlur>
       </main>
 
       <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
