@@ -37,6 +37,19 @@ export default function Home() {
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">©2026</span>
         </div>
 
+        {/* Section links — middle */}
+        <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
+          {[
+            { label: "Statement",   href: "#statement" },
+            { label: "Manifesto",   href: "#manifesto" },
+            { label: "Now",         href: "#now" },
+            { label: "Let's Build", href: "#lets-build" },
+            { label: "About",       href: "#about" },
+          ].map(({ label, href }) => (
+            <a key={href} href={href} className="hover:opacity-70 transition-opacity underline" style={LINK_COLOR}>{label}</a>
+          ))}
+        </div>
+
         <div className="flex items-start gap-4 md:gap-10 text-[0.65rem] tracking-widest uppercase">
           {navItems.map(({ label, value }) => (
             <div key={label} className="flex flex-col gap-[2px]">
@@ -48,19 +61,6 @@ export default function Home() {
             <span className="text-zinc-500">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
           </div>
-        </div>
-
-        {/* Section links */}
-        <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
-          {[
-            { label: "Statement",  href: "#statement" },
-            { label: "Manifesto",  href: "#manifesto" },
-            { label: "Now",        href: "#now" },
-            { label: "Let's Build",href: "#lets-build" },
-            { label: "About",      href: "#about" },
-          ].map(({ label, href }) => (
-            <a key={href} href={href} className="text-zinc-500 hover:text-zinc-900 transition-colors">{label}</a>
-          ))}
         </div>
 
         {/* Gradient fade below nav */}
