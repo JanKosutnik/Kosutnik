@@ -46,7 +46,7 @@ export default function Home() {
             { label: "Let's Build", href: "#lets-build" },
             { label: "About",       href: "#about" },
           ].map(({ label, href }) => (
-            <a key={href} href={href} className="hover:opacity-70 transition-opacity underline" style={LINK_COLOR}>{label}</a>
+            <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={LINK_COLOR}>{label}</a>
           ))}
         </div>
 
