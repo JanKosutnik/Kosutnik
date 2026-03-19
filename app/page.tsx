@@ -28,10 +28,10 @@ const manifesto = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-zinc-900 font-mono font-medium" style={{backgroundColor:"#f3f3f2"}}>
+    <div className="min-h-screen text-zinc-900 font-mono font-medium" style={{backgroundColor:"#EAE5E3"}}>
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#f3f3f2e6"}}>
+      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#EAE5E3e6"}}>
         <div className="flex flex-col gap-[2px]">
           <span className="text-[0.65rem] tracking-widest uppercase font-bold">
             JAN KOSUTNIK
@@ -65,7 +65,7 @@ export default function Home() {
         </div>
 
         {/* Gradient fade below nav */}
-        <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, #f3f3f2, transparent)"}} />
+        <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, #EAE5E3, transparent)"}} />
       </nav>
 
       {/* Main */}
