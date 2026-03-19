@@ -68,18 +68,29 @@ export default function Home() {
         <section className={SECTION}>
           <p className={LABEL}>001 — STATEMENT</p>
           <div className={BODY}>
+            <p>At some point I started looking at software differently.</p>
             <p>
-              The average worker spends three hours a day managing tools instead of doing real work.
-              Think about that. Three hours of dashboards, notifications, and apps that demand
-              attention like needy pets.
+              For too long, we've let software dictate how we work. We adapt to the tool instead
+              of the other way around. We accept the bloat, the unnecessary features, the alerts
+              that interrupt us mid-thought. We let notifications decide when we pay attention
+              and to what.
+            </p>
+            <p>
+              I got tired of it. Not just at work — in my personal life too. The same pattern
+              everywhere. Apps demanding attention. Dashboards nobody asked for. Features designed
+              to keep you inside the product, not to help you finish and leave.
+            </p>
+            <p>
+              The average worker spends three hours a day managing tools instead of doing real
+              work. Three hours. That's not productivity. That's overhead with a monthly fee.
+            </p>
+            <p>
+              So I stopped building software that adds to the pile. Now I only build the opposite —
+              software that does the job, then shuts up. No interface to babysit. No alerts to clear.
+              You get results while you're busy doing something that actually matters.
             </p>
             <p className="text-zinc-900 font-semibold">
-              That's not productivity. That's overhead with a monthly fee.
-            </p>
-            <p>
-              This is the opposite. Software that does the job, then shuts up.
-              No interface to babysit. No alerts to clear. You get results
-              discreetly while you focus on what really matters.
+              Quiet software. That's what I'm interested in now.
             </p>
           </div>
         </section>
@@ -104,62 +115,45 @@ export default function Home() {
           <p className={LABEL}>003 — NOW</p>
           <div className={BODY}>
             <p>
-              I'm currently focused on quiet AI systems. These systems manage repetitive
-              and painful workflows for teams and individuals.
+              Most of my time goes into quiet AI systems — the kind that handle repetitive,
+              painful workflows for teams and individuals. You set it once. It runs silently.
+              It replaces the noisy apps you're tired of checking. It delivers results while
+              you focus on work that actually matters.
             </p>
             <p>
-              You set it once. It runs quietly. It replaces the noisy apps you're tired of.
-              It gives clear results while you focus on what really matters.
+              Sometimes I lead one-time UX strategy sessions — helping figure out what to build
+              and what to kill before anyone writes a line of code.
             </p>
             <p>
-              Sometimes, I lead one-time UX strategy sessions. These help decide what to
-              build and what to drop before coding starts.
-            </p>
-            <p>
-              No daily dashboards.<br />
-              No constant alerts.<br />
-              Just outcomes.
+              And every now and then, I still design a website or take on something purely visual.
+              Old habits. I enjoy it when the project is right.
             </p>
           </div>
         </section>
 
-        {/* 004 — Pricing */}
+        {/* 004 — Let's Build */}
         <section className={SECTION}>
-          <p className={LABEL}>004 — PRICING</p>
+          <p className={LABEL}>004 — LET'S BUILD</p>
           <div className={BODY}>
-            <p>No subscriptions. No monthly fees. You pay once.</p>
-            <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">Complexity Diagnostic</p>
-              <p>
-                Before building anything new, it helps to see what you already have — and what's
-                quietly draining your time. This is a full inventory of your tools, subscriptions,
-                and workflows. You get a complexity score, a dollar figure on what it's costing you,
-                and a short list of things to kill.
-              </p>
-              <p>€2,500. Delivered in 5 days.</p>
-            </div>
-            <div className="space-y-2">
-              <p className="text-zinc-900 font-semibold">Quiet System Build</p>
-              <p>
-                Most teams use a dozen tools that each do a fraction of what's needed. I replace
-                the noisy ones with one quiet system — purpose-built for your workflow, nothing extra.
-                You set it once. It runs silently. It delivers results while you focus on work that matters.
-              </p>
-              <p>€5,000 – €18,000 depending on scope.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* 005 — Let's Build */}
-        <section className={SECTION}>
-          <p className={LABEL}>005 — LET'S BUILD</p>
-          <div className={BODY}>
+            <p>Two ways I can help:</p>
             <p>
-              If you have a workflow that wastes your time and focus, or if you're unsure
-              what to simplify first, just email me about it. Describe the problem in a few
-              sentences. I'll reply with a fixed quote in 24 hours.
+              If you're not sure where to start — I can look at what you're currently using and
+              tell you what's quietly draining your time. Tools, subscriptions, workflows. You'll
+              get a clear picture of what's costing you money and attention, and a short list of
+              things to kill. Takes about five days. I call it a Complexity Diagnostic, but really
+              it's just an honest inventory with recommendations.
             </p>
-            <p>No decks. No discovery calls. No calendars to navigate.</p>
+            <p>
+              If you know what's broken — tell me about the workflow that's eating your time. The
+              one that involves three tools, manual steps, and things falling through the cracks.
+              I'll build a quiet system that handles it — purpose-built, nothing extra. You set it
+              once and forget it's running.
+            </p>
+            <p>
+              Either way, just email me. Describe the problem in a few sentences. I'll reply with
+              a straight answer — what I'd do, what it would cost, how long it would take.
+            </p>
+            <p>No decks. No discovery calls. No calendars.</p>
             <p>
               <a href="mailto:jan@kindspace.studio" className={LINK} style={LINK_COLOR}>jan@kindspace.studio</a><br />
               <a href="https://x.com/JanKosutnik" className={LINK} style={LINK_COLOR}>@JanKosutnik on X</a><br />
