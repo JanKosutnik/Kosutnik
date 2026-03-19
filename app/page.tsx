@@ -6,11 +6,11 @@ const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-7
 const LINK = "hover:opacity-70 transition-opacity underline";
 const LINK_COLOR = { color: "#aa99ff" };
 
-const navItems = [
-  { label: "LOCATION", value: "LJUBLJANA" },
-  { label: "STATUS",   value: "ACTIVE" },
-  { label: "FOCUS",    value: "DESIGN ENGINEERING" },
-];
+const LAST_UPDATE = new Date().toLocaleDateString("en-GB", {
+  day: "2-digit",
+  month: "short",
+  year: "numeric",
+});
 
 const manifesto = [
   { lead: "Attention is sacred.",              rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
@@ -51,15 +51,13 @@ export default function Home() {
         </div>
 
         <div className="flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
-          {navItems.map(({ label, value }) => (
-            <div key={label} className="flex gap-4">
-              <span className="text-zinc-500 w-20 shrink-0">{label}</span>
-              <span>{value}</span>
-            </div>
-          ))}
           <div className="flex gap-4">
-            <span className="text-zinc-500 w-20 shrink-0">LOCAL TIME</span>
+            <span className="text-zinc-500 w-24 shrink-0">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
+          </div>
+          <div className="flex gap-4">
+            <span className="text-zinc-500 w-24 shrink-0">LAST UPDATE</span>
+            <span>{LAST_UPDATE}</span>
           </div>
         </div>
 
