@@ -50,6 +50,19 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Section links */}
+        <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
+          {[
+            { label: "Statement",  href: "#statement" },
+            { label: "Manifesto",  href: "#manifesto" },
+            { label: "Now",        href: "#now" },
+            { label: "Let's Build",href: "#lets-build" },
+            { label: "About",      href: "#about" },
+          ].map(({ label, href }) => (
+            <a key={href} href={href} className="text-zinc-500 hover:text-zinc-900 transition-colors">{label}</a>
+          ))}
+        </div>
+
         {/* Gradient fade below nav */}
         <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, #f3f3f2, transparent)"}} />
       </nav>
@@ -65,7 +78,7 @@ export default function Home() {
         </section>
 
         {/* 001 — Statement */}
-        <section className={SECTION}>
+        <section id="statement" className={SECTION}>
           <p className={LABEL}>001 — STATEMENT</p>
           <div className={BODY}>
             <p>At some point I started looking at software differently.</p>
@@ -96,7 +109,7 @@ export default function Home() {
         </section>
 
         {/* 002 — Manifesto */}
-        <section className={SECTION}>
+        <section id="manifesto" className={SECTION}>
           <p className={LABEL}>002 — MANIFESTO</p>
           <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
             {manifesto.map(({ lead, rest }, i) => (
@@ -111,7 +124,7 @@ export default function Home() {
         </section>
 
         {/* 003 — Now */}
-        <section className={SECTION}>
+        <section id="now" className={SECTION}>
           <p className={LABEL}>003 — NOW</p>
           <div className={BODY}>
             <p>
@@ -132,7 +145,7 @@ export default function Home() {
         </section>
 
         {/* 004 — Let's Build */}
-        <section className={SECTION}>
+        <section id="lets-build" className={SECTION}>
           <p className={LABEL}>004 — LET'S BUILD</p>
           <div className={BODY}>
             <p>Two ways I can help:</p>
@@ -163,7 +176,7 @@ export default function Home() {
         </section>
 
         {/* 006 — About */}
-        <section className={SECTION}>
+        <section id="about" className={SECTION}>
           <p className={LABEL}>006 — ABOUT</p>
           <div className={BODY}>
             <p>
