@@ -1,6 +1,6 @@
 import Clock from "./components/Clock";
 
-const SECTION = "max-w-2xl py-16 md:mx-auto";
+const SECTION = "max-w-2xl py-16 md:mx-auto scroll-mt-48 md:scroll-mt-36";
 const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8";
 const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700";
 const LINK = "hover:opacity-70 transition-opacity underline";
