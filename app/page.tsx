@@ -99,12 +99,8 @@ export default function Home() {
               work. Three hours. That's not productivity. That's overhead with a monthly fee.
             </p>
             <p>
-              So I stopped building software that adds to the pile. Now I only build the opposite —
-              software that does the job, then shuts up. No interface to babysit. No alerts to clear.
-              You get results while you're busy doing something that actually matters.
-            </p>
-            <p className="text-zinc-900 font-semibold">
-              Quiet software. That's what I'm interested in now.
+              So I lost interest in adding to the noise. Now I'm drawn to the opposite — software
+              that does its job and shuts up.
             </p>
           </div>
         </section>
@@ -129,18 +125,16 @@ export default function Home() {
           <p className={LABEL}>003 — NOW</p>
           <div className={BODY}>
             <p>
-              Most of my time goes into quiet AI systems — the kind that handle repetitive,
-              painful workflows for teams and individuals. You set it once. It runs silently.
-              It replaces the noisy apps you're tired of checking. It delivers results while
-              you focus on work that actually matters.
+              Exploring what quiet AI systems could look like in practice. Small experiments.
+              Seeing where it goes.
             </p>
             <p>
-              Sometimes I lead one-time UX strategy sessions — helping figure out what to build
-              and what to kill before anyone writes a line of code.
+              Still doing UX strategy sessions — helping figure out what to build and what to
+              kill before anyone writes code.
             </p>
             <p>
-              And every now and then, I still design a website or take on something purely visual.
-              Old habits. I enjoy it when the project is right.
+              And every now and then, a website or something purely visual. Old habits.
+              I enjoy it when the project is right.
             </p>
           </div>
         </section>
