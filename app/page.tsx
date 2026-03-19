@@ -6,10 +6,13 @@ const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-7
 const LINK = "hover:opacity-70 transition-opacity underline";
 const LINK_COLOR = { color: "#aa99ff" };
 
-const LAST_UPDATE = new Date().toLocaleDateString("en-GB", {
+const LAST_UPDATE = new Date().toLocaleString("en-GB", {
   day: "2-digit",
   month: "short",
   year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+  hour12: false,
 });
 
 const manifesto = [
