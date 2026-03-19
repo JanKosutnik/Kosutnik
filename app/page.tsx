@@ -50,15 +50,15 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex items-start gap-4 md:gap-10 text-[0.65rem] tracking-widest uppercase">
+        <div className="flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
           {navItems.map(({ label, value }) => (
-            <div key={label} className="flex flex-col gap-[2px]">
-              <span className="text-zinc-500">{label}</span>
+            <div key={label} className="flex gap-4">
+              <span className="text-zinc-500 w-20 shrink-0">{label}</span>
               <span>{value}</span>
             </div>
           ))}
-          <div className="flex flex-col gap-[2px]">
-            <span className="text-zinc-500">LOCAL TIME</span>
+          <div className="flex gap-4">
+            <span className="text-zinc-500 w-20 shrink-0">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
           </div>
         </div>
