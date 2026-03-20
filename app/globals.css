@@ -8,9 +8,14 @@
 }
 
 html {
-  /* min 14px (0.875rem), scales with viewport, max 18px (1.125rem) */
-  font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1.125rem);
+  /* min 18px (1.125rem), scales with viewport, max 20px (1.25rem) */
+  font-size: clamp(1.125rem, 1rem + 0.3vw, 1.25rem);
   scroll-behavior: smooth;
+}
+
+h1 {
+  /* min 22px (1.375rem), max 24px (1.5rem) */
+  font-size: clamp(1.375rem, 1.25rem + 0.4vw, 1.5rem);
 }
 
 body {
