@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Crimson_Text } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const crimsonText = Crimson_Text({
-  variable: "--font-crimson-text",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
-  weight: ["400", "600"],
-  style: ["normal", "italic"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata: Metadata = {
@@ -21,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${crimsonText.variable} antialiased`}>
+      <body className={`${jetbrainsMono.variable} antialiased`}>
         {children}
       </body>
     </html>

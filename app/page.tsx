@@ -28,7 +28,7 @@ const manifesto = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-zinc-900 font-serif" style={{backgroundColor:"#EAE5E3"}}>
+    <div className="min-h-screen text-zinc-900 font-mono font-medium" style={{backgroundColor:"#EAE5E3"}}>
 
       {/* Nav */}
       <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#EAE5E3e6"}}>
