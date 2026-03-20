@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-jetbrains-mono), monospace;
-  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-sans: var(--font-crimson-text), serif;
+  --font-mono: var(--font-crimson-text), serif;
   --color-background: #EAE5E3;
   --color-foreground: #111111;
 }
@@ -15,7 +15,7 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-jetbrains-mono), monospace;
+  font-family: var(--font-crimson-text), serif;
 }
 
 @keyframes blink {
