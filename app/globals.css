@@ -8,7 +8,8 @@
 }
 
 html {
-  font-size: 18px;
+  /* min 18px (1.125rem), scales with viewport, max 22px (1.375rem) */
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
   scroll-behavior: smooth;
 }
 
