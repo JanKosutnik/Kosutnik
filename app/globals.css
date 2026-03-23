@@ -1,10 +1,25 @@
 @import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
   --font-sans: var(--font-geist-mono), monospace;
   --font-mono: var(--font-geist-mono), monospace;
-  --color-background: #EAE5E3;
-  --color-foreground: #111111;
+}
+
+:root {
+  --bg: #EAE5E3;
+  --bg-alpha: #EAE5E3ee;
+  --bg-gradient: #EAE5E3;
+  --fg: #111111;
+  --link: #434edf;
+}
+
+html.dark {
+  --bg: #1a1918;
+  --bg-alpha: #1a1918ee;
+  --bg-gradient: #1a1918;
+  --fg: #e7e5e4;
+  --link: #818cf8;
 }
 
 html {
@@ -19,8 +34,8 @@ h1 {
 }
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-foreground);
+  background-color: var(--bg);
+  color: var(--fg);
   font-family: var(--font-geist-mono), monospace;
 }
 

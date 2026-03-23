@@ -1,10 +1,11 @@
 import Clock from "./components/Clock";
+import ThemeToggle from "./components/ThemeToggle";
 
 const SECTION = "max-w-2xl py-16 md:mx-auto scroll-mt-48 md:scroll-mt-36";
-const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 mb-8";
-const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700";
+const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400 mb-8";
+const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300";
 const LINK = "hover:opacity-70 transition-opacity underline";
-const LINK_COLOR = { color: "#434edf" };
+const LINK_COLOR = { color: "var(--link)" };
 
 const LAST_UPDATE = new Date().toLocaleString("en-GB", {
   day: "2-digit",
@@ -28,10 +29,10 @@ const manifesto = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen text-zinc-900 font-mono font-medium" style={{backgroundColor:"#EAE5E3"}}>
+    <div className="min-h-screen font-mono font-medium" style={{backgroundColor:"var(--bg)", color:"var(--fg)"}}>
 
       {/* Nav */}
-      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#EAE5E3e6"}}>
+      <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"var(--bg-alpha)"}}>
         <div className="flex flex-col gap-[2px]">
           <div className="flex items-center justify-between gap-8">
             <span className="text-[0.65rem] tracking-widest uppercase font-bold">
@@ -40,7 +41,7 @@ export default function Home() {
             </span>
             <span className="text-[0.65rem] tracking-widest uppercase tabular-nums md:hidden"><Clock /></span>
           </div>
-          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">©2026</span>
+          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">©2026</span>
         </div>
 
         {/* Section links — middle */}
@@ -58,17 +59,21 @@ export default function Home() {
 
         <div className="hidden md:flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
           <div className="flex gap-4">
-            <span className="text-zinc-500 w-24 shrink-0">LOCAL TIME</span>
+            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
           </div>
           <div className="flex gap-4">
-            <span className="text-zinc-500 w-24 shrink-0">LAST UPDATE</span>
+            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">LAST UPDATE</span>
             <span>{LAST_UPDATE}</span>
+          </div>
+          <div className="flex gap-4 mt-1">
+            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">THEME</span>
+            <ThemeToggle />
           </div>
         </div>
 
         {/* Gradient fade below nav */}
-        <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, #EAE5E3, transparent)"}} />
+        <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, var(--bg-gradient), transparent)"}} />
       </nav>
 
       {/* Main */}
@@ -76,7 +81,7 @@ export default function Home() {
 
         {/* Tagline */}
         <section className="max-w-2xl py-8 md:mx-auto">
-          <p className="text-[1.1rem] leading-snug tracking-wide text-zinc-900 font-semibold">
+          <p className="text-[1.1rem] leading-snug tracking-wide font-semibold">
             Software that stays out of your way.
           </p>
         </section>
@@ -111,12 +116,12 @@ export default function Home() {
         {/* 002 — Manifesto */}
         <section id="manifesto" className={SECTION}>
           <p className={LABEL}>002 — MANIFESTO</p>
-          <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700">
+          <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
             {manifesto.map(({ lead, rest }, i) => (
               <li key={i} className="flex gap-4">
-                <span className="text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
+                <span className="text-zinc-500 dark:text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
                 <span>
-                  <span className="text-zinc-900 font-semibold">{lead}</span> {rest}
+                  <span className="font-semibold" style={{color:"var(--fg)"}}>{lead}</span> {rest}
                 </span>
               </li>
             ))}
@@ -194,7 +199,7 @@ export default function Home() {
 
       </main>
 
-      <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
+      <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">
         Made with discipline in Ljubljana • No tracking, no cookies, no bullshit. • Last update: {LAST_UPDATE}
       </footer>
 
