@@ -39,7 +39,10 @@ export default function Home() {
               JAN KOSUTNIK
               <span className="animate-blink ml-[2px]">█</span>
             </span>
-            <span className="text-[0.65rem] tracking-widest uppercase tabular-nums md:hidden"><Clock /></span>
+            <div className="flex items-center gap-4 md:hidden">
+              <ThemeToggle />
+              <span className="text-[0.65rem] tracking-widest uppercase tabular-nums"><Clock /></span>
+            </div>
           </div>
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">©2026</span>
         </div>
