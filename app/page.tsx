@@ -33,10 +33,13 @@ export default function Home() {
       {/* Nav */}
       <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"#EAE5E3e6"}}>
         <div className="flex flex-col gap-[2px]">
-          <span className="text-[0.65rem] tracking-widest uppercase font-bold">
-            JAN KOSUTNIK
-            <span className="animate-blink ml-[2px]">█</span>
-          </span>
+          <div className="flex items-center justify-between gap-8">
+            <span className="text-[0.65rem] tracking-widest uppercase font-bold">
+              JAN KOSUTNIK
+              <span className="animate-blink ml-[2px]">█</span>
+            </span>
+            <span className="text-[0.65rem] tracking-widest uppercase tabular-nums md:hidden"><Clock /></span>
+          </div>
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500">©2026</span>
         </div>
 
@@ -53,14 +56,10 @@ export default function Home() {
           ))}
         </div>
 
-        <div className="flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
+        <div className="hidden md:flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
           <div className="flex gap-4">
             <span className="text-zinc-500 w-24 shrink-0">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-zinc-500 w-24 shrink-0">LAST UPDATE</span>
-            <span>{LAST_UPDATE}</span>
           </div>
         </div>
 
@@ -192,7 +191,7 @@ export default function Home() {
       </main>
 
       <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500">
-        Made with discipline in Ljubljana • No tracking, no cookies, no bullshit.
+        Made with discipline in Ljubljana • No tracking, no cookies, no bullshit. • Last update: {LAST_UPDATE}
       </footer>
 
     </div>
