@@ -61,6 +61,10 @@ export default function Home() {
             <span className="text-zinc-500 w-24 shrink-0">LOCAL TIME</span>
             <span className="tabular-nums"><Clock /></span>
           </div>
+          <div className="flex gap-4">
+            <span className="text-zinc-500 w-24 shrink-0">LAST UPDATE</span>
+            <span>{LAST_UPDATE}</span>
+          </div>
         </div>
 
         {/* Gradient fade below nav */}
