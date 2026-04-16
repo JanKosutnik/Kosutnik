@@ -17,14 +17,14 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
 });
 
 const manifesto = [
-  { lead: "Attention is sacred.",              rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
-  { lead: "The best tool disappears.",         rest: "You forget it's running. That's the goal." },
-  { lead: "Simplicity is discipline.",         rest: "Anyone can add. Removing takes guts." },
-  { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
-  { lead: "AI does the boring parts.",         rest: "Humans do the interesting parts. That's the deal." },
-  { lead: "Outcomes over hours.",              rest: "That is it." },
-  { lead: "Scroll jacking is still a thing.",  rest: "Somehow. It's the most annoying pattern on the web and it refuses to go away." },
-  { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point. Keep learning, don't get precious about it." },
+  { lead: "Attention is sacred.",                    rest: "We're pulled in every direction already. Software shouldn't make that worse." },
+  { lead: "The best tool disappears.",               rest: "You forget it's running. That's when you know it's working." },
+  { lead: "Simplicity is discipline.",               rest: "Anyone can add more. Taking things away takes guts." },
+  { lead: "No is harder than yes.",                  rest: "Every feature added is something someone has to learn, maintain, and eventually resent." },
+  { lead: "AI does the boring parts.",               rest: "Humans do the interesting parts. That's the deal." },
+  { lead: "Outcomes over hours.",                    rest: "That's it." },
+  { lead: "Scroll jacking is still somehow a thing.", rest: "Please make it stop." },
+  { lead: "This will change.",                       rest: "The services will change. The site will change. Good — that means it's still alive." },
 ];
 
 export default function Home() {
@@ -93,25 +93,25 @@ export default function Home() {
         <section id="statement" className={SECTION}>
           <p className={LABEL}>001 — STATEMENT</p>
           <div className={BODY}>
-            <p>At some point I started looking at software differently.</p>
             <p>
-              For too long, we've let software dictate how we work. We adapt to the tool instead
-              of the other way around. We accept the bloat, the unnecessary features, the alerts
-              that interrupt us mid-thought. We let notifications decide when we pay attention
-              and to what.
+              There's a version of software that just works. Does what you need, stays out of your
+              way, doesn't ask for anything in return. I used to think that was the default.
+              Turns out it's the exception.
             </p>
             <p>
-              I got tired of it. Not just at work — in my personal life too. The same pattern
-              everywhere. Apps demanding attention. Dashboards nobody asked for. Features designed
-              to keep you inside the product, not to help you finish and leave.
+              Most software isn't built that way. It's built to keep you inside it. More features,
+              more alerts, more surface area between you and the thing you actually came to do.
+              You end up adapting to the tool instead of the other way around. And somewhere along
+              the way, that started feeling completely normal.
             </p>
             <p>
-              The average worker spends three hours a day managing tools instead of doing real
-              work. Three hours. That's not productivity. That's overhead with a monthly fee.
+              The average worker burns three hours a day just managing tools. Not working, but
+              managing the things that are supposed to help them work. Three hours. That's not
+              productivity. That's overhead with a monthly fee.
             </p>
             <p>
-              So I lost interest in adding to the noise. Now I'm drawn to the opposite — software
-              that does its job and shuts up.
+              I got tired of it. And I lost interest in adding to it. So now I only care about
+              the opposite — software that does its job and shuts up.
             </p>
           </div>
         </section>
