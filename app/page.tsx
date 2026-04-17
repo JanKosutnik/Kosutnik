@@ -17,14 +17,14 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
 });
 
 const manifesto = [
-  { lead: "Attention is sacred.",              rest: "We're bombarded every step of the way. Getting things done is harder than ever. Software shouldn't add to the noise — it should make the noise stop." },
-  { lead: "The best tool disappears.",         rest: "You forget it's running. That's the goal." },
-  { lead: "Simplicity is discipline.",         rest: "Anyone can add. Removing takes guts." },
-  { lead: "No is harder than yes.",            rest: "Every feature you add is a feature someone has to learn, maintain, and ignore. Saying no is the real work." },
-  { lead: "AI does the boring parts.",         rest: "Humans do the interesting parts. That's the deal." },
-  { lead: "Outcomes over hours.",              rest: "That is it." },
-  { lead: "Scroll jacking is still a thing.",  rest: "Somehow. It's the most annoying pattern on the web and it refuses to go away." },
-  { lead: "This will change.",                 rest: "So will the services. So will this website. That's the point. Keep learning, don't get precious about it." },
+  { lead: "Attention is sacred.",        rest: "Every app that demands it is making a bet that their problem is more important than yours. It usually isn't." },
+  { lead: "The best tool disappears.",   rest: "You forget it's running. That's not a bug — that's the whole point." },
+  { lead: "Simplicity is discipline.",   rest: "Anyone can add a feature. Removing one takes conviction." },
+  { lead: "No is harder than yes.",      rest: "Every feature is something someone has to learn, maintain, work around, and eventually resent. Saying no is the real work." },
+  { lead: "AI does the boring parts.",   rest: "Data entry. Summaries. The stuff that falls through the cracks at 5pm. Humans decide what matters. That's the deal." },
+  { lead: "Outcomes over hours.",        rest: "How long it took to build is irrelevant. What changed for you is the only number that matters." },
+  { lead: "Small enough to explain.",    rest: "If you can't describe what a system does in two sentences, it's too complicated. I won't build it." },
+  { lead: "This will change.",           rest: "The tools will change. The services will change. This site will change. Good. That means it's still honest." },
 ];
 
 export default function Home() {
@@ -50,11 +50,12 @@ export default function Home() {
         {/* Section links — middle */}
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
           {[
-            { label: "Statement",   href: "#statement" },
-            { label: "Manifesto",   href: "#manifesto" },
-            { label: "Now",         href: "#now" },
-            { label: "Let's Build", href: "#lets-build" },
-            { label: "About",       href: "#about" },
+            { label: "Statement",          href: "#statement" },
+            { label: "Manifesto",          href: "#manifesto" },
+            { label: "Not For You If",     href: "#not-for-you" },
+            { label: "Now",                href: "#now" },
+            { label: "Let's Build",        href: "#lets-build" },
+            { label: "About",              href: "#about" },
           ].map(({ label, href }) => (
             <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={LINK_COLOR}>{label}</a>
           ))}
@@ -93,25 +94,22 @@ export default function Home() {
         <section id="statement" className={SECTION}>
           <p className={LABEL}>001 — STATEMENT</p>
           <div className={BODY}>
+            <p>Software used to feel like a tool. You picked it up, used it, put it down. It waited for you.</p>
             <p>
-              There's a version of software that just works. Does what you need, stays out of your
-              way, doesn't ask for anything in return. I used to think that was the default.
-              Turns out it's the exception.
+              That's not how it works anymore. Now software has goals of its own. It wants your attention,
+              your data, your habit. It sends you notifications you didn't ask for, adds features you'll
+              never use, and measures success by how long you stay inside it, not by how quickly you can
+              leave. Somewhere between the third dashboard nobody opens and the fifth app that does roughly
+              the same thing as the second, you stopped being the user. You became the product.
             </p>
             <p>
-              Most software isn't built that way. It's built to keep you inside it. More features,
-              more alerts, more surface area between you and the thing you actually came to do.
-              You end up adapting to the tool instead of the other way around. And somewhere along
-              the way, that started feeling completely normal.
+              The average worker burns three hours a day managing tools instead of doing work. Three hours.
+              That's not a productivity problem. That's a design philosophy and it's working exactly as intended.
             </p>
             <p>
-              The average worker burns three hours a day just managing tools. Not working, but
-              managing the things that are supposed to help them work. Three hours. That's not
-              productivity. That's overhead with a monthly fee.
-            </p>
-            <p>
-              I got tired of it. And I lost interest in adding to it. So now I only care about
-              the opposite — software that does its job and shuts up.
+              I got tired of it. Not just the AI hype, but all of it — the bloat, the noise, the software
+              that demands attention it never earned. So I stopped building things that compete for your time.
+              Now I only build things that give it back.
             </p>
           </div>
         </section>
@@ -131,46 +129,63 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* 003 — Now */}
+        {/* 003 — This Isn't For You If */}
+        <section id="not-for-you" className={SECTION}>
+          <p className={LABEL}>003 — THIS ISN'T FOR YOU IF</p>
+          <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
+            {[
+              "You want a chatbot because your competitor has one.",
+              "You want to "implement AI" without first naming a specific workflow that's currently broken.",
+              "You want something to impress investors rather than actually save time.",
+              "You're looking for a vendor to manage. I work best when you have a real problem and want it gone.",
+            ].map((item, i) => (
+              <li key={i} className="flex gap-4">
+                <span className="text-zinc-500 dark:text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* 004 — Now */}
         <section id="now" className={SECTION}>
-          <p className={LABEL}>003 — NOW</p>
+          <p className={LABEL}>004 — NOW</p>
           <div className={BODY}>
             <p>
-              Exploring what quiet AI systems could look like in practice. Small experiments.
-              Seeing where it goes.
+              Running small experiments with quiet AI systems — testing what's actually useful
+              versus what sounds useful in a demo.
             </p>
             <p>
-              Still doing UX strategy sessions — helping figure out what to build and what to
-              kill before anyone writes code.
+              UX strategy on the side, when the question is what to build and what to kill before
+              anyone writes code.
             </p>
-            <p>
-              And every now and then, a website or something purely visual. Old habits.
-              I enjoy it when the project is right.
-            </p>
+            <p>Occasional visual work when the project earns it.</p>
+            <p>Based in Ljubljana. Working worldwide.</p>
           </div>
         </section>
 
-        {/* 004 — Let's Build */}
+        {/* 005 — Let's Build */}
         <section id="lets-build" className={SECTION}>
-          <p className={LABEL}>004 — LET'S BUILD</p>
+          <p className={LABEL}>005 — LET'S BUILD</p>
           <div className={BODY}>
-            <p>Two ways I can help:</p>
+            <p>Two ways in:</p>
             <p>
-              If you're not sure where to start — I can look at what you're currently using and
-              tell you what's quietly draining your time. Tools, subscriptions, workflows. You'll
-              get a clear picture of what's costing you money and attention, and a short list of
-              things to kill. Takes about five days. I call it a Complexity Diagnostic, but really
-              it's just an honest inventory with recommendations.
+              <span className="font-semibold" style={{color:"var(--fg)"}}>You're not sure what's broken.</span><br />
+              I'll audit what you're running — tools, subscriptions, workflows — and give you an
+              honest picture of what's costing you time and money. Five working days. A short list
+              of what to cut and one thing worth building. Fixed fee, paid upfront. If nothing's
+              worth building, you'll still know exactly what to kill.
             </p>
             <p>
-              If you know what's broken — tell me about the workflow that's eating your time. The
-              one that involves three tools, manual steps, and things falling through the cracks.
-              I'll build a quiet system that handles it — purpose-built, nothing extra. You set it
-              once and forget it's running.
+              <span className="font-semibold" style={{color:"var(--fg)"}}>You know exactly what's broken.</span><br />
+              Tell me about the workflow eating your week. The one spread across three tools with
+              manual steps and things that keep slipping through. I'll build something quiet that
+              handles it — purpose-built, nothing extra. Live in your business in under two weeks.
+              You set it up once and stop thinking about it.
             </p>
             <p>
-              Either way, just email me. Describe the problem in a few sentences. I'll reply with
-              a straight answer — what I'd do, what it would cost, how long it would take.
+              Either way, email me three sentences about the problem. I'll reply with what I'd do,
+              what it costs, and how long it takes.
             </p>
             <p>No decks. No discovery calls. No calendars.</p>
             <p>
@@ -186,16 +201,20 @@ export default function Home() {
           <p className={LABEL}>006 — ABOUT</p>
           <div className={BODY}>
             <p>
-              I've spent most of my career as an experience designer and consultant.
-              I tried front-end development and QA along the way — learned plenty, then moved on.
+              I'm an Experience designer and consultant who got tired of helping teams build things
+              they didn't need.
             </p>
             <p>
-              I now use my background with AI to create quiet systems. I also provide
-              focused UX consulting on the side.
+              I spent years doing UX design and strategy, frontend work and QA — not because I
+              couldn't choose, but because I wanted to understand where things actually break down.
+              Turns out it's almost always before the first line of code gets written.
             </p>
             <p>
-              Based in Ljubljana, Slovenia.<br />
-              Working with teams and individuals worldwide.
+              Now I combine that background with AI to build systems that are small on purpose.
+              One job. Minimal surface area. Nothing you have to babysit.
+            </p>
+            <p>
+              Ljubljana, Slovenia. Working with people and teams all over the place.
             </p>
           </div>
         </section>
