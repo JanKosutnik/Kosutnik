@@ -135,7 +135,7 @@ export default function Home() {
           <ul className="space-y-3 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
             {[
               "You want a chatbot because your competitor has one.",
-              "You want to "implement AI" without first naming a specific workflow that's currently broken.",
+              "You want to \u201cimplement AI\u201d without first naming a specific workflow that's currently broken.",
               "You want something to impress investors rather than actually save time.",
               "You're looking for a vendor to manage. I work best when you have a real problem and want it gone.",
             ].map((item, i) => (
