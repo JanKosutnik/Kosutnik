@@ -132,14 +132,15 @@ export default function Home() {
           <p className={LABEL}>003 — NOW</p>
           <div className={BODY}>
             <p>
-              Right now I am building a system that monitors client inboxes and drafts responses to
-              recurring questions — the kind of thing that quietly eats 45 minutes a day and never makes
-              it onto anyone's to-do list because it's not a task, it's just a tax.
+              Building this site with Claude Code — partly because it needed building, partly to see
+              where AI-assisted development actually breaks down.
             </p>
             <p>
-              Also doing UX strategy when the question is what to build or what to kill before anyone
-              writes code. And occasional visual work when the project earns it.
+              Also building small micro apps that are saving me real time at work. Nothing publishable
+              yet, just tools that do one job and get out of the way. Which is exactly the point.
             </p>
+            <p>UX strategy when the question is what to build — or kill — before anyone writes code.</p>
+            <p>And the occasional design project, when the client is worth it.</p>
           </div>
         </section>
 
