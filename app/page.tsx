@@ -102,12 +102,12 @@ export default function Home() {
               of that exists to help you finish faster. It exists to make sure you don\u2019t leave.
             </p>
             <p>
-              The average knowledge worker burns three hours a day on this. Not because they\u2019re disorganized.
+              The average knowledge worker burns three hours a day on this. Not because they are disorganized.
               Because software is now designed, with considerable skill, to create dependency instead of results.
             </p>
             <p>
               I got tired of watching good people lose their mornings to it. So I stopped building things that
-              compete for your attention. Now I only build things that give it back \u2014 and then disappear.
+              compete for your attention. Now I only build things that give it back and then disappear.
             </p>
           </div>
         </section>
@@ -132,7 +132,7 @@ export default function Home() {
           <p className={LABEL}>003 — NOW</p>
           <div className={BODY}>
             <p>
-              Right now I\u2019m building a system that monitors client inboxes and drafts responses to
+              Right now I am building a system that monitors client inboxes and drafts responses to
               recurring questions \u2014 the kind of thing that quietly eats 45 minutes a day and never makes
               it onto anyone\u2019s to-do list because it\u2019s not a task, it\u2019s just a tax.
             </p>
@@ -145,9 +145,9 @@ export default function Home() {
 
         {/* 004 — This Isn't For You If */}
         <section id="not-for-you" className={SECTION}>
-          <p className={LABEL}>004 — THIS ISN\u2019T FOR YOU IF</p>
+          <p className={LABEL}>004 — THIS IS NOT FOR YOU IF</p>
           <div className={BODY}>
-            <p>This isn\u2019t for you if you want a chatbot because your competitor has one.</p>
+            <p>This is <span className="font-semibold" style={{color:"var(--fg)"}}>NOT</span> for you if you want a chatbot because your competitor has one.</p>
             <p>Or if you want to \u201cimplement AI\u201d without first naming a workflow that\u2019s actually broken.</p>
             <p>Or if you want something to demo in a board meeting rather than something that saves two hours on a Tuesday.</p>
             <p>Or if you need a vendor to manage. I work with people who have a specific problem and want it gone.</p>
