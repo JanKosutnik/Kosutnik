@@ -191,7 +191,7 @@ export default function Home() {
           <p className={LABEL}>006 — ABOUT</p>
           <div className={BODY}>
             <p>
-              I'm Jan (pronounced Yan). I've been an experience designer and consultant for most of my
+              I'm Jan (pronounced like "yawn", without the w). I've been an experience designer and consultant for most of my
               career, with detours through frontend development and QA that I don't regret — they taught
               me where things actually break down.
             </p>
