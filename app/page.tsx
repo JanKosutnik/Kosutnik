@@ -18,18 +18,18 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
 
 const notes = [
   "Most software isn't built for you. It's built to keep you inside it. There's a difference. A big one.",
-  "Software used to wait for you. Now it has goals of its own — notifications you didn't ask for, features you'll never use, dashboards nobody opens. You stopped being the user somewhere along the way. You became the metric.",
+  "Software used to wait for you. Now it has goals of its own - notifications you didn't ask for, features you'll never use, dashboards nobody opens. You stopped being the user somewhere along the way. You became the metric.",
   "The average knowledge worker burns three hours a day managing tools instead of doing work. Not because they're disorganised. Because that's what the tools are designed to produce.",
   "Nobody sat in a meeting and said \"let's make our users less productive.\" But that's what happened anyway. Incentives are quiet like that.",
   "Adding a feature is easy. Twenty minutes, a JIRA ticket, a product announcement nobody reads. Removing one takes conviction, a meeting, and someone willing to look boring in front of their team.",
   "Every feature you ship is a feature someone has to learn. And maintain. And work around when it breaks. And explain to the next person. The cost of a feature doesn't end at launch. It starts there.",
-  "The best tool disappears. You forget it's running. You don't think about it. You don't talk about it. It just works. That's not a low bar — it's the hardest thing to build.",
+  "The best tool disappears. You forget it's running. You don't think about it. You don't talk about it. It just works. That's not a low bar - it's the hardest thing to build.",
   "AI doesn't fix a broken process. It accelerates it. Before you automate anything, ask whether it should exist at all.",
   "Outcomes over hours. I don't care how long something took. You shouldn't either. What changed? That's the only question.",
   "A team adopts five tools with the best intentions, builds workflows around the gaps between them, and calls it a system. It isn't. It's five tools and a prayer.",
-  "Small enough to explain in two sentences. If it takes more, it's too complicated. I won't build it. Not because I can't — because I shouldn't.",
+  "Small enough to explain in two sentences. If it takes more, it's too complicated. I won't build it. Not because I can't - because I shouldn't.",
   "No is a complete sentence. In software, it's also the most underused one.",
-  "The best decisions are the ones nobody notices — because nothing broke, nothing changed, nobody had to adapt.",
+  "The best decisions are the ones nobody notices - because nothing broke, nothing changed, nobody had to adapt.",
   "This will change. Good. That means it's still honest.",
 ];
 
@@ -91,20 +91,20 @@ export default function Home() {
           </p>
         </section>
 
-        {/* 001 — About */}
+        {/* 001 - About */}
         <section id="about" className={SECTION}>
-          <p className={LABEL}>001 — ABOUT</p>
+          <p className={LABEL}>001 - ABOUT</p>
           <div className={BODY}>
             <p>Hi, I'm Jan (pronounced like "yawn", without the w).</p>
             <p>
-              I've spent most of my career helping people figure out what to build — and more often, what not
+              I've spent most of my career helping people figure out what to build - and more often, what not
               to build. UX strategy, frontend work, QA. Not because I couldn't choose, but because I wanted
               to understand where things actually break. It's almost always before the first line of code gets written.
             </p>
             <p>
               Lately I've been building small things with AI. Micro apps that save me an hour here, thirty
               minutes there. Nothing impressive to look at. That's the point. I'm also building this site
-              with Claude Code — partly to ship something, partly to understand where AI-assisted development
+              with Claude Code - partly to ship something, partly to understand where AI-assisted development
               actually falls apart.
             </p>
             <p>I live in Ljubljana. I work with people everywhere.</p>
@@ -112,9 +112,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 002 — Notes */}
+        {/* 002 - Notes */}
         <section id="notes" className={SECTION}>
-          <p className={LABEL}>002 — NOTES</p>
+          <p className={LABEL}>002 - NOTES</p>
           <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
             {notes.map((note, i) => (
               <li key={i} className="flex gap-4">
@@ -125,14 +125,14 @@ export default function Home() {
           </ul>
         </section>
 
-        {/* 003 — Work */}
+        {/* 003 - Work */}
         <section id="work" className={SECTION}>
-          <p className={LABEL}>003 — WORK</p>
+          <p className={LABEL}>003 - WORK</p>
           <div className={BODY}>
             <p>Two things I do, when the problem is right:</p>
             <p>
               <span className="font-semibold" style={{color:"var(--fg)"}}>Complexity Diagnostic.</span>{" "}
-              I go through everything you're running — tools, subscriptions, workflows — and tell you exactly
+              I go through everything you're running - tools, subscriptions, workflows - and tell you exactly
               what's costing you. Not in a vague "here are some opportunities" way. Specifically. This tool is
               redundant. This workflow has three manual steps that shouldn't exist. This subscription nobody on
               your team has opened since March. Five working days. A short written audit. Fixed fee, €450. For
@@ -142,7 +142,7 @@ export default function Home() {
               <span className="font-semibold" style={{color:"var(--fg)"}}>Quiet systems.</span>{" "}
               Tell me about the workflow eating your week. The one that lives across three tools, involves
               copy-pasting between tabs, and has things slipping every time someone's out of office. I'll build
-              something that handles it — one job, nothing extra, live in your business in under two weeks.
+              something that handles it - one job, nothing extra, live in your business in under two weeks.
               Projects start at €1,200, scoped and fixed before anything gets built. No surprises.
             </p>
             <p>
@@ -151,7 +151,7 @@ export default function Home() {
               to demo in a board meeting rather than something that saves two hours on a Tuesday.
             </p>
             <p>
-              I work best when you have a specific problem and want it gone — not project-managed, not
+              I work best when you have a specific problem and want it gone - not project-managed, not
               workshopped. Gone.
             </p>
             <p>
