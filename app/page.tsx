@@ -17,19 +17,19 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
 });
 
 const notes = [
-  "Most software isn't built for you. It's built to keep you inside it. There's a difference and it's worth understanding.",
-  "Everyone calls it a productivity tool. Nobody counts the hours it costs you to actually run the thing.",
-  "You stopped being the user at some point. Now you're the metric that justifies someone else's roadmap.",
-  "Nobody planned it this way. Incentives do funny things to people over time.",
-  "Removing a feature is hard. Not technically - politically. You need conviction, a meeting, and someone willing to look boring.",
+  "Most software isn't built for you. It's built to keep you inside it.",
+  "Everyone calls it a productivity tool. Nobody counts the hours it costs to run the thing.",
+  "At some point you stopped being the user. Now you're the number that keeps the roadmap alive.",
+  "Nobody planned it this way. But here we are - that's what happens when the goal is retention, not results.",
+  "Removing a feature takes conviction, a meeting, and someone willing to look boring. Most teams never find that person.",
   "Every feature is a debt. The launch is just when you sign the papers.",
   "The best tool is the one you stop thinking about.",
-  "Before you automate anything, ask if it should exist at all. That question is worth more than most of the automation.",
+  "Before you automate anything, ask if it should exist at all.",
   "AI doesn't fix a broken process. It makes the broken parts happen faster.",
-  "Five tools, good intentions, workflows built around the gaps between them - and someone calls it a system. It isn't.",
-  "Every product worth respecting was defined mostly by what it refused to become.",
+  "Five tools, good intentions, workflows filling the gaps between them. Someone calls it a system - it isn't.",
+  "Every product worth respecting was defined by what it refused to become.",
   "What actually changed for you? That's the only question that matters.",
-  "This will change. That's fine. It means it's still honest.",
+  "This will change. That's fine - it means it's still honest.",
 ];
 
 export default function Home() {
