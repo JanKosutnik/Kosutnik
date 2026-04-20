@@ -16,15 +16,21 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
   hour12: false,
 });
 
-const manifesto = [
-  { lead: "Attention is sacred.",        rest: "Every app that demands it has decided their problem is more important than yours. Usually it isn't." },
-  { lead: "The best tool disappears.",   rest: "You forget it's running. That's not a coincidence — that's the only measure of success I care about." },
-  { lead: "Simplicity is discipline.",   rest: "Anyone can add a feature. Takes about twenty minutes and a JIRA ticket. Removing one takes conviction, a meeting, and someone willing to say no out loud." },
-  { lead: "No is harder than yes.",      rest: "Every feature added is something to learn, maintain, and eventually route around. The best product decisions are the ones nobody notices because nothing broke." },
-  { lead: "AI does the boring parts.",   rest: "The data entry. The summaries. The stuff that falls through the cracks at 5pm on a Friday. Humans decide what matters." },
-  { lead: "Outcomes over hours.",        rest: "What changed for you is the only number that counts. How long it took to build is my problem, not yours." },
-  { lead: "Small enough to explain.",    rest: "Two sentences. If it takes more, it's too complicated and I won't build it." },
-  { lead: "This will change.",           rest: "The tools will change. This site will change. Good — that means it's still honest." },
+const notes = [
+  "Most software isn't built for you. It's built to keep you inside it. There's a difference. A big one.",
+  "Software used to wait for you. Now it has goals of its own — notifications you didn't ask for, features you'll never use, dashboards nobody opens. You stopped being the user somewhere along the way. You became the metric.",
+  "The average knowledge worker burns three hours a day managing tools instead of doing work. Not because they're disorganised. Because that's what the tools are designed to produce.",
+  "Nobody sat in a meeting and said \"let's make our users less productive.\" But that's what happened anyway. Incentives are quiet like that.",
+  "Adding a feature is easy. Twenty minutes, a JIRA ticket, a product announcement nobody reads. Removing one takes conviction, a meeting, and someone willing to look boring in front of their team.",
+  "Every feature you ship is a feature someone has to learn. And maintain. And work around when it breaks. And explain to the next person. The cost of a feature doesn't end at launch. It starts there.",
+  "The best tool disappears. You forget it's running. You don't think about it. You don't talk about it. It just works. That's not a low bar — it's the hardest thing to build.",
+  "AI doesn't fix a broken process. It accelerates it. Before you automate anything, ask whether it should exist at all.",
+  "Outcomes over hours. I don't care how long something took. You shouldn't either. What changed? That's the only question.",
+  "A team adopts five tools with the best intentions, builds workflows around the gaps between them, and calls it a system. It isn't. It's five tools and a prayer.",
+  "Small enough to explain in two sentences. If it takes more, it's too complicated. I won't build it. Not because I can't — because I shouldn't.",
+  "No is a complete sentence. In software, it's also the most underused one.",
+  "The best decisions are the ones nobody notices — because nothing broke, nothing changed, nobody had to adapt.",
+  "This will change. Good. That means it's still honest.",
 ];
 
 export default function Home() {
@@ -47,15 +53,11 @@ export default function Home() {
           <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">©2026</span>
         </div>
 
-        {/* Section links — middle */}
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
           {[
-            { label: "Statement",      href: "#statement" },
-            { label: "Manifesto",      href: "#manifesto" },
-            { label: "Now",            href: "#now" },
-            { label: "Not For You",    href: "#not-for-you" },
-            { label: "Let's Build",    href: "#lets-build" },
-            { label: "About",          href: "#about" },
+            { label: "About",  href: "#about" },
+            { label: "Notes",  href: "#notes" },
+            { label: "Work",   href: "#work" },
           ].map(({ label, href }) => (
             <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={LINK_COLOR}>{label}</a>
           ))}
@@ -76,7 +78,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Gradient fade below nav */}
         <div className="absolute inset-x-0 top-full h-12 pointer-events-none" style={{background: "linear-gradient(to bottom, var(--bg-gradient), transparent)"}} />
       </nav>
 
@@ -86,97 +87,76 @@ export default function Home() {
         {/* Tagline */}
         <section className="max-w-2xl py-8 md:mx-auto">
           <p className="text-[1.1rem] leading-snug tracking-wide font-semibold">
-            Software that stays out of your way.
+            Software that gets out of the way.
           </p>
         </section>
 
-        {/* 001 — Statement */}
-        <section id="statement" className={SECTION}>
-          <p className={LABEL}>001 — STATEMENT</p>
+        {/* 001 — About */}
+        <section id="about" className={SECTION}>
+          <p className={LABEL}>001 — ABOUT</p>
           <div className={BODY}>
-            <p>Software used to be a tool. You picked it up, used it, put it down. It had no opinion about whether you came back.</p>
+            <p>Hi, I'm Jan (pronounced like "yawn", without the w).</p>
             <p>
-              That changed. Somewhere between the third dashboard nobody opens and the fifth app that does
-              roughly what the second one does, software stopped being something you use and started being
-              something you manage. The notifications, the feature releases, the onboarding nudges — none
-              of that exists to help you finish faster. It exists to make sure you don't leave.
+              I've spent most of my career helping people figure out what to build — and more often, what not
+              to build. UX strategy, frontend work, QA. Not because I couldn't choose, but because I wanted
+              to understand where things actually break. It's almost always before the first line of code gets written.
             </p>
             <p>
-              The average knowledge worker burns three hours a day on this. Not because they are disorganized.
-              Because software is now designed, with considerable skill, to create dependency instead of results.
+              Lately I've been building small things with AI. Micro apps that save me an hour here, thirty
+              minutes there. Nothing impressive to look at. That's the point. I'm also building this site
+              with Claude Code — partly to ship something, partly to understand where AI-assisted development
+              actually falls apart.
             </p>
-            <p>
-              I got tired of watching good people lose their mornings to it. So I stopped building things that
-              compete for your attention. Now I only build things that give it back and then disappear.
-            </p>
+            <p>I live in Ljubljana. I work with people everywhere.</p>
+            <p>This is where I think out loud.</p>
           </div>
         </section>
 
-        {/* 002 — Manifesto */}
-        <section id="manifesto" className={SECTION}>
-          <p className={LABEL}>002 — MANIFESTO</p>
+        {/* 002 — Notes */}
+        <section id="notes" className={SECTION}>
+          <p className={LABEL}>002 — NOTES</p>
           <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
-            {manifesto.map(({ lead, rest }, i) => (
+            {notes.map((note, i) => (
               <li key={i} className="flex gap-4">
                 <span className="text-zinc-500 dark:text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
-                <span>
-                  <span className="font-semibold" style={{color:"var(--fg)"}}>{lead}</span> {rest}
-                </span>
+                <span>{note}</span>
               </li>
             ))}
           </ul>
         </section>
 
-        {/* 003 — Now */}
-        <section id="now" className={SECTION}>
-          <p className={LABEL}>003 — NOW</p>
+        {/* 003 — Work */}
+        <section id="work" className={SECTION}>
+          <p className={LABEL}>003 — WORK</p>
           <div className={BODY}>
+            <p>Two things I do, when the problem is right:</p>
             <p>
-              Building this site with Claude Code — partly because it needed building, partly to see
-              where AI-assisted development actually breaks down.
+              <span className="font-semibold" style={{color:"var(--fg)"}}>Complexity Diagnostic.</span>{" "}
+              I go through everything you're running — tools, subscriptions, workflows — and tell you exactly
+              what's costing you. Not in a vague "here are some opportunities" way. Specifically. This tool is
+              redundant. This workflow has three manual steps that shouldn't exist. This subscription nobody on
+              your team has opened since March. Five working days. A short written audit. Fixed fee, €450. For
+              context: three hours a day at any reasonable salary costs more than that every week.
             </p>
             <p>
-              Also building small micro apps that are saving me real time at work. Nothing publishable
-              yet, just tools that do one job and get out of the way. Which is exactly the point.
-            </p>
-            <p>UX strategy when the question is what to build — or kill — before anyone writes code.</p>
-            <p>And the occasional design project, when the client is worth it.</p>
-          </div>
-        </section>
-
-        {/* 004 — This Is Not For You If */}
-        <section id="not-for-you" className={SECTION}>
-          <p className={LABEL}>004 — THIS IS NOT FOR YOU IF</p>
-          <div className={BODY}>
-            <p>This is <span className="font-semibold" style={{color:"var(--fg)"}}>NOT</span> for you if you want a chatbot because your competitor has one.</p>
-            <p>Or if you want to "implement AI" without first naming a workflow that's actually broken.</p>
-            <p>Or if you want something to demo in a board meeting rather than something that saves two hours on a Tuesday.</p>
-            <p>Or if you need a vendor to manage. I work with people who have a specific problem and want it gone.</p>
-          </div>
-        </section>
-
-        {/* 005 — Let's Build */}
-        <section id="lets-build" className={SECTION}>
-          <p className={LABEL}>005 — LET'S BUILD</p>
-          <div className={BODY}>
-            <p>
-              <span className="font-semibold" style={{color:"var(--fg)"}}>Not sure what's broken?</span><br />
-              I'll go through everything you're running — tools, subscriptions, workflows — and show you
-              exactly what's quietly costing you. Five working days. You get a written audit: what to cancel,
-              what to consolidate, and one thing worth building. Fixed fee, €450. For context: three hours a
-              day at any reasonable salary costs more than that every week. If nothing's worth building,
-              you'll at least know exactly what to kill.
-            </p>
-            <p>
-              <span className="font-semibold" style={{color:"var(--fg)"}}>Know what's broken?</span><br />
+              <span className="font-semibold" style={{color:"var(--fg)"}}>Quiet systems.</span>{" "}
               Tell me about the workflow eating your week. The one that lives across three tools, involves
-              copy-pasting between tabs, and has things slipping every time someone's out of office.
-              I'll build something that handles it — one job, nothing extra, live in your business in under
-              two weeks. Projects start at €1,200, scoped and fixed before anything gets built. No surprises.
+              copy-pasting between tabs, and has things slipping every time someone's out of office. I'll build
+              something that handles it — one job, nothing extra, live in your business in under two weeks.
+              Projects start at €1,200, scoped and fixed before anything gets built. No surprises.
             </p>
             <p>
-              Email me three sentences about the problem. I'll reply with what I'd do, what it costs,
-              and how long it takes.
+              This isn't for you if you want a chatbot because your competitor has one. Or if you want to
+              "implement AI" without first naming something that's actually broken. Or if you want something
+              to demo in a board meeting rather than something that saves two hours on a Tuesday.
+            </p>
+            <p>
+              I work best when you have a specific problem and want it gone — not project-managed, not
+              workshopped. Gone.
+            </p>
+            <p>
+              Email me three sentences about the problem. I'll reply with what I'd do, what it costs, and how
+              long it takes.
             </p>
             <p>No decks. No discovery calls. No calendars.</p>
             <p>
@@ -184,28 +164,6 @@ export default function Home() {
               <a href="https://x.com/JanKosutnik" className={LINK} style={LINK_COLOR}>@JanKosutnik on X</a><br />
               <a href="https://www.linkedin.com/in/jankosutnik/" className={LINK} style={LINK_COLOR}>LinkedIn</a>
             </p>
-          </div>
-        </section>
-
-        {/* 006 — About */}
-        <section id="about" className={SECTION}>
-          <p className={LABEL}>006 — ABOUT</p>
-          <div className={BODY}>
-            <p>
-              I'm Jan (pronounced like "yawn", without the w). I've been an experience designer and consultant for most of my
-              career, with detours through frontend development and QA that I don't regret — they taught
-              me where things actually break down.
-            </p>
-            <p>
-              It's almost never where people think. A team adopts five tools with the best intentions,
-              builds workflows around the gaps between them, and calls it a system. It isn't. It's five
-              tools and a prayer.
-            </p>
-            <p>
-              Now I build things that are small on purpose. One job. Minimal surface area. No monthly fee
-              for something nobody opens.
-            </p>
-            <p>Ljubljana, Slovenia. Working with teams worldwide.</p>
           </div>
         </section>
 
