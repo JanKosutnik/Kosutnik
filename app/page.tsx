@@ -17,20 +17,19 @@ const LAST_UPDATE = new Date().toLocaleString("en-GB", {
 });
 
 const notes = [
-  "Most software isn't built for you. It's built to keep you inside it. There's a difference. A big one.",
-  "Software used to wait for you. Now it has goals of its own - notifications you didn't ask for, features you'll never use, dashboards nobody opens. You stopped being the user somewhere along the way. You became the metric.",
-  "The average knowledge worker burns three hours a day managing tools instead of doing work. Not because they're disorganised. Because that's what the tools are designed to produce.",
-  "Nobody sat in a meeting and said \"let's make our users less productive.\" But that's what happened anyway. Incentives are quiet like that.",
-  "Adding a feature is easy. Twenty minutes, a JIRA ticket, a product announcement nobody reads. Removing one takes conviction, a meeting, and someone willing to look boring in front of their team.",
-  "Every feature you ship is a feature someone has to learn. And maintain. And work around when it breaks. And explain to the next person. The cost of a feature doesn't end at launch. It starts there.",
-  "The best tool disappears. You forget it's running. You don't think about it. You don't talk about it. It just works. That's not a low bar - it's the hardest thing to build.",
-  "AI doesn't fix a broken process. It accelerates it. Before you automate anything, ask whether it should exist at all.",
-  "Outcomes over hours. I don't care how long something took. You shouldn't either. What changed? That's the only question.",
-  "A team adopts five tools with the best intentions, builds workflows around the gaps between them, and calls it a system. It isn't. It's five tools and a prayer.",
-  "Small enough to explain in two sentences. If it takes more, it's too complicated. I won't build it. Not because I can't - because I shouldn't.",
-  "No is a complete sentence. In software, it's also the most underused one.",
-  "The best decisions are the ones nobody notices - because nothing broke, nothing changed, nobody had to adapt.",
-  "This will change. Good. That means it's still honest.",
+  "Most software isn't built for you. It's built to keep you inside it. There's a difference and it's worth understanding.",
+  "Everyone calls it a productivity tool. Nobody counts the hours it costs you to actually run the thing.",
+  "You stopped being the user at some point. Now you're the metric that justifies someone else's roadmap.",
+  "Nobody planned it this way. Incentives do funny things to people over time.",
+  "Removing a feature is hard. Not technically - politically. You need conviction, a meeting, and someone willing to look boring.",
+  "Every feature is a debt. The launch is just when you sign the papers.",
+  "The best tool is the one you stop thinking about.",
+  "Before you automate anything, ask if it should exist at all. That question is worth more than most of the automation.",
+  "AI doesn't fix a broken process. It makes the broken parts happen faster.",
+  "Five tools, good intentions, workflows built around the gaps between them - and someone calls it a system. It isn't.",
+  "Every product worth respecting was defined mostly by what it refused to become.",
+  "What actually changed for you? That's the only question that matters.",
+  "This will change. That's fine. It means it's still honest.",
 ];
 
 export default function Home() {
@@ -55,9 +54,10 @@ export default function Home() {
 
         <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
           {[
-            { label: "About",  href: "#about" },
-            { label: "Notes",  href: "#notes" },
-            { label: "Work",   href: "#work" },
+            { label: "About",   href: "#about" },
+            { label: "Notes",   href: "#notes" },
+            { label: "Work",    href: "#work" },
+            { label: "Contact", href: "mailto:jan@kindspace.studio" },
           ].map(({ label, href }) => (
             <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={LINK_COLOR}>{label}</a>
           ))}
@@ -129,39 +129,30 @@ export default function Home() {
         <section id="work" className={SECTION}>
           <p className={LABEL}>003 - WORK</p>
           <div className={BODY}>
-            <p>Two things I do, when the problem is right:</p>
+            <p>Two things I do, when the problem is right.</p>
             <p>
               <span className="font-semibold" style={{color:"var(--fg)"}}>Complexity Diagnostic.</span>{" "}
               I go through everything you're running - tools, subscriptions, workflows - and tell you exactly
-              what's costing you. Not in a vague "here are some opportunities" way. Specifically. This tool is
-              redundant. This workflow has three manual steps that shouldn't exist. This subscription nobody on
-              your team has opened since March. Five working days. A short written audit. Fixed fee, €450. For
-              context: three hours a day at any reasonable salary costs more than that every week.
+              what's costing you. Not vaguely. Specifically. This tool is redundant. This workflow has steps
+              that shouldn't exist. This subscription nobody has opened since March. Five working days. A short
+              written audit with a clear list of what to cut and one thing worth building. Fixed fee, €450.
             </p>
             <p>
               <span className="font-semibold" style={{color:"var(--fg)"}}>Quiet systems.</span>{" "}
-              Tell me about the workflow eating your week. The one that lives across three tools, involves
-              copy-pasting between tabs, and has things slipping every time someone's out of office. I'll build
-              something that handles it - one job, nothing extra, live in your business in under two weeks.
-              Projects start at €1,200, scoped and fixed before anything gets built. No surprises.
+              Tell me about the workflow eating your week. The one across three tools, full of copy-pasting,
+              where things slip every time someone's out of office. I'll build something that handles it - one
+              job, nothing extra, live in your business in under two weeks. Projects start at €1,200, scoped
+              and fixed upfront. No surprises.
             </p>
-            <p>
-              This isn't for you if you want a chatbot because your competitor has one. Or if you want to
-              "implement AI" without first naming something that's actually broken. Or if you want something
-              to demo in a board meeting rather than something that saves two hours on a Tuesday.
-            </p>
-            <p>
-              I work best when you have a specific problem and want it gone - not project-managed, not
-              workshopped. Gone.
-            </p>
+            <p>Not for you if the goal is to impress rather than fix.</p>
             <p>
               Email me three sentences about the problem. I'll reply with what I'd do, what it costs, and how
               long it takes.
             </p>
             <p>No decks. No discovery calls. No calendars.</p>
             <p>
-              <a href="mailto:jan@kindspace.studio" className={LINK} style={LINK_COLOR}>jan@kindspace.studio</a><br />
-              <a href="https://x.com/JanKosutnik" className={LINK} style={LINK_COLOR}>@JanKosutnik on X</a><br />
+              <a href="mailto:jan@kindspace.studio" className={LINK} style={LINK_COLOR}>jan@kindspace.studio</a>{" · "}
+              <a href="https://x.com/JanKosutnik" className={LINK} style={LINK_COLOR}>@JanKosutnik on X</a>{" · "}
               <a href="https://www.linkedin.com/in/jankosutnik/" className={LINK} style={LINK_COLOR}>LinkedIn</a>
             </p>
           </div>
