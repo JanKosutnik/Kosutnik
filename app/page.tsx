@@ -26,7 +26,7 @@ const notes = [
   "The best tool is the one you stop thinking about.",
   "Before you automate anything, ask if it should exist at all.",
   "AI doesn't fix a broken process. It makes the broken parts happen faster.",
-  "Five tools, good intentions, workflows filling the gaps between them. Someone calls it a system - it isn't.",
+  "Five tools, good intentions, workflows filling the gaps between them. Someone calls it a system. It isn't.",
   "Every product worth respecting was defined by what it refused to become.",
   "What actually changed for you? That's the only question that matters.",
   "This will change. That's fine - it means it's still honest.",
@@ -107,7 +107,7 @@ export default function Home() {
               with Claude Code - partly to ship something, partly to understand where AI-assisted development
               actually falls apart.
             </p>
-            <p>I live in Ljubljana. I work with people everywhere.</p>
+            <p>I live in Ljubljana. I work with people everywhere. If you're drowning in tools that were supposed to help, you're probably who I built this for.</p>
           </div>
         </section>
 
@@ -143,7 +143,14 @@ export default function Home() {
               job, nothing extra, live in your business in under two weeks. Projects start at €1,200, scoped
               and fixed upfront. No surprises.
             </p>
-            <p>Not for you if the goal is to impress rather than fix.</p>
+            <p><span className="font-semibold" style={{color:"var(--fg)"}}>This isn't for you if:</span></p>
+            <ul className="space-y-1 list-none">
+              <li>- You want a chatbot because your competitor has one.</li>
+              <li>- You want to "implement AI" without naming something that's actually broken.</li>
+              <li>- You want something to demo in a board meeting rather than something that saves two hours on a Tuesday.</li>
+              <li>- You need a vendor to manage.</li>
+            </ul>
+            <p>I work best when you have a specific problem and want it gone - not project-managed, not workshopped. Gone.</p>
             <p>
               Email me three sentences about the problem. I'll reply with what I'd do, what it costs, and how
               long it takes.
