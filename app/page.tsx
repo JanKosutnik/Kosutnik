@@ -108,7 +108,6 @@ export default function Home() {
               actually falls apart.
             </p>
             <p>I live in Ljubljana. I work with people everywhere.</p>
-            <p>This is where I think out loud.</p>
           </div>
         </section>
 
