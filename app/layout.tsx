@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const jetbrainsMono = JetBrains_Mono({
-  variable: "--font-jetbrains-mono",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+const iAWriterDuo = localFont({
+  src: "./fonts/iAWriterDuoV.ttf",
+  variable: "--font-ia-writer-duo",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +22,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{__html: `(function(){var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark');}})();`}} />
       </head>
-      <body className={`${jetbrainsMono.variable} antialiased`}>
+      <body className={`${iAWriterDuo.variable} antialiased`}>
         {children}
       </body>
     </html>
