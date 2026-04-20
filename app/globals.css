@@ -2,8 +2,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme inline {
-  --font-sans: var(--font-geist-mono), monospace;
-  --font-mono: var(--font-geist-mono), monospace;
+  --font-sans: var(--font-ibm-plex-sans), sans-serif;
+  --font-mono: var(--font-ibm-plex-sans), sans-serif;
 }
 
 :root {
@@ -36,7 +36,7 @@ h1 {
 body {
   background-color: var(--bg);
   color: var(--fg);
-  font-family: var(--font-geist-mono), monospace;
+  font-family: var(--font-ibm-plex-sans), sans-serif;
 }
 
 @keyframes blink {
