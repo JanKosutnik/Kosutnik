@@ -35,10 +35,10 @@ export default function Home() {
       <nav className="fixed top-0 inset-x-0 z-20 flex flex-col md:flex-row md:items-start md:justify-between gap-4 px-8 py-6 backdrop-blur-sm" style={{backgroundColor:"var(--bg-alpha)"}}>
         <div className="flex flex-col gap-[2px]">
           <div className="flex items-center justify-between gap-8">
-            <span className="text-[0.65rem] tracking-widest uppercase font-bold">
+            <a href="/" className="text-[0.65rem] tracking-widest uppercase font-bold no-underline" style={{color:"var(--fg)"}}>
               JAN KOSUTNIK
               <span className="animate-blink ml-[2px]">█</span>
-            </span>
+            </a>
             <div className="flex items-center gap-4 md:hidden">
               <ThemeToggle />
               <span className="text-[0.65rem] tracking-widest uppercase tabular-nums"><Clock /></span>
