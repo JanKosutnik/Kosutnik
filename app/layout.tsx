@@ -11,6 +11,9 @@ const iAWriterDuo = localFont({
 export const metadata: Metadata = {
   title: "Jan Kosutnik",
   description: "",
+  icons: {
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({

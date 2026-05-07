@@ -1,9 +1,10 @@
 import Clock from "./components/Clock";
 import ThemeToggle from "./components/ThemeToggle";
+import ActiveNav from "./components/ActiveNav";
 
 const SECTION = "max-w-2xl py-16 md:mx-auto scroll-mt-48 md:scroll-mt-36";
 const LABEL = "text-[0.75rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400 mb-8";
-const BODY = "space-y-6 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300";
+const BODY = "space-y-6 text-[15px] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300";
 const LINK = "hover:opacity-70 transition-opacity underline";
 const LINK_COLOR = { color: "var(--link)" };
 
@@ -46,31 +47,19 @@ export default function Home() {
             </a>
             <div className="flex items-center gap-4 md:hidden">
               <ThemeToggle />
-              <span className="text-[0.65rem] tracking-widest uppercase tabular-nums"><Clock /></span>
+              <span className="text-[0.65rem] tracking-widest uppercase tabular-nums">
+                LJU <Clock />
+              </span>
             </div>
           </div>
-          <span className="text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">©2026</span>
         </div>
 
-        <div className="flex flex-wrap gap-x-6 gap-y-1 text-[0.65rem] tracking-widest uppercase">
-          {[
-            { label: "About",   href: "#about" },
-            { label: "Notes",   href: "#notes" },
-            { label: "Work",    href: "#work" },
-            { label: "Contact", href: "mailto:jan@kindspace.studio" },
-          ].map(({ label, href }) => (
-            <a key={href} href={href} className="hover:opacity-70 transition-opacity" style={LINK_COLOR}>{label}</a>
-          ))}
-        </div>
+        <ActiveNav />
 
         <div className="hidden md:flex flex-col gap-1 text-[0.65rem] tracking-widest uppercase">
           <div className="flex gap-4">
-            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">LOCAL TIME</span>
+            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">LJUBLJANA</span>
             <span className="tabular-nums"><Clock /></span>
-          </div>
-          <div className="flex gap-4">
-            <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">LAST UPDATE</span>
-            <span>{LAST_UPDATE}</span>
           </div>
           <div className="flex gap-4 mt-1">
             <span className="text-zinc-500 dark:text-zinc-400 w-24 shrink-0">THEME</span>
@@ -86,8 +75,11 @@ export default function Home() {
 
         {/* Tagline */}
         <section className="max-w-2xl py-8 md:mx-auto">
-          <p className="text-[1.1rem] leading-snug tracking-wide font-semibold">
+          <h1 className="text-[1.1rem] leading-snug tracking-wide font-semibold">
             Software that gets out of the way.
+          </h1>
+          <p className="text-[15px] leading-relaxed tracking-wide text-zinc-500 dark:text-zinc-400 mt-3">
+            For people who want the problem gone, not managed.
           </p>
         </section>
 
@@ -111,22 +103,9 @@ export default function Home() {
           </div>
         </section>
 
-        {/* 002 - Notes */}
-        <section id="notes" className={SECTION}>
-          <p className={LABEL}>002 - NOTES</p>
-          <ul className="space-y-4 text-[0.85rem] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
-            {notes.map((note, i) => (
-              <li key={i} className="flex gap-4">
-                <span className="text-zinc-500 dark:text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
-                <span>{note}</span>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        {/* 003 - Work */}
+        {/* 002 - Work */}
         <section id="work" className={SECTION}>
-          <p className={LABEL}>003 - WORK</p>
+          <p className={LABEL}>002 - WORK</p>
           <div className={BODY}>
             <p>Two things I do, when the problem is right.</p>
             <p>
@@ -151,10 +130,27 @@ export default function Home() {
               <li>- You need a vendor to manage.</li>
             </ul>
             <p>I work best when you have a specific problem and want it gone - not project-managed, not workshopped. Gone.</p>
-            <p>
-              Email me three sentences about the problem. I'll reply with what I'd do, what it costs, and how
-              long it takes.
-            </p>
+          </div>
+        </section>
+
+        {/* 003 - Notes */}
+        <section id="notes" className={SECTION}>
+          <p className={LABEL}>003 - NOTES</p>
+          <ul className="space-y-4 text-[15px] leading-relaxed tracking-wide text-zinc-700 dark:text-zinc-300">
+            {notes.map((note, i) => (
+              <li key={i} className="flex gap-4">
+                <span className="text-zinc-500 dark:text-zinc-500 shrink-0">{String(i + 1).padStart(2, "0")}.</span>
+                <span>{note}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        {/* 004 - Contact */}
+        <section id="contact" className={SECTION}>
+          <p className={LABEL}>004 - CONTACT</p>
+          <div className={BODY}>
+            <p>Email me three sentences about the problem. I'll reply with what I'd do, what it costs, and how long it takes.</p>
             <p>No decks. No discovery calls. No calendars.</p>
             <p>
               <a href="mailto:jan@kindspace.studio" className={LINK} style={LINK_COLOR}>jan@kindspace.studio</a>{" · "}
@@ -167,7 +163,7 @@ export default function Home() {
       </main>
 
       <footer className="px-8 py-6 text-[0.65rem] tracking-widest uppercase text-zinc-500 dark:text-zinc-400">
-        Made with discipline in Ljubljana • No tracking, no cookies, no bullshit. • Last update: {LAST_UPDATE}
+        Made with discipline in Ljubljana · ©2026 Jan Kosutnik · Last update: {LAST_UPDATE}
       </footer>
 
     </div>
