@@ -61,11 +61,11 @@
     .page {
       max-width: 52rem;
       margin: 0 auto;
-      padding: clamp(40px, 7vw, 80px) 7vw 64px;
+      padding: clamp(64px, 10vw, 120px) 7vw 96px;
     }
 
     /* ---- Header ---- */
-    header { margin-bottom: 3rem; }
+    header { margin-bottom: 5rem; }
 
     .name {
       font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -98,15 +98,15 @@
 
     /* ---- Lede ---- */
     .lede {
-      font-size: clamp(1.3rem, 3.2vw, 1.75rem);
-      line-height: 1.4;
+      font-size: clamp(1.35rem, 3.4vw, 1.85rem);
+      line-height: 1.42;
       letter-spacing: -0.01em;
       font-weight: 400;
-      margin-bottom: 3rem;
+      margin-bottom: 5rem;
     }
 
     /* ---- Sections ---- */
-    section { margin-bottom: 2.75rem; }
+    section { margin-bottom: 4.5rem; }
 
     .label {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
@@ -123,12 +123,11 @@
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
-      padding: 0.75rem 0;
-      border-top: 1px solid var(--line);
+      padding: 1.1rem 0;
       cursor: pointer;
     }
 
-    #row2 { border-bottom: 1px solid var(--line); }
+    #row2 { }
 
     .work .row:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 3px; }
 
@@ -169,11 +168,9 @@
     /* ---- Controls ---- */
     .controls {
       display: flex;
-      gap: 0.75rem;
+      gap: 2rem;
       flex-wrap: wrap;
-      margin-bottom: 2.5rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid var(--line);
+      margin-bottom: 4.5rem;
     }
 
     .controls button {
@@ -183,12 +180,12 @@
       letter-spacing: 0.18em;
       color: var(--faint);
       background: none;
-      border: 1px solid var(--line);
-      padding: 0.4rem 0.85rem;
+      border: none;
+      padding: 0;
       cursor: pointer;
     }
 
-    .controls button:hover { color: var(--ink); border-color: var(--soft); }
+    .controls button:hover { color: var(--ink); }
     .controls button:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 2px; }
 
     /* ---- Footer ---- */
@@ -198,7 +195,7 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--faint);
-      line-height: 2;
+      line-height: 2.1;
     }
 
     /* ---- Telescopic text ---- */
