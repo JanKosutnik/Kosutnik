@@ -11,8 +11,30 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'iA Writer Quattro';
+      src: url('https://cdn.jsdelivr.net/gh/iaolo/iA-Fonts@master/iA%20Writer%20Quattro/Fonts/iAWriterQuattro-Regular.ttf') format('truetype');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'iA Writer Quattro';
+      src: url('https://cdn.jsdelivr.net/gh/iaolo/iA-Fonts@master/iA%20Writer%20Quattro/Fonts/iAWriterQuattro-Bold.ttf') format('truetype');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'iA Writer Quattro';
+      src: url('https://cdn.jsdelivr.net/gh/iaolo/iA-Fonts@master/iA%20Writer%20Quattro/Fonts/iAWriterQuattro-Italic.ttf') format('truetype');
+      font-weight: 400;
+      font-style: italic;
+      font-display: swap;
+    }
+
     :root {
       --bg:      #f6f5f1;
       --ink:     #1c1b18;
@@ -24,68 +46,46 @@
       --reveal:  #2a2723;
     }
 
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg:      #141413;
-        --ink:     #f2efe7;
-        --soft:    #8b8780;
-        --faint:   #565450;
-        --line:    #252320;
-        --cue:     #454240;
-        --cue-ink: #f2efe7;
-        --reveal:  #d4d1c9;
-      }
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      background: var(--bg);
-      color: var(--ink);
-    }
+    html, body { background: var(--bg); color: var(--ink); }
 
     html {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 1.22rem;
+      font-family: 'iA Writer Quattro', Georgia, serif;
+      font-size: 1.12rem;
       line-height: 1.78;
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
     }
 
     .page {
-      max-width: 39rem;
+      max-width: 52rem;
       margin: 0 auto;
-      padding: clamp(28px, 8vw, 96px) 7vw 64px;
+      padding: clamp(40px, 7vw, 80px) 7vw 64px;
     }
 
     /* ---- Header ---- */
-    header {
-      margin-bottom: clamp(40px, 6vw, 60px);
-    }
+    header { margin-bottom: 3rem; }
 
     .name {
-      font-size: clamp(1.5rem, 4.4vw, 2.05rem);
-      line-height: 1.34;
-      letter-spacing: -0.012em;
-      font-weight: 500;
-      color: var(--ink);
-      margin-bottom: 0.45rem;
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
     }
 
-    .place {
+    .place, .hint {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--faint);
-      display: flex;
-      align-items: center;
-      gap: 0.6em;
     }
+
+    .place { display: flex; align-items: center; gap: 0.5em; }
+
+    .hint { margin-top: 0.7rem; }
 
     .led {
       display: inline-block;
@@ -96,72 +96,47 @@
       flex-shrink: 0;
     }
 
-    .hint {
-      font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      color: var(--faint);
-      margin-top: 0.85rem;
-    }
-
     /* ---- Lede ---- */
     .lede {
-      font-size: clamp(1.5rem, 4.4vw, 2.05rem);
-      line-height: 1.34;
-      letter-spacing: -0.012em;
-      font-weight: 300;
-      color: var(--ink);
-      margin-bottom: clamp(40px, 6vw, 60px);
+      font-size: clamp(1.3rem, 3.2vw, 1.75rem);
+      line-height: 1.4;
+      letter-spacing: -0.01em;
+      font-weight: 400;
+      margin-bottom: 3rem;
     }
 
     /* ---- Sections ---- */
-    section {
-      margin-bottom: clamp(40px, 6vw, 60px);
-    }
+    section { margin-bottom: 2.75rem; }
 
     .label {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--faint);
-      margin-bottom: 1rem;
+      margin-bottom: 0.85rem;
     }
 
-    /* ---- Work section ---- */
+    /* ---- Work ---- */
     .work .row {
       display: flex;
       justify-content: space-between;
       align-items: baseline;
       gap: 1rem;
-      padding: 0.85rem 0;
+      padding: 0.75rem 0;
       border-top: 1px solid var(--line);
       cursor: pointer;
     }
 
-    #row2 {
-      border-bottom: 1px solid var(--line);
-    }
+    #row2 { border-bottom: 1px solid var(--line); }
 
-    .work .row:hover .ttl {
-      color: var(--soft);
-    }
+    .work .row:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 3px; }
 
-    .work .row:focus-visible {
-      outline: 2px solid var(--cue-ink);
-      outline-offset: 3px;
-    }
-
-    .ttl {
-      font-size: 1.05rem;
-      font-weight: 400;
-      color: var(--ink);
-    }
+    .ttl { font-size: 1rem; color: var(--ink); }
 
     .price {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.65rem;
+      font-size: 0.62rem;
       text-transform: uppercase;
       letter-spacing: 0.1em;
       color: var(--faint);
@@ -170,26 +145,17 @@
     }
 
     .detail {
-      padding: 0.9rem 0 0.4rem;
+      padding: 0.8rem 0 0.3rem;
       color: var(--soft);
-      font-size: 1rem;
+      font-size: 0.97rem;
       line-height: 1.72;
     }
 
-    #filter {
-      margin-top: 1.2rem;
-      color: var(--soft);
-    }
+    #filter { margin-top: 1rem; color: var(--soft); font-size: 0.97rem; }
 
     /* ---- Contact ---- */
-    .contact p {
-      color: var(--soft);
-      margin-bottom: 0.5rem;
-    }
-
-    .contact p:last-child {
-      margin-bottom: 0;
-    }
+    .contact p { color: var(--soft); margin-bottom: 0.4rem; }
+    .contact p:last-child { margin-bottom: 0; }
 
     .contact a {
       color: var(--ink);
@@ -197,14 +163,8 @@
       text-underline-offset: 3px;
     }
 
-    .contact a:hover {
-      text-decoration-color: var(--ink);
-    }
-
-    .contact a:focus-visible {
-      outline: 2px solid var(--cue-ink);
-      outline-offset: 2px;
-    }
+    .contact a:hover { text-decoration-color: var(--ink); }
+    .contact a:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 2px; }
 
     /* ---- Controls ---- */
     .controls {
@@ -212,40 +172,33 @@
       gap: 0.75rem;
       flex-wrap: wrap;
       margin-bottom: 2.5rem;
-      padding-top: clamp(40px, 6vw, 60px);
+      padding-top: 2.5rem;
       border-top: 1px solid var(--line);
     }
 
     .controls button {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--faint);
       background: none;
       border: 1px solid var(--line);
-      padding: 0.45rem 0.9rem;
+      padding: 0.4rem 0.85rem;
       cursor: pointer;
-      transition: color 0.15s, border-color 0.15s;
     }
 
-    .controls button:hover {
-      color: var(--ink);
-      border-color: var(--soft);
-    }
-
-    .controls button:focus-visible {
-      outline: 2px solid var(--cue-ink);
-      outline-offset: 2px;
-    }
+    .controls button:hover { color: var(--ink); border-color: var(--soft); }
+    .controls button:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 2px; }
 
     /* ---- Footer ---- */
     footer {
       font-family: 'IBM Plex Mono', 'Courier New', monospace;
-      font-size: 0.68rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.18em;
       color: var(--faint);
+      line-height: 2;
     }
 
     /* ---- Telescopic text ---- */
@@ -255,19 +208,10 @@
       cursor: pointer;
       text-underline-offset: 3px;
       outline: none;
-      transition: color 0.1s, border-color 0.1s;
     }
 
-    .tx:hover,
-    .tx:focus {
-      color: var(--cue-ink);
-      border-bottom-color: var(--cue-ink);
-    }
-
-    .tx:focus-visible {
-      outline: 2px solid var(--cue-ink);
-      outline-offset: 2px;
-    }
+    .tx:hover, .tx:focus { color: var(--cue-ink); border-bottom-color: var(--cue-ink); }
+    .tx:focus-visible { outline: 2px solid var(--cue-ink); outline-offset: 2px; }
 
     .rev {
       color: var(--reveal);
@@ -275,20 +219,10 @@
       transition: opacity 0.5s ease;
     }
 
-    .rev.in {
-      opacity: 1;
-    }
+    .rev.in { opacity: 1; }
 
     @media (prefers-reduced-motion: reduce) {
-      .rev,
-      .rev.in {
-        opacity: 1;
-        transition: none;
-      }
-      .controls button,
-      .tx {
-        transition: none;
-      }
+      .rev, .rev.in { opacity: 1; transition: none; }
     }
   </style>
 </head>
@@ -334,7 +268,11 @@
       <button id="reset">Collapse</button>
     </div>
 
-    <footer>Built plain &middot; still honest, still changing</footer>
+    <footer>
+      <div>&copy; 2025 Jan Kosutnik</div>
+      <div>Built in Ljubljana, Slovenia &middot; Decreased by Jan</div>
+      <div>Built plain &middot; still honest, still changing</div>
+    </footer>
   </div>
 
   <script>
@@ -344,7 +282,7 @@
         { t: "delete the software quietly wasting their week", x: [
           "delete the ",
           { t: "tools, subscriptions, and copy-paste workflows", x: [
-            "tools, the subscriptions nobody’s opened since March, and the copy-paste workflows held together with good intentions"
+            "tools, the subscriptions nobody's opened since March, and the copy-paste workflows held together with good intentions"
           ]},
           " quietly wasting their week"
         ]},
@@ -358,11 +296,11 @@
         "."
       ],
       about: [
-        "Hi, I’m Jan ",
-        { t: "(it rhymes with “yawn”)", x: [
-          "(it rhymes with “yawn,” minus the w)"
+        "Hi, I'm Jan ",
+        { t: "(it rhymes with "yawn")", x: [
+          "(it rhymes with "yawn," minus the w)"
         ]},
-        ". I’ve spent most of my career helping people figure out ",
+        ". I've spent most of my career helping people figure out ",
         { t: "what to build — and what not to", x: [
           "what to build — and, far more often, ",
           { t: "what not to", x: [
@@ -373,30 +311,30 @@
         { t: "build small things with AI", x: [
           "build small things with AI — little apps that save an hour here, half an hour there. ",
           { t: "None of them are much to look at", x: [
-            "None of them are much to look at — that’s sort of the point. I’m building this site the same way: partly to ship something, partly to find out where AI-assisted work quietly falls apart"
+            "None of them are much to look at — that's sort of the point. I'm building this site the same way: partly to ship something, partly to find out where AI-assisted work quietly falls apart"
           ]}
         ]},
         ". I live in Ljubljana and work with people everywhere."
       ],
       w1: [ "Complexity Diagnostic" ],
       w1d: [
-        "I go through everything you’re running and tell you plainly what’s costing you. Not “you could optimise here.” More like: this tool does nothing the other one doesn’t; these three steps shouldn’t exist; nobody’s opened this since March. ",
+        "I go through everything you're running and tell you plainly what's costing you. Not "you could optimise here." More like: this tool does nothing the other one doesn't; these three steps shouldn't exist; nobody's opened this since March. ",
         { t: "What you get →", x: [
           "Five working days, then a short, honest write-up: what to cut, and the one thing worth building."
         ]}
       ],
       w2: [ "Quiet Systems" ],
       w2d: [
-        "Tell me about the workflow that eats your week — stitched across three tools, breaking every time someone’s on holiday. I’ll build one small thing that just handles it. One job, nothing extra. ",
+        "Tell me about the workflow that eats your week — stitched across three tools, breaking every time someone's on holiday. I'll build one small thing that just handles it. One job, nothing extra. ",
         { t: "What you get →", x: [
           "Live in under two weeks, scoped and fixed up front. No surprise invoices."
         ]}
       ],
       filter: [
-        { t: "This probably isn’t for you if —", x: [
-          "This probably isn’t for you if you want a chatbot because a competitor shipped one, if you want to “do AI” without naming what’s actually broken, or if you want a board demo instead of two hours saved on a Tuesday. ",
-          { t: "When I’m at my best", x: [
-            "I’m at my best when you have a specific problem and just want it gone. Not managed. Not workshopped. Gone."
+        { t: "This probably isn't for you if —", x: [
+          "This probably isn't for you if you want a chatbot because a competitor shipped one, if you want to "do AI" without naming what's actually broken, or if you want a board demo instead of two hours saved on a Tuesday. ",
+          { t: "When I'm at my best", x: [
+            "I'm at my best when you have a specific problem and just want it gone. Not managed. Not workshopped. Gone."
           ]}
         ]}
       ]
