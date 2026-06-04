@@ -114,6 +114,18 @@ a {
 }
 a:hover { text-decoration-color: #e8e8e8; }
 
+/* Philosophy */
+.philosophy { margin-top: 3.5rem; margin-bottom: 0; }
+
+/* Posts */
+.posts { margin-top: 5rem; }
+.posts-intro { color: #888; margin-bottom: 2.5rem; }
+.post { margin-bottom: 3rem; }
+.post-date { font-size: 0.85rem; color: #555; margin-bottom: 0.2em; }
+.post-title { font-size: 1rem; margin-bottom: 0.6em; font-weight: 400; }
+.post p { margin-bottom: 0.6em; }
+.post p:last-child { margin-bottom: 0; }
+
 /* Footer */
 footer {
   margin-top: 4rem;
@@ -125,7 +137,7 @@ footer {
 <body>
 
   <header>
-    <a href="/" class="name">JAN KOŠUTNIK</a>
+    <a href="/" class="name">KOŠUTNIK</a>
     <div>
       <button id="expand-btn" onclick="expandAll()">Expand all</button>
       <button id="shrink-btn" onclick="shrinkAll()" style="display:none">Shrink all</button>
@@ -136,6 +148,8 @@ footer {
   <p class="intro">I'm <span class="t"><span class="s" onclick="ex(this)">Jan</span><span class="l">Jan (pronounced like "yawn", without the w)</span></span>. I help <span class="t"><span class="s" onclick="ex(this)">businesses</span><span class="l">businesses that have more going on than they need and less actually working than they want - too many tools, broken processes, or decisions nobody <span class="t"><span class="s" onclick="ex(this)">questioned</span><span class="l">stopped to question before the work started</span></span></span></span>. I've worked in <span class="t"><span class="s" onclick="ex(this)">design, development and testing</span><span class="l">design, development, and quality testing across <span class="t"><span class="s" onclick="ex(this)">different companies</span><span class="l">different companies - not to cover every base, but to understand where things go wrong. It's almost never a technical problem. It's a bad decision made early, before anyone asked whether the approach was right</span></span></span></span>. Most of what I build now uses <span class="t"><span class="s" onclick="ex(this)">AI</span><span class="l">AI - not the kind that looks impressive in a presentation, but the kind that quietly does <span class="t"><span class="s" onclick="ex(this)">one specific job</span><span class="l">one specific job, reliably, every time. I'm based in Ljubljana. I work with people everywhere</span></span></span></span>. You're running more tools than you need. There's a process in your business everyone has accepted as normal. AI doesn't fix broken processes. <span class="t"><span class="s" onclick="ex(this)">Email me three sentences.</span><span class="l">Email me three sentences — what the problem is, why it matters now, and what you've already tried. <a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a></span></span></p>
 
   <p class="contact"><a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a>&thinsp;&middot;&thinsp;<a href="https://x.com/JanKosutnik">@JanKosutnik</a>&thinsp;&middot;&thinsp;<a href="https://pub.hyperagent.com/p/o3PWMYflHx06xQeUujNiMW23QuAgs6vYX2miQTITn8g?v=1#">LinkedIn</a>&thinsp;&middot;&thinsp;<a href="tel:+38631492475">+386 31 492 475</a></p>
+
+  <p class="philosophy">My work starts from <span class="t"><span class="s" onclick="ex(this)">first principles</span><span class="l">first principles — reasoning up from what is irreducibly true, rather than down from what is merely assumed</span></span>, proceeds by <span class="t"><span class="s" onclick="ex(this)">less</span><span class="l">less — not the absence of things, but the removal of everything that was never load-bearing</span></span>, and aims at <span class="t"><span class="s" onclick="ex(this)">calm</span><span class="l">calm — software that makes no demand it cannot justify, and raises its voice for nothing</span></span>.</p>
 
   <!-- NOTES — add, remove, or reorder items freely -->
   <div class="notes">
@@ -152,6 +166,24 @@ footer {
       <li>Every product worth respecting was shaped by what it refused to become.</li>
       <li>Simple is harder than complex. That's why so few things are.</li>
     </ol>
+  </div>
+
+  <div class="posts">
+    <p class="posts-intro">Below, occasionally, I post what I'm thinking about.</p>
+
+    <article class="post">
+      <p class="post-date">2026.05.18</p>
+      <h2 class="post-title">On removing things</h2>
+      <p>Most of the work is subtraction. You start with the obvious additions — a feature, a label, a reassurance — and then you spend the real time finding which of them were never holding anything up.</p>
+      <p>What remains after that is not a smaller version of the thing. It is the thing, finally legible.</p>
+    </article>
+
+    <article class="post">
+      <p class="post-date">2026.04.02</p>
+      <h2 class="post-title">Notes toward a calmer interface</h2>
+      <p>A calm interface is one that has finished talking. It states what is true, offers what is needed and gets out of the way so you can think.</p>
+      <p>Every animation, badge and nudge should have to argue for its existence. Most of them lose the argument.</p>
+    </article>
   </div>
 
   <footer>All rights reserved. Made with discipline in Ljubljana.</footer>
