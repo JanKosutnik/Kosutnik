@@ -116,7 +116,10 @@ footer {
 
   <header>
     <a href="/" class="name">JAN KOŠUTNIK</a>
-    <button id="expand-btn" onclick="expandAll()">Expand all</button>
+    <div>
+      <button id="expand-btn" onclick="expandAll()">Expand all</button>
+      <button id="shrink-btn" onclick="shrinkAll()" style="display:none">Shrink all</button>
+    </div>
   </header>
 
   <!-- INTRO + CONTACT -->
@@ -148,6 +151,12 @@ function ex(s) { s.parentElement.classList.add('on'); }
 function expandAll() {
   document.querySelectorAll('.t').forEach(t => t.classList.add('on'));
   document.getElementById('expand-btn').style.display = 'none';
+  document.getElementById('shrink-btn').style.display = '';
+}
+function shrinkAll() {
+  document.querySelectorAll('.t').forEach(t => t.classList.remove('on'));
+  document.getElementById('shrink-btn').style.display = 'none';
+  document.getElementById('expand-btn').style.display = '';
 }
 </script>
 </body>
