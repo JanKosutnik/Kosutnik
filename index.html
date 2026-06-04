@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kosutnik.com</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -15,7 +15,7 @@ html { font-size: clamp(16px, 12.8px + 0.85vw, 23px); }
 body {
   background: #111;
   color: #e8e8e8;
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'PT Serif', serif;
   font-size: 1rem;
   line-height: 1.78;
   padding: 3rem 3rem 7rem;
@@ -118,8 +118,10 @@ a:hover { text-decoration-color: #e8e8e8; }
 .posts { margin-top: 5rem; }
 .posts-intro { color: #888; margin-bottom: 2.5rem; }
 .post { margin-bottom: 3rem; }
-.post-date { font-size: 0.85rem; color: #555; margin-bottom: 0.2em; }
-.post-title { font-size: 1rem; margin-bottom: 0.6em; font-weight: 400; }
+.post summary { list-style: none; cursor: pointer; display: flex; gap: 1.5rem; align-items: baseline; }
+.post summary::-webkit-details-marker { display: none; }
+.post details[open] summary { margin-bottom: 0.75em; }
+.post-date { font-size: 0.85rem; color: #555; white-space: nowrap; }
 .post p { margin-bottom: 0.6em; }
 .post p:last-child { margin-bottom: 0; }
 
@@ -142,7 +144,7 @@ footer {
   </header>
 
   <!-- INTRO + CONTACT -->
-  <p class="intro">I'm <span class="t"><span class="s" onclick="ex(this)">Jan</span><span class="l">Jan (pronounced like "yawn", without the w)</span></span>. I help <span class="t"><span class="s" onclick="ex(this)">businesses</span><span class="l">businesses that have more going on than they need and less actually working than they want - too many tools, broken processes, or decisions nobody <span class="t"><span class="s" onclick="ex(this)">questioned</span><span class="l">stopped to question before the work started</span></span></span></span>. I've worked in <span class="t"><span class="s" onclick="ex(this)">design, development and testing</span><span class="l">design, development, and quality testing across <span class="t"><span class="s" onclick="ex(this)">different companies</span><span class="l">different companies - not to cover every base, but to understand where things go wrong. It's almost never a technical problem. It's a bad decision made early, before anyone asked whether the approach was right</span></span></span></span>. Most of what I build now uses <span class="t"><span class="s" onclick="ex(this)">AI</span><span class="l">AI - not the kind that looks impressive in a presentation, but the kind that quietly does <span class="t"><span class="s" onclick="ex(this)">one specific job</span><span class="l">one specific job, reliably, every time. I'm based in Ljubljana. I work with people everywhere</span></span></span></span>. My work starts from <span class="t"><span class="s" onclick="ex(this)">first principles</span><span class="l">first principles - reasoning up from what is irreducibly true, rather than down from what is merely assumed</span></span>, proceeds by <span class="t"><span class="s" onclick="ex(this)">less</span><span class="l">less - not the absence of things, but the removal of everything that was never load-bearing</span></span>, and aims at <span class="t"><span class="s" onclick="ex(this)">calm</span><span class="l">calm - software that makes no demand it cannot justify, and raises its voice for nothing</span></span>. You're running more tools than you need. There's a process in your business everyone has accepted as normal. AI doesn't fix broken processes. <span class="t"><span class="s" onclick="ex(this)">Email me three sentences.</span><span class="l">Email me three sentences - what the problem is, why it matters now, and what you've already tried. <a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a></span></span></p>
+  <p class="intro">I'm <span class="t"><span class="s" onclick="ex(this)">Jan</span><span class="l">Jan (pronounced like "yawn", without the w)</span></span>. I help <span class="t"><span class="s" onclick="ex(this)">businesses</span><span class="l">businesses that have more going on than they need and less actually working than they want - too many tools, broken processes, or decisions nobody <span class="t"><span class="s" onclick="ex(this)">questioned</span><span class="l">stopped to question before the work started</span></span></span></span>. I've worked in <span class="t"><span class="s" onclick="ex(this)">design, development and testing</span><span class="l">design, development and quality testing across <span class="t"><span class="s" onclick="ex(this)">different companies</span><span class="l">different companies - not to cover every base, but to understand where things go wrong. It's almost never a technical problem. It's a bad decision made early, before anyone asked whether the approach was right</span></span></span></span>. Most of what I build now uses <span class="t"><span class="s" onclick="ex(this)">AI</span><span class="l">AI - not the kind that looks impressive in a presentation, but the kind that quietly does <span class="t"><span class="s" onclick="ex(this)">one specific job</span><span class="l">one specific job, reliably, every time. I'm based in Ljubljana. I work with people everywhere</span></span></span></span>. My work starts from <span class="t"><span class="s" onclick="ex(this)">first principles</span><span class="l">first principles - reasoning up from what is irreducibly true, rather than down from what is merely assumed</span></span>, proceeds by <span class="t"><span class="s" onclick="ex(this)">less</span><span class="l">less - not the absence of things, but the removal of everything that was never load-bearing</span></span> and aims at <span class="t"><span class="s" onclick="ex(this)">calm</span><span class="l">calm - software that makes no demand it cannot justify and raises its voice for nothing</span></span>. You're running more tools than you need. There's a process in your business everyone has accepted as normal. AI doesn't fix broken processes. <span class="t"><span class="s" onclick="ex(this)">Email me three sentences.</span><span class="l">Email me three sentences - what the problem is, why it matters now and what you've already tried. <a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a></span></span></p>
 
   <p class="contact"><a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a>&thinsp;&middot;&thinsp;<a href="https://x.com/JanKosutnik">@JanKosutnik</a>&thinsp;&middot;&thinsp;<a href="https://pub.hyperagent.com/p/o3PWMYflHx06xQeUujNiMW23QuAgs6vYX2miQTITn8g?v=1#">LinkedIn</a>&thinsp;&middot;&thinsp;<a href="tel:+38631492475">+386 31 492 475</a></p>
 
@@ -153,7 +155,7 @@ footer {
       <li>Most software isn't built for you. It's built to keep you inside it.</li>
       <li>Everyone calls it a productivity tool. Nobody counts the hours it costs to run.</li>
       <li>At some point you stopped being the user. Now you're the subscription that funds their next feature.</li>
-      <li>Removing a feature takes conviction, a meeting, and someone willing to look boring. Most teams never find that person.</li>
+      <li>Removing a feature takes conviction, a meeting and someone willing to look boring. Most teams never find that person.</li>
       <li>The best tool is the one you stop thinking about.</li>
       <li>Before you automate anything, ask if it should exist at all.</li>
       <li>AI doesn't fix a broken process. It makes the broken parts happen faster.</li>
@@ -167,17 +169,19 @@ footer {
     <p class="posts-intro">Below, occasionally, I post what I'm thinking about.</p>
 
     <article class="post">
-      <p class="post-date">2026.05.18</p>
-      <h2 class="post-title">On removing things</h2>
-      <p>Most of the work is subtraction. You start with the obvious additions - a feature, a label, a reassurance - and then you spend the real time finding which of them were never holding anything up.</p>
-      <p>What remains after that is not a smaller version of the thing. It is the thing, finally legible.</p>
+      <details>
+        <summary><span class="post-date">2026.05.18</span>On removing things</summary>
+        <p>Most of the work is subtraction. You start with the obvious additions - a feature, a label, a reassurance - and then you spend the real time finding which of them were never holding anything up.</p>
+        <p>What remains after that is not a smaller version of the thing. It is the thing, finally legible.</p>
+      </details>
     </article>
 
     <article class="post">
-      <p class="post-date">2026.04.02</p>
-      <h2 class="post-title">Notes toward a calmer interface</h2>
-      <p>A calm interface is one that has finished talking. It states what is true, offers what is needed and gets out of the way so you can think.</p>
-      <p>Every animation, badge and nudge should have to argue for its existence. Most of them lose the argument.</p>
+      <details>
+        <summary><span class="post-date">2026.04.02</span>Notes toward a calmer interface</summary>
+        <p>A calm interface is one that has finished talking. It states what is true, offers what is needed and gets out of the way so you can think.</p>
+        <p>Every animation, badge and nudge should have to argue for its existence. Most of them lose the argument.</p>
+      </details>
     </article>
   </div>
 
