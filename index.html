@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>kosutnik.com</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -24,13 +24,31 @@ body {
 
 /* Header */
 header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 4rem;
+  align-items: center;
+  margin: -3rem -3rem 4rem;
+  padding: 1.75rem 3rem;
+  background: rgba(17, 17, 17, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   font-size: 1rem;
 }
 header .name { letter-spacing: 0.04em; text-decoration: none; }
+#expand-btn {
+  background: none;
+  border: none;
+  color: #555;
+  font-family: inherit;
+  font-size: 0.8rem;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: 0.03em;
+}
+#expand-btn:hover { color: #e8e8e8; }
 
 /* Telescopic — background highlight like telescopictext.org */
 .t > .l { display: none; }
@@ -70,7 +88,7 @@ header .name { letter-spacing: 0.04em; text-decoration: none; }
   line-height: 1.6;
 }
 .notes ol li::before {
-  content: counter(notes);
+  content: counter(notes) ".";
   font-size: 1rem;
   padding-top: 0.02em;
   color: #e8e8e8;
@@ -98,6 +116,7 @@ footer {
 
   <header>
     <a href="/" class="name">JAN KOŠUTNIK</a>
+    <button id="expand-btn" onclick="expandAll()">Expand all</button>
   </header>
 
   <!-- INTRO + CONTACT -->
@@ -126,6 +145,10 @@ footer {
 
 <script>
 function ex(s) { s.parentElement.classList.add('on'); }
+function expandAll() {
+  document.querySelectorAll('.t').forEach(t => t.classList.add('on'));
+  document.getElementById('expand-btn').style.display = 'none';
+}
 </script>
 </body>
 </html>
