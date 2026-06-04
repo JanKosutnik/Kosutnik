@@ -49,6 +49,16 @@ header .name { letter-spacing: 0.04em; text-decoration: none; }
   letter-spacing: 0.03em;
 }
 #expand-btn:hover, #shrink-btn:hover { color: #e8e8e8; }
+header::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2rem;
+  height: 2rem;
+  background: linear-gradient(to bottom, rgba(17,17,17,0.6), transparent);
+  pointer-events: none;
+}
 
 /* Telescopic — background highlight like telescopictext.org */
 .t > .l { display: none; }
