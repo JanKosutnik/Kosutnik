@@ -39,17 +39,6 @@ header {
 }
 header { font-family: 'IBM Plex Sans', sans-serif; }
 header .name { letter-spacing: 0.04em; text-decoration: none; }
-#expand-btn, #shrink-btn {
-  background: none;
-  border: none;
-  color: #0000ff;
-  font-family: inherit;
-  font-size: 0.8rem;
-  cursor: pointer;
-  padding: 0;
-  letter-spacing: 0.03em;
-}
-#expand-btn:hover, #shrink-btn:hover { color: #16181c; }
 header::after {
   content: '';
   position: absolute;
@@ -61,21 +50,10 @@ header::after {
   pointer-events: none;
 }
 
-/* Telescopic - background highlight like telescopictext.org */
-.t > .l { display: none; }
-.t.on > .s { display: none; }
-.t.on > .l { display: inline; }
-.t > .s {
-  cursor: pointer;
-  background: #e0e2e5;
-  border-radius: 2px;
-  padding: 0 3px;
-  text-decoration: none;
-}
-.t > .s:hover { background: #d0d3d7; }
 
 /* Spacing */
 .intro { margin-bottom: 3.5rem; }
+.intro p + p { margin-top: 1.4em; }
 .contact { margin-bottom: 0; }
 
 /* Notes */
@@ -141,16 +119,17 @@ footer {
 
   <header>
     <a href="/" class="name">KOŠUTNIK</a>
-    <div>
-      <button id="expand-btn" onclick="expandAll()">Expand all</button>
-      <button id="shrink-btn" onclick="shrinkAll()" style="display:none">Shrink all</button>
-    </div>
   </header>
 
   <!-- INTRO + CONTACT -->
-  <p class="intro">I'm <span class="t"><span class="s" onclick="ex(this)">Jan</span><span class="l">Jan (pronounced like "yawn", without the w)</span></span>. I help <span class="t"><span class="s" onclick="ex(this)">businesses</span><span class="l">businesses that have more going on than they need and less actually working than they want - too many tools, broken processes, or decisions nobody <span class="t"><span class="s" onclick="ex(this)">questioned</span><span class="l">stopped to question before the work started</span></span></span></span>. I've worked in <span class="t"><span class="s" onclick="ex(this)">design, development and testing</span><span class="l">design, development and quality testing across <span class="t"><span class="s" onclick="ex(this)">different companies</span><span class="l">different companies - not to cover every base, but to understand where things go wrong. It's almost never a technical problem. It's a bad decision made early, before anyone asked whether the approach was right</span></span></span></span>. Most of what I build now uses <span class="t"><span class="s" onclick="ex(this)">AI</span><span class="l">AI - not the kind that looks impressive in a presentation, but the kind that quietly does <span class="t"><span class="s" onclick="ex(this)">one specific job</span><span class="l">one specific job, reliably, every time. I'm based in Ljubljana. I work with people everywhere</span></span></span></span>. My work starts from <span class="t"><span class="s" onclick="ex(this)">first principles</span><span class="l">first principles - reasoning up from what is irreducibly true, rather than down from what is merely assumed</span></span>, proceeds by <span class="t"><span class="s" onclick="ex(this)">less</span><span class="l">less - not the absence of things, but the removal of everything that was never load-bearing</span></span> and aims at <span class="t"><span class="s" onclick="ex(this)">calm</span><span class="l">calm - software that makes no demand it cannot justify and raises its voice for nothing</span></span>. You're running more tools than you need. There's a process in your business everyone has accepted as normal. AI doesn't fix broken processes. <span class="t"><span class="s" onclick="ex(this)">Email me three sentences.</span><span class="l">Email me three sentences - what the problem is, why it matters now and what you've already tried. <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a></span></span></p>
+  <div class="intro">
+    <p>I'm Jan (pronounced like "yawn", without the w). I help businesses that have too much going on and too little actually working - too many tools, broken processes, or decisions nobody stopped to question before the work began. I've worked in design, development, and quality testing across different companies - not to cover everything, but to understand where things go wrong. It's almost never a technical problem. It's usually a poor decision made early, before anyone asked whether the approach made sense. Most of what I build now uses AI - not the kind that looks impressive in a meeting, but the kind that quietly handles one specific thing, without anyone needing to manage it. I try to understand what's actually needed before building anything, cut what isn't earning its place, and build things that stay out of your way. I'm based in Ljubljana. I work with people everywhere.</p>
+    <p>You're running more tools than you need - some bought to solve problems that no longer exist, some doing the same thing as something else you already have. The real cost isn't the subscription; it's the time spent learning it, explaining it, and deciding every year whether to keep it..</p>
+    <p>There's a process in your business everyone has accepted as normal - it runs across several tools, involves a lot of copying and pasting, and falls apart whenever someone's away. It's not really a system; it just feels like one by now..</p>
+    <p>AI doesn't fix broken processes - it makes them run faster. The right question isn't "how do we use AI?" It's "what's actually the problem, and is AI the right fix?" When it is, you get something small: one thing in, one thing out, working in the background. Email me three sentences - what the problem is, why it matters now and what you've already tried.</p>
+  </div>
 
-  <p class="contact"><a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>&thinsp;&middot;&thinsp;<a href="https://x.com/JanKosutnik">@JanKosutnik</a>&thinsp;&middot;&thinsp;<a href="https://pub.hyperagent.com/p/o3PWMYflHx06xQeUujNiMW23QuAgs6vYX2miQTITn8g?v=1#">LinkedIn</a>&thinsp;&middot;&thinsp;<a href="tel:+38631492475">+386 31 492 475</a></p>
+  <p class="contact"><a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>&thinsp;&middot;&thinsp;<a href="https://x.com/JanKosutnik">@JanKosutnik</a>&thinsp;&middot;&thinsp;<a href="https://pub.hyperagent.com/p/o3PWMYflHx06xQeUujNiMW23QuAgs6vYX2miQTITn8g?v=1#">LinkedIn</a>&thinsp;&middot;&thinsp;<a href="tel:+38631492475">+386 31 492 475</a>.</p>
 
   <!-- NOTES - add, remove, or reorder items freely -->
   <div class="notes">
@@ -191,18 +170,5 @@ footer {
 
   <footer>All rights reserved. Made with discipline in Ljubljana.</footer>
 
-<script>
-function ex(s) { s.parentElement.classList.add('on'); }
-function expandAll() {
-  document.querySelectorAll('.t').forEach(t => t.classList.add('on'));
-  document.getElementById('expand-btn').style.display = 'none';
-  document.getElementById('shrink-btn').style.display = '';
-}
-function shrinkAll() {
-  document.querySelectorAll('.t').forEach(t => t.classList.remove('on'));
-  document.getElementById('shrink-btn').style.display = 'none';
-  document.getElementById('expand-btn').style.display = '';
-}
-</script>
 </body>
 </html>
