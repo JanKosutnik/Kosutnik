@@ -126,6 +126,19 @@ a:hover { text-decoration-color: #16181c; }
 .post p { margin-bottom: 0.6em; }
 .post p:last-child { margin-bottom: 0; }
 
+/* Tide hero */
+.tide-wrap {
+  margin: -4rem -3rem 4.5rem;
+  height: clamp(300px, 46vh, 460px);
+  overflow: hidden;
+  position: relative;
+}
+.tide-wrap canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* Footer */
 footer {
   margin-top: 4rem;
@@ -144,6 +157,8 @@ footer {
       <button id="shrink-btn" onclick="shrinkAll()" style="display:none">Shrink all</button>
     </div>
   </header>
+
+  <div class="tide-wrap"><canvas id="tide"></canvas></div>
 
   <!-- INTRO + CONTACT -->
   <p class="intro">I'm <span class="t"><span class="s" onclick="ex(this)">Jan</span><span class="l">Jan (pronounced like "yawn", without the w)</span></span>. I help <span class="t"><span class="s" onclick="ex(this)">businesses</span><span class="l">businesses that have more going on than they need and less actually working than they want - too many tools, broken processes, or decisions nobody <span class="t"><span class="s" onclick="ex(this)">questioned</span><span class="l">stopped to question before the work started</span></span></span></span>. I've worked in <span class="t"><span class="s" onclick="ex(this)">design, development and testing</span><span class="l">design, development and quality testing across <span class="t"><span class="s" onclick="ex(this)">different companies</span><span class="l">different companies - not to cover every base, but to understand where things go wrong. It's almost never a technical problem. It's a bad decision made early, before anyone asked whether the approach was right</span></span></span></span>. Most of what I build now uses <span class="t"><span class="s" onclick="ex(this)">AI</span><span class="l">AI - not the kind that looks impressive in a presentation, but the kind that quietly does <span class="t"><span class="s" onclick="ex(this)">one specific job</span><span class="l">one specific job, reliably, every time. I'm based in Ljubljana. I work with people everywhere</span></span></span></span>. My work starts from <span class="t"><span class="s" onclick="ex(this)">first principles</span><span class="l">first principles - reasoning up from what is irreducibly true, rather than down from what is merely assumed</span></span>, proceeds by <span class="t"><span class="s" onclick="ex(this)">less</span><span class="l">less - not the absence of things, but the removal of everything that was never load-bearing</span></span> and aims at <span class="t"><span class="s" onclick="ex(this)">calm</span><span class="l">calm - software that makes no demand it cannot justify and raises its voice for nothing</span></span>. You're running more tools than you need. There's a process in your business everyone has accepted as normal. AI doesn't fix broken processes. <span class="t"><span class="s" onclick="ex(this)">Email me three sentences.</span><span class="l">Email me three sentences - what the problem is, why it matters now and what you've already tried. <a href="mailto:jan@kindspace.studio">jan@kindspace.studio</a></span></span></p>
@@ -201,6 +216,170 @@ function shrinkAll() {
   document.getElementById('shrink-btn').style.display = 'none';
   document.getElementById('expand-btn').style.display = '';
 }
+</script>
+<script>
+(() => {
+  'use strict';
+  const canvas = document.getElementById('tide');
+  const ctx    = canvas.getContext('2d');
+  const wrap   = canvas.parentElement;
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const darkMQ  = window.matchMedia('(prefers-color-scheme: dark)');
+  let dark = darkMQ.matches;
+
+  const N_STREAKS = 110;
+  const streaks = Array.from({ length: N_STREAKS }, () => ({
+    rx:    (Math.random() - 0.5) * 2,
+    phase: Math.random() * Math.PI * 2,
+    speed: 0.7 + Math.random() * 2.4,
+    baseOp: 0.055 + Math.random() * 0.22,
+    lenF:  0.3 + Math.random() * 0.7,
+    lw:    0.5 + Math.random() * 1.0,
+  }));
+
+  let W = 0, H = 0, DPR = 1;
+  let elapsed = 0, lastTs = 0, raf = null, visible = true;
+  let ptrX = -1, smoothX = -1, onCanvas = false;
+  let lastRipX = -1, lastRipAt = 0;
+  const MAX_RIPS = 16, RIP_LIFE = 3.0;
+  let ripples = [];
+
+  function getPal() {
+    return dark ? {
+      bgTop: '#0e1012', bgHoriz: '#111519',
+      waterTop: 'rgba(16,22,30,0.96)', waterBot: 'rgba(6,9,12,1)',
+      lineRgba: 'rgba(235,237,238,0.50)', sunRgba: 'rgba(235,237,238,0.88)',
+      glowC: [235,237,238], refC: [235,237,238],
+    } : {
+      bgTop: '#f4f5f5', bgHoriz: '#eceef0',
+      waterTop: 'rgba(200,210,218,0.70)', waterBot: 'rgba(162,175,188,0.92)',
+      lineRgba: 'rgba(22,24,28,0.38)', sunRgba: 'rgba(22,24,28,0.72)',
+      glowC: [22,24,28], refC: [22,24,28],
+    };
+  }
+  let pal = getPal();
+  darkMQ.addEventListener('change', e => { dark = e.matches; pal = getPal(); });
+
+  function baseY(x, t) {
+    const b = H * 0.52;
+    return b
+      + H * 0.0065 * Math.sin(x / (W * 0.32) * Math.PI * 2 + t * 0.38)
+      + H * 0.004  * Math.sin(x / (W * 0.16) * Math.PI * 2 + t * 0.23 + 1.3)
+      + H * 0.003  * Math.sin(x / (W * 0.58) * Math.PI * 2 + t * 0.12 + 2.7);
+  }
+
+  function ripDelta(x) {
+    let d = 0;
+    for (const r of ripples) {
+      const p = r.age / RIP_LIFE, decay = Math.pow(1 - p, 1.8);
+      const front = W * 0.30 * p, dist = Math.abs(x - r.x);
+      const sigma = W * 0.038 + front * 0.20;
+      const env   = Math.exp(-Math.pow(dist - front, 2) / (2 * sigma * sigma));
+      d += Math.sin((dist / (W * 0.024) - r.age * 7.0) * Math.PI * 2) * env * decay * H * 0.014;
+    }
+    return d;
+  }
+
+  function waterY(x, t) { return baseY(x, t) + ripDelta(x); }
+
+  function resize() {
+    const rect = wrap.getBoundingClientRect();
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = rect.width; H = rect.height;
+    canvas.width  = Math.round(W * DPR);
+    canvas.height = Math.round(H * DPR);
+    ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+  }
+  let rzTimer;
+  const schedResize = () => { clearTimeout(rzTimer); rzTimer = setTimeout(resize, 185); };
+  const ro = window.ResizeObserver ? new ResizeObserver(schedResize) : null;
+  if (ro) ro.observe(wrap); else window.addEventListener('resize', schedResize);
+  const io = window.IntersectionObserver
+    ? new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible && !raf && !REDUCED) startLoop(); }, { threshold: 0 })
+    : null;
+  if (io) io.observe(canvas);
+
+  function draw(dt) {
+    if (!W || !H) return;
+    elapsed += dt;
+    const t = elapsed;
+    ripples.forEach(r => { r.age += dt; });
+    ripples = ripples.filter(r => r.age < RIP_LIFE);
+    if (onCanvas && ptrX >= 0) smoothX = smoothX < 0 ? ptrX : smoothX + (ptrX - smoothX) * 0.1;
+    ctx.clearRect(0, 0, W, H);
+
+    const skyG = ctx.createLinearGradient(0, 0, 0, H * 0.54);
+    skyG.addColorStop(0, pal.bgTop); skyG.addColorStop(1, pal.bgHoriz);
+    ctx.fillStyle = skyG; ctx.fillRect(0, 0, W, H);
+
+    const sunX = W * 0.72, sunY = H * 0.20, sunR = Math.min(W, H) * 0.032, glR = sunR * 6;
+    const [gc0,gc1,gc2] = pal.glowC;
+    const glowG = ctx.createRadialGradient(sunX, sunY, sunR * 0.5, sunX, sunY, glR);
+    glowG.addColorStop(0, `rgba(${gc0},${gc1},${gc2},0.16)`);
+    glowG.addColorStop(0.4, `rgba(${gc0},${gc1},${gc2},0.06)`);
+    glowG.addColorStop(1, `rgba(${gc0},${gc1},${gc2},0)`);
+    ctx.fillStyle = glowG; ctx.beginPath(); ctx.arc(sunX, sunY, glR, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = pal.sunRgba; ctx.beginPath(); ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2); ctx.fill();
+
+    const step = Math.max(1, Math.ceil(W / 500));
+    const pts = [];
+    for (let x = 0; x <= W; x += step) pts.push([x, waterY(x, t)]);
+    if (pts[pts.length - 1][0] < W) pts.push([W, waterY(W, t)]);
+
+    ctx.save();
+    ctx.beginPath();
+    ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+    ctx.lineTo(W, H); ctx.lineTo(0, H); ctx.closePath(); ctx.clip();
+
+    const wg = ctx.createLinearGradient(0, H * 0.50, 0, H);
+    wg.addColorStop(0, pal.waterTop); wg.addColorStop(1, pal.waterBot);
+    ctx.fillStyle = wg; ctx.fillRect(0, 0, W, H);
+
+    const [rr,rg,rb] = pal.refC, spread = W * 0.22;
+    for (const s of streaks) {
+      const sx = sunX + s.rx * spread;
+      if (sx < -2 || sx > W + 2) continue;
+      const df = Math.exp(-(s.rx * s.rx) / 0.56);
+      const op = s.baseOp * df * (0.45 + 0.55 * Math.sin(s.phase + t * s.speed));
+      if (op < 0.005) continue;
+      const wy = waterY(sx, t), len = H * 0.062 * s.lenF * df;
+      ctx.strokeStyle = `rgba(${rr},${rg},${rb},${op.toFixed(3)})`;
+      ctx.lineWidth = s.lw;
+      ctx.beginPath(); ctx.moveTo(sx, wy + 1.5); ctx.lineTo(sx, wy + 1.5 + len); ctx.stroke();
+    }
+    ctx.restore();
+
+    ctx.strokeStyle = pal.lineRgba; ctx.lineWidth = 1; ctx.lineJoin = 'round';
+    ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+    for (let i = 1; i < pts.length; i++) ctx.lineTo(pts[i][0], pts[i][1]);
+    ctx.stroke();
+  }
+
+  function loop(ts) {
+    if (!visible) { raf = null; return; }
+    const dt = lastTs ? Math.min((ts - lastTs) * 0.001, 0.05) : 0.016;
+    lastTs = ts; draw(dt); raf = requestAnimationFrame(loop);
+  }
+  function startLoop() { if (raf) return; lastTs = 0; raf = requestAnimationFrame(loop); }
+
+  canvas.style.touchAction = 'none';
+  canvas.addEventListener('pointermove', e => {
+    const rect = canvas.getBoundingClientRect();
+    ptrX = e.clientX - rect.left; onCanvas = true;
+    const now = performance.now(), moved = lastRipX < 0 ? W : Math.abs(ptrX - lastRipX);
+    if (moved > W * 0.016 || now - lastRipAt > 210) {
+      if (ripples.length >= MAX_RIPS) ripples.shift();
+      ripples.push({ x: ptrX, age: 0 }); lastRipX = ptrX; lastRipAt = now;
+    }
+  });
+  canvas.addEventListener('pointerenter', () => { onCanvas = true; });
+  canvas.addEventListener('pointerleave', () => { onCanvas = false; smoothX = -1; lastRipX = -1; });
+
+  resize(); pal = getPal();
+  if (REDUCED) draw(0); else startLoop();
+  window.addEventListener('unload', () => { if (ro) ro.disconnect(); if (io) io.disconnect(); if (raf) cancelAnimationFrame(raf); }, { once: true });
+})();
 </script>
 </body>
 </html>
