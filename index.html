@@ -13,8 +13,8 @@
 html { font-size: clamp(16px, 12.8px + 0.85vw, 23px); }
 
 body {
-  background: #111;
-  color: #e8e8e8;
+  background: #f4f5f5;
+  color: #16181c;
   font-family: 'DM Sans', sans-serif;
   font-size: 1rem;
   line-height: 1.78;
@@ -32,7 +32,7 @@ header {
   align-items: center;
   margin: -3rem -3rem 4rem;
   padding: 1.75rem 3rem;
-  background: rgba(17, 17, 17, 0.88);
+  background: rgba(244, 245, 245, 0.88);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   font-size: 1rem;
@@ -49,7 +49,7 @@ header .name { letter-spacing: 0.04em; text-decoration: none; }
   padding: 0;
   letter-spacing: 0.03em;
 }
-#expand-btn:hover, #shrink-btn:hover { color: #e8e8e8; }
+#expand-btn:hover, #shrink-btn:hover { color: #16181c; }
 header::after {
   content: '';
   position: absolute;
@@ -57,7 +57,7 @@ header::after {
   right: 0;
   bottom: -2rem;
   height: 2rem;
-  background: linear-gradient(to bottom, rgba(17,17,17,0.6), transparent);
+  background: linear-gradient(to bottom, rgba(244,245,245,0.6), transparent);
   pointer-events: none;
 }
 
@@ -67,12 +67,12 @@ header::after {
 .t.on > .l { display: inline; }
 .t > .s {
   cursor: pointer;
-  background: #2a2a2a;
+  background: #e0e2e5;
   border-radius: 2px;
   padding: 0 3px;
   text-decoration: none;
 }
-.t > .s:hover { background: #363636; }
+.t > .s:hover { background: #d0d3d7; }
 
 /* Spacing */
 .intro { margin-bottom: 3.5rem; }
@@ -102,18 +102,18 @@ header::after {
   content: counter(notes) ".";
   font-size: 1rem;
   padding-top: 0.02em;
-  color: #e8e8e8;
+  color: #16181c;
 }
 
 /* Links */
 a {
-  color: #e8e8e8;
+  color: #16181c;
   text-decoration: underline;
-  text-decoration-color: #444;
+  text-decoration-color: #b0b4b9;
   text-underline-offset: 3px;
   text-decoration-thickness: 1px;
 }
-a:hover { text-decoration-color: #e8e8e8; }
+a:hover { text-decoration-color: #16181c; }
 
 /* Posts */
 .posts { margin-top: 5rem; }
@@ -130,7 +130,7 @@ a:hover { text-decoration-color: #e8e8e8; }
 footer {
   margin-top: 4rem;
   font-size: 1rem;
-  color: #e8e8e8;
+  color: #16181c;
   font-family: 'DM Sans', sans-serif;
 }
 </style>
