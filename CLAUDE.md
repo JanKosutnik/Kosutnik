@@ -1,5 +1,16 @@
 # Kosutnik — Jan's Personal Website
 
+## Async Agent Workflow
+
+This repository is edited asynchronously by both Codex and Claude Code.
+
+- Work on task branches instead of committing directly to `main`
+- Use `codex/<short-task-name>` for Codex branches and `claude/<short-task-name>` for Claude branches
+- Run `git fetch origin` before starting and check `git status --short` before editing
+- Preserve uncommitted work and avoid overwriting changes made by the other agent
+- When handing off, include the branch name, changed files, commands run, risks, and the suggested next step
+- See `AGENTS.md` for the shared Codex/Claude collaboration protocol
+
 ## Frontend Aesthetics
 
 Make creative, distinctive frontends. Avoid generic "AI slop" aesthetics. Every design decision should feel intentional and specific to this project.
