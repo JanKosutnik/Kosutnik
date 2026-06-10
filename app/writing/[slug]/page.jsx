@@ -1,4 +1,5 @@
 import SiteShell from "@/components/SiteShell";
+import Link from "next/link";
 import { getWriting, getWritingBySlug } from "@/lib/writing";
 
 export function generateStaticParams() {
@@ -11,7 +12,7 @@ export function generateMetadata({ params }) {
   const post = getWritingBySlug(params.slug);
 
   return {
-    title: `${post.title} - KOSUTNIK`
+    title: `${post.title} - Jan Košutnik`
   };
 }
 
@@ -21,6 +22,9 @@ export default function WritingPage({ params }) {
   return (
     <SiteShell>
       <article className="writing-body">
+        <Link className="back-link" href="/#notes">
+          Notes
+        </Link>
         <h1>{post.title}</h1>
         <span className="date">{post.date}</span>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
