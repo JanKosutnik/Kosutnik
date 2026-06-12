@@ -80,7 +80,7 @@ export default function Home() {
           </a>{" "}
           or reach me via{" "}
           <a className="link" href="mailto:jan@kosutnik.com">
-            email
+            jan@kosutnik.com
           </a>
           .
         </p>
