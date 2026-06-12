@@ -39,15 +39,14 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #000;
-  color: #fff;
+  background: var(--paper);
 }
 
 @supports ((-webkit-backdrop-filter: blur(12px)) or (backdrop-filter: blur(12px))) {
   .site-head {
-    background: #000;
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+    background: rgba(246, 245, 241, 0.72);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    backdrop-filter: blur(12px) saturate(140%);
     -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent);
     mask-image: linear-gradient(to bottom, #000 calc(100% - 18px), transparent);
   }
@@ -78,18 +77,18 @@ nav {
 }
 
 nav a {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--faint);
   letter-spacing: 0.01em;
   text-decoration: none;
   transition: color 0.18s ease;
 }
 
 nav a:hover {
-  color: #fff;
+  color: var(--soft);
 }
 
 nav a.active {
-  color: #fff;
+  color: var(--accent);
 }
 
 .wrap {
