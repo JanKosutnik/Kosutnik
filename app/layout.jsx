@@ -1,21 +1,24 @@
+import { Inter } from "next/font/google";
 import "./globals.css";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-inter"
+});
 
 export const metadata = {
   title: "Jan Košutnik",
-  description: "Jan Košutnik - software and AI, made lighter."
+  description: "Jan Košutnik - software and AI, made lighter.",
+  icons: {
+    icon: "/favicon.svg"
+  }
 };
-
-const interStylesheet = "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap";
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preload" as="style" href={interStylesheet} fetchPriority="high" />
-        <link rel="stylesheet" href={interStylesheet} />
-      </head>
+    <html lang="en" className={inter.variable}>
       <body>{children}</body>
     </html>
   );

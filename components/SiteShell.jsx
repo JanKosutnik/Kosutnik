@@ -1,4 +1,3 @@
-import Link from "next/link";
 import HeaderNav from "@/components/HeaderNav";
 import LjubljanaClock from "@/components/LjubljanaClock";
 
@@ -7,9 +6,9 @@ export default function SiteShell({ children }) {
     <>
       <header className="site-head">
         <div className="head-inner">
-          <Link className="brand" href="/#about">
+          <a className="brand" href="/#about">
             Jan Košutnik
-          </Link>
+          </a>
           <HeaderNav />
         </div>
       </header>
