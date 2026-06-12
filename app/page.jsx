@@ -2,6 +2,22 @@ import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import { getWriting } from "@/lib/writing";
 
+const principles = [
+  "Before you build something, ask if it needs to exist at all.",
+  "If you can remove it and nothing breaks, remove it.",
+  "A good tool stays out of your way. The best one, you forget you're using.",
+  "If you need a manual to use it, the design is making you do its job.",
+  "Every feature you add is a promise to keep it working - forever.",
+  "Don't start from what everyone else built. Start from the problem in front of you.",
+  "Count the time a tool costs you, not just the time it saves.",
+  "Anyone can add. The hard part is knowing what to leave out.",
+  "Most \"must-have\" features are just habits no one ever questioned.",
+  "When something feels confusing, it's not you. It's the design.",
+  "Simple isn't less. It's everything that matters and nothing that doesn't.",
+  "A tool should help you finish - not keep you coming back.",
+  "Ask one thing: did this actually make life easier? If not, cut it."
+];
+
 function getWritingGroups(items) {
   return items.reduce((groups, item) => {
     const year = item.date.slice(0, 4);
@@ -44,6 +60,15 @@ export default function Home() {
           Sometimes that means AI. Sometimes it means deleting a tool, changing a process or deciding that the
           impressive thing is the wrong thing.
         </p>
+      </section>
+
+      <section id="principles" className="principles">
+        <h2>Principles</h2>
+        <ol>
+          {principles.map((principle) => (
+            <li key={principle}>{principle}</li>
+          ))}
+        </ol>
       </section>
 
       <section id="notes" className="writing">
