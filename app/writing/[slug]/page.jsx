@@ -1,5 +1,4 @@
 import SiteShell from "@/components/SiteShell";
-import Link from "next/link";
 import { getWriting, getWritingBySlug } from "@/lib/writing";
 
 export function generateStaticParams() {
@@ -22,9 +21,9 @@ export default function WritingPage({ params }) {
   return (
     <SiteShell>
       <article className="writing-body">
-        <Link className="back-link" href="/#notes">
+        <a className="back-link" href="/#notes">
           Notes
-        </Link>
+        </a>
         <h1>{post.title}</h1>
         <span className="date">{post.date}</span>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

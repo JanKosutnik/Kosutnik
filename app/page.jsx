@@ -1,4 +1,3 @@
-import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import { getWriting } from "@/lib/writing";
 
@@ -80,7 +79,7 @@ export default function Home() {
               <ul className="posts">
                 {group.items.map((item) => (
                   <li key={item.slug}>
-                    <Link href={`/writing/${item.slug}/`}>{item.title}</Link>
+                    <a href={`/writing/${item.slug}/`}>{item.title}</a>
                     <time className="d" dateTime={item.date}>
                       {item.displayDate}
                     </time>

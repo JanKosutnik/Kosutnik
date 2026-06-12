@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("/fonts/InterVariable.woff2") format("woff2");
+}
+
 :root {
   --paper: #f6f5f1;
   --ink: #17150f;
@@ -6,7 +14,7 @@
   --faint: #8a857a;
   --accent: #3c5163;
   --measure: 68rem;
-  --sans: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 * {
