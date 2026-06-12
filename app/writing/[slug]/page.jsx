@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import SiteShell from "@/components/SiteShell";
 import { getWriting, getWritingBySlug } from "@/lib/writing";
 
@@ -7,16 +8,17 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }) {
-  const post = getWritingBySlug(params.slug);
-
-  return {
-    title: `${post.title} - Jan Košutnik`
-  };
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const post = getWritingBySlug(slug);
+  if (!post) return { title: "Not found - Jan Košutnik" };
+  return { title: `${post.title} - Jan Košutnik` };
 }
 
-export default function WritingPage({ params }) {
-  const post = getWritingBySlug(params.slug);
+export default async function WritingPage({ params }) {
+  const { slug } = await params;
+  const post = getWritingBySlug(slug);
+  if (!post) notFound();
 
   return (
     <SiteShell>

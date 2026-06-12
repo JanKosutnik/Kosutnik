@@ -1,3 +1,7 @@
+"use client";
+
+import { usePathname } from "next/navigation";
+
 const links = [
   { href: "/#about", label: "about" },
   { href: "/#principles", label: "principles" },
@@ -6,13 +10,18 @@ const links = [
 ];
 
 export default function HeaderNav() {
+  const pathname = usePathname();
+
   return (
     <nav aria-label="Primary">
-      {links.map((link) => (
-        <a href={link.href} key={link.href}>
-          {link.label}
-        </a>
-      ))}
+      {links.map((link) => {
+        const isActive = link.href === "/#notes" && pathname.startsWith("/writing");
+        return (
+          <a href={link.href} key={link.href} className={isActive ? "active" : undefined}>
+            {link.label}
+          </a>
+        );
+      })}
     </nav>
   );
 }

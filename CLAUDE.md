@@ -16,7 +16,8 @@ This repository is edited asynchronously by both Codex and Claude Code.
 Make creative, distinctive frontends. Avoid generic "AI slop" aesthetics. Every design decision should feel intentional and specific to this project.
 
 **Typography**
-- Never use: Inter, Roboto, Open Sans, Lato, or default system fonts
+- This project uses **Inter** (self-hosted subset) — keep it
+- Never use: Roboto, Open Sans, Lato, or default system fonts for new projects
 - Good choices by style:
   - Code/technical: JetBrains Mono, Fira Code, Space Grotesk
   - Editorial: Playfair Display, Crimson Pro, Fraunces

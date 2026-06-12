@@ -1,5 +1,5 @@
 import SiteShell from "@/components/SiteShell";
-import { getWriting } from "@/lib/writing";
+import { getWriting, formatDate } from "@/lib/writing";
 
 const principles = [
   "Before you build something, ask if it needs to exist at all.",
@@ -20,10 +20,8 @@ const principles = [
 function getWritingGroups(items) {
   return items.reduce((groups, item) => {
     const year = item.date.slice(0, 4);
-    const [, month, day] = item.date.split(".");
-    const displayDate = `${day}/${month}`;
     const existingGroup = groups.find((group) => group.year === year);
-    const entry = { ...item, displayDate };
+    const entry = { ...item, displayDate: formatDate(item.date) };
 
     if (existingGroup) {
       existingGroup.items.push(entry);
