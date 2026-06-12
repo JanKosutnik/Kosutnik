@@ -24,7 +24,7 @@ async function getFiles(dir, predicate) {
 function pruneHtml(html) {
   return html
     .replace(/<link\b(?=[^>]*\brel=["']preload["'])(?=[^>]*\bas=["']script["'])[^>]*>/gi, "")
-    .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi, "");
+    .replace(/<script\b(?![^>]*\bdata-keep\b)[^>]*>[\s\S]*?<\/script>/gi, "");
 }
 
 const htmlFiles = await getFiles(outDir, (name) => name.endsWith(".html"));
