@@ -139,16 +139,23 @@ a.back-link {
 }
 
 .principles ol {
+  counter-reset: principle;
+  list-style: none;
   margin: 0;
-  padding-left: 1.3rem;
+  padding: 0;
 }
 
 .principles li {
-  padding-left: 0.2rem;
+  counter-increment: principle;
+  display: grid;
+  grid-template-columns: 2.4rem 1fr;
+  gap: 0.8rem;
   margin-bottom: 0.45rem;
+  padding: 0;
 }
 
-.principles li::marker {
+.principles li::before {
+  content: counter(principle, decimal-leading-zero);
   color: var(--faint);
   font-variant-numeric: tabular-nums;
 }
