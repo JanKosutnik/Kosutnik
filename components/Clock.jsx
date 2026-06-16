@@ -11,7 +11,7 @@ const clockScript = `(function(){
   setInterval(tick, 1000);
 })();`;
 
-export default function LjubljanaClock() {
+export default function Clock() {
   return (
     <footer>
       <div className="foot-inner">

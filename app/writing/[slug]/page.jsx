@@ -3,16 +3,13 @@ import SiteShell from "@/components/SiteShell";
 import { getWriting, getWritingBySlug } from "@/lib/writing";
 
 export function generateStaticParams() {
-  return getWriting().map((item) => ({
-    slug: item.slug
-  }));
+  return getWriting().map(({ slug }) => ({ slug }));
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const post = getWritingBySlug(slug);
-  if (!post) return { title: "Not found - Jan Košutnik" };
-  return { title: `${post.title} - Jan Košutnik` };
+  return { title: post ? `${post.title} — Jan Košutnik` : "Not found — Jan Košutnik" };
 }
 
 export default async function WritingPage({ params }) {
@@ -23,9 +20,7 @@ export default async function WritingPage({ params }) {
   return (
     <SiteShell>
       <article className="writing-body">
-        <a className="back-link" href="/#notes">
-          Notes
-        </a>
+        <a className="back-link" href="/#notes">Notes</a>
         <h1>{post.title}</h1>
         <span className="date">{post.date}</span>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

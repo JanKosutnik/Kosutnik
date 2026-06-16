@@ -43,6 +43,8 @@ a {
   font-size: 1em;
 }
 
+/* ── Layout ── */
+
 .site-head {
   position: sticky;
   top: 0;
@@ -67,6 +69,21 @@ footer {
   padding-block: 1.4rem;
 }
 
+.wrap {
+  min-height: 55vh;
+  padding-block: 1.6rem 3rem;
+}
+
+section {
+  scroll-margin-top: 4.5rem;
+}
+
+main > section + section {
+  margin-top: 2.8rem;
+}
+
+/* ── Header ── */
+
 .brand {
   font-size: 1em;
   font-weight: 600;
@@ -88,28 +105,13 @@ nav a {
 }
 
 nav a:hover,
-nav a.active,
-a.link:hover,
-a.back-link:hover,
-ul.posts a:hover {
+nav a.active {
   color: var(--accent);
 }
 
-.wrap {
-  min-height: 55vh;
-  padding-block: 1.6rem 3rem;
-}
+/* ── Typography ── */
 
-section {
-  scroll-margin-top: 4.5rem;
-}
-
-main > section + section {
-  margin-top: 2.8rem;
-}
-
-p,
-.principles li {
+p {
   margin: 0 0 1.4rem;
   color: var(--body);
   font-size: 1em;
@@ -136,6 +138,7 @@ a.link {
 }
 
 a.link:hover {
+  color: var(--accent);
   text-decoration-color: var(--accent);
 }
 
@@ -145,6 +148,12 @@ a.back-link {
   color: var(--faint);
   text-decoration: none;
 }
+
+a.back-link:hover {
+  color: var(--accent);
+}
+
+/* ── Principles ── */
 
 .principles ol {
   counter-reset: principle;
@@ -160,6 +169,8 @@ a.back-link {
   gap: 0.8rem;
   margin-bottom: 0.45rem;
   padding: 0;
+  color: var(--body);
+  font-size: 1em;
 }
 
 .principles li::before {
@@ -167,6 +178,8 @@ a.back-link {
   color: var(--faint);
   font-variant-numeric: tabular-nums;
 }
+
+/* ── Notes (writing index) ── */
 
 .writing .year {
   margin-bottom: 0.5rem;
@@ -198,11 +211,85 @@ ul.posts a {
   transition: color 0.18s ease;
 }
 
+ul.posts a:hover {
+  color: var(--accent);
+}
+
 ul.posts .d {
   color: var(--faint);
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
+
+/* ── Now ── */
+
+.now-updated {
+  margin: 0 0 1.2rem;
+  color: var(--faint);
+  font-size: 1em;
+}
+
+.now-group {
+  margin-bottom: 1.2rem;
+}
+
+.now-group:last-child {
+  margin-bottom: 0;
+}
+
+.now-group h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--soft);
+}
+
+.now-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.now-list li {
+  padding: 0.2rem 0;
+  color: var(--body);
+  font-size: 1em;
+}
+
+.now-list .note {
+  color: var(--faint);
+}
+
+/* ── Writing body (article page) ── */
+
+.writing-body h1 {
+  margin: 0 0 0.3rem;
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.writing-body .date {
+  display: block;
+  margin-bottom: 2.3em;
+  color: var(--faint);
+}
+
+.writing-body h2 {
+  margin: 2em 0 1.25em;
+  font-size: inherit;
+  font-weight: 600;
+}
+
+.writing-body p {
+  margin: 0 0 1.4rem;
+}
+
+.writing-body ul,
+.writing-body ol {
+  padding-left: 1.2em;
+}
+
+/* ── Footer ── */
 
 footer {
   padding-block: 1.5rem 2.8rem;
@@ -247,41 +334,11 @@ footer {
   animation: spin 26s linear infinite;
 }
 
-.writing-body h1,
-.writing-body h2 {
-  margin: 0 0 1.25em;
-  font-size: inherit;
-  line-height: inherit;
-  font-weight: 600;
-}
-
-.writing-body .date {
-  display: block;
-  margin-bottom: 2.3em;
-  color: var(--faint);
-}
-
-.writing-body h2 {
-  margin-top: 2em;
-}
-
-.writing-body ul,
-.writing-body ol {
-  padding-left: 1.2em;
-}
-
 @keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
+  to { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  .orbit .planet {
-    animation: none;
-  }
+  html { scroll-behavior: auto; }
+  .orbit .planet { animation: none; }
 }
