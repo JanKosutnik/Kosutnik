@@ -12,26 +12,37 @@ export default function Home() {
       <div id="top" className="max-w-[44rem] px-6 pt-4 pb-24">
 
         {/* Intro */}
-        <div className="mt-5">
-          <p className="text-base leading-relaxed text-intro">
-            This is a garden, not a blog. Things here grow at different speeds &mdash;
-            some are seedlings I&rsquo;m still unsure about, a few have weathered into evergreen.
-          </p>
-          <p className="mt-3 text-ink">
-            <span className="text-muted"><SeasonLabel />. </span>
-            Between things &mdash; working out what to build next, and building small things
+        <p className="text-base leading-relaxed text-intro mt-5">
+          This is a garden, not a blog. Things here grow at different speeds &mdash;
+          some are seedlings I&rsquo;m still unsure about, a few have weathered into evergreen.
+        </p>
+
+
+        {/* Tending now */}
+        <section id="tending" className="mt-[3.6rem]">
+          <div className="group flex flex-wrap items-center gap-x-2 gap-y-1">
+            <svg width="15" height="15" aria-hidden="true" className="flex-none group-hover:animate-bob" style={{ transformOrigin: '50% 38%' }}>
+              <use href="#icon-drop" />
+            </svg>
+            <span className="font-medium">Tending now</span>
+            <span className="text-muted whitespace-nowrap">
+              <SeasonLabel />
+            </span>
+          </div>
+          <p className="mt-2 text-ink">
+            Between things - working out what to build next, and building small things
             with AI to find out. Rebuilding this site into something I actually use.
           </p>
-        </div>
+        </section>
 
-        {/* In the field */}
-        <section id="field" className="mt-[3.6rem]">
+        {/* Seedlings */}
+        <section id="seedlings" className="mt-[3.6rem]">
           <div className="group flex flex-wrap items-center gap-x-2 gap-y-1">
             <svg width="15" height="15" aria-hidden="true" className="flex-none group-hover:animate-sway" style={{ transformOrigin: '50% 92%' }}>
-              <use href="#icon-youngplant" />
+              <use href="#icon-sprout" />
             </svg>
-            <span className="font-medium">In the field</span>
-            <span className="text-muted">questions &amp; notes</span>
+            <span className="font-medium">Seedlings</span>
+            <span className="text-muted">questions I&rsquo;m holding</span>
           </div>
           <ul className="mt-2 list-none p-0 m-0">
             {[
@@ -43,7 +54,18 @@ export default function Home() {
               <li key={q} className="py-1">{q}</li>
             ))}
           </ul>
-          <div className="mt-3">
+        </section>
+
+        {/* Growing */}
+        <section id="growing" className="mt-[3.6rem]">
+          <div className="group flex flex-wrap items-center gap-x-2 gap-y-1">
+            <svg width="15" height="15" aria-hidden="true" className="flex-none group-hover:animate-sway" style={{ transformOrigin: '50% 92%' }}>
+              <use href="#icon-youngplant" />
+            </svg>
+            <span className="font-medium">Growing</span>
+            <span className="text-muted">notes, still moving</span>
+          </div>
+          <div className="mt-2">
             {[
               { title: 'On removing things',              href: '/writing/on-removing-things/',              date: '18/05/2026' },
               { title: 'Notes toward a calmer interface', href: '/writing/notes-toward-a-calmer-interface/', date: '02/04/2026' },
