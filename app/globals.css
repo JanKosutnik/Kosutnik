@@ -1,10 +1,45 @@
-@font-face {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url("/fonts/Inter-subset.woff2") format("woff2");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    line-height: 1.65;
+  }
+
+  ::selection {
+    background: #d4e0c8;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  /* external link arrow */
+  a[href^="http"]::after,
+  a[href^="https"]::after {
+    content: '\2009\2197';
+    font-size: 0.8em;
+    opacity: 0.5;
+  }
+
+  /* icon transform-origins */
+  .icon-seedling  { transform-origin: 50% 92%; }
+  .icon-drop      { transform-origin: 50% 38%; }
+  .icon-seeds     { transform-origin: 50% 62%; }
+  .icon-trowel    { transform-origin: 68% 32%; }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
 }
+
+/* ── SiteShell (writing pages) ────────────────────────────── */
 
 :root {
   --paper: #f6f5f1;
@@ -14,7 +49,7 @@
   --faint: #8a857a;
   --accent: #3c5163;
   --measure: 68rem;
-  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --sans: var(--font-sans, "Inter", system-ui, sans-serif);
 }
 
 * {
