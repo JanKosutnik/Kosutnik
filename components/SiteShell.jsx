@@ -1,17 +1,12 @@
-import Nav from "@/components/Nav";
-import Clock from "@/components/Clock";
+import GardenHeader from '@/components/GardenHeader'
 
 export default function SiteShell({ children }) {
   return (
     <>
-      <header className="site-head">
-        <div className="head-inner">
-          <a className="brand" href="/#about">Jan Košutnik</a>
-          <Nav />
-        </div>
-      </header>
-      <main className="wrap">{children}</main>
-      <Clock />
+      <GardenHeader />
+      <div className="max-w-[44rem] px-6 pt-12 pb-24">
+        <main>{children}</main>
+      </div>
     </>
-  );
+  )
 }
