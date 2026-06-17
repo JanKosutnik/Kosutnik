@@ -1,9 +1,4 @@
-const NAV = [
-  { label: 'Now',        href: '#now'        },
-  { label: 'Principles', href: '#principles' },
-  { label: 'Inputs',     href: '#inputs'     },
-  { label: 'Contact',    href: '#contact'    },
-]
+import Link from 'next/link'
 
 export default function GardenHeader() {
   return (
@@ -11,18 +6,18 @@ export default function GardenHeader() {
       <a href="#top" className="font-medium text-ink no-underline whitespace-nowrap">
         Jan Ko&#353;utnik
       </a>
-      <nav aria-label="Sections">
+      <nav aria-label="Main">
         <ul className="flex flex-wrap gap-x-5 gap-y-1 list-none m-0 p-0">
-          {NAV.map(({ label, href }) => (
-            <li key={href}>
-              <a
-                href={href}
-                className="text-base text-muted no-underline hover:underline hover:underline-offset-2 transition-colors"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <Link href="/writing" className="text-base text-muted no-underline hover:underline hover:underline-offset-2 transition-colors">
+              Writing
+            </Link>
+          </li>
+          <li>
+            <a href="#contact" className="text-base text-muted no-underline hover:underline hover:underline-offset-2 transition-colors">
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
     </header>
