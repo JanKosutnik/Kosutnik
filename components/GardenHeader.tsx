@@ -3,8 +3,7 @@ const NAV = [
   { label: 'Seedlings', href: '#seedlings'  },
   { label: 'Growing',   href: '#growing'    },
   { label: 'Evergreen', href: '#evergreen'  },
-  { label: 'Inputs',    href: '#inputs'     },
-  { label: 'Contact',   href: '#contact'    },
+  { label: 'Feeding',   href: '#feeding'    },
 ]
 
 export default function GardenHeader() {

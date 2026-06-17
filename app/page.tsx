@@ -120,9 +120,10 @@ export default function Home() {
               <use href="#icon-stars" />
             </svg>
             <span className="font-medium">Feeding the garden</span>
-            <span className="text-muted">the few that left a mark</span>
+            <span className="text-muted">books, tools & voices</span>
           </div>
-          <div className="mt-2">
+          <p className="text-muted mt-3 mb-1">Books</p>
+          <div>
             {[
               { title: 'The Book of Elon',  author: 'Eric Jorgenson',         href: 'https://www.elonmuskbook.org/' },
               { title: 'Rework',             author: 'Jason Fried & DHH',      href: 'https://37signals.com/books' },
@@ -136,18 +137,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </section>
-
-        {/* Inputs */}
-        <section id="inputs" className="mt-[3.6rem]">
-          <div className="group flex flex-wrap items-center gap-x-2 gap-y-1">
-            <svg width="15" height="15" aria-hidden="true" className="flex-none group-hover:animate-wobble" style={{ transformOrigin: '68% 32%' }}>
-              <use href="#icon-trowel" />
-            </svg>
-            <span className="font-medium">Inputs</span>
-            <span className="text-muted">tools & voices</span>
-          </div>
-          <p className="text-muted mt-3 mb-1">Using</p>
+          <p className="text-muted mt-4 mb-1">Tools</p>
           <p className="leading-[1.9]">
             <a href="https://mymind.com/" target="_blank" rel="noopener noreferrer" className="hover:text-muted transition-colors">mymind</a>
             {' · '}
@@ -175,22 +165,16 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Contact */}
-        <section id="contact" className="mt-[3.6rem]">
-          <p className="text-muted">
-            Reach me at{' '}
-            <a href="mailto:jan@kosutnik.com" className="text-ink hover:text-muted transition-colors">jan@kosutnik.com</a>
-            , or on{' '}
-            <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer" className="text-ink hover:text-muted transition-colors">X</a>
-            {' '}and{' '}
-            <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer" className="text-ink hover:text-muted transition-colors">LinkedIn</a>
-            .
-          </p>
-        </section>
-
         {/* Footer */}
-        <footer className="mt-6 text-muted">
-          &copy; 2026 Jan Ko&#353;utnik &middot; Made with care in Ljubljana, Slovenia. &middot; <span className="tabular-nums">Ljubljana <LjubljanaClock /></span>
+        <footer className="mt-[3.6rem] text-muted">
+          &copy; 2026 Jan Ko&#353;utnik &middot; Made with care in Ljubljana, Slovenia. &middot;{' '}
+          <a href="mailto:jan@kosutnik.com" className="text-ink hover:text-muted transition-colors">jan@kosutnik.com</a>
+          {' · '}
+          <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer" className="text-ink hover:text-muted transition-colors">X</a>
+          {' · '}
+          <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer" className="text-ink hover:text-muted transition-colors">LinkedIn</a>
+          {' · '}
+          <span className="tabular-nums">Ljubljana <LjubljanaClock /></span>
         </footer>
 
       </div>
