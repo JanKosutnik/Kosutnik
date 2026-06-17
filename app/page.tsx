@@ -9,7 +9,7 @@ export default function Home() {
     <>
       <GardenIcons />
       <GardenHeader />
-      <div id="top" className="max-w-[44rem] px-6 pt-4 pb-24">
+      <div id="top" className="max-w-[58rem] px-6 pt-4 pb-24">
 
         {/* Intro */}
         <p className="text-base leading-relaxed text-intro mt-5">
@@ -160,7 +160,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="mt-[3.6rem] text-muted whitespace-nowrap overflow-x-auto">
+        <footer className="mt-[3.6rem] text-muted whitespace-nowrap">
           &copy; 2026 Jan Ko&#353;utnik &middot; Made with care in Ljubljana, Slovenia. &middot;{' '}
           <a href="mailto:jan@kosutnik.com" className="text-ink hover:text-muted transition-colors">jan@kosutnik.com</a>
           {' · '}
