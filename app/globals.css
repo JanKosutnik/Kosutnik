@@ -34,6 +34,10 @@
   .icon-seeds     { transform-origin: 50% 62%; }
   .icon-trowel    { transform-origin: 68% 32%; }
 
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     * { animation: none !important; transition: none !important; }
   }
