@@ -1,24 +1,20 @@
-'use client'
-
-import { useEffect, useState } from 'react'
-
-function getTime(): string {
-  return new Date().toLocaleTimeString('en-GB', {
-    timeZone: 'Europe/Ljubljana',
-    hour: '2-digit',
-    minute: '2-digit',
-    hour12: false,
-  })
-}
+const script = `(function(){
+  var el=document.getElementById('lj-footer-clock');
+  if(!el)return;
+  function tick(){
+    el.textContent=new Date().toLocaleTimeString('en-GB',{
+      timeZone:'Europe/Ljubljana',hour:'2-digit',minute:'2-digit',hour12:false
+    });
+  }
+  tick();
+  setInterval(tick,30000);
+})();`
 
 export default function LjubljanaClock() {
-  const [time, setTime] = useState<string | null>(null)
-
-  useEffect(() => {
-    setTime(getTime())
-    const id = setInterval(() => setTime(getTime()), 30_000)
-    return () => clearInterval(id)
-  }, [])
-
-  return <span>{time ?? '—:—'}</span>
+  return (
+    <>
+      <span id="lj-footer-clock">--:--</span>
+      <script data-keep dangerouslySetInnerHTML={{ __html: script }} />
+    </>
+  )
 }
