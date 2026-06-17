@@ -92,8 +92,7 @@ a {
 }
 
 .head-inner,
-.wrap,
-footer {
+.wrap {
   max-width: var(--measure);
   margin: 0;
   padding-inline: 7vw;
@@ -328,44 +327,6 @@ ul.posts .d {
   padding-left: 1.2em;
 }
 
-/* ── Footer ── */
-
-footer {
-  padding-block: 1.5rem 2.8rem;
-  font-size: 1em;
-}
-
-.foot-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.7rem 1.4rem;
-  color: var(--faint);
-  font-variant-numeric: tabular-nums;
-}
-
-.clockwrap {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.orbit {
-  width: 22px;
-  height: 22px;
-  flex: none;
-}
-
-.orbit .ring {
-  fill: none;
-  stroke: #d4d0c4;
-  stroke-width: 1;
-}
-
-.orbit .sun {
-  fill: var(--soft);
-}
 
 .orbit .planet {
   fill: var(--accent);

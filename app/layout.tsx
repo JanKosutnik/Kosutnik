@@ -18,8 +18,8 @@ const newsreader = Newsreader({
 })
 
 export const metadata: Metadata = {
-  title: 'Jan Košutnik',
-  description: 'Jan Košutnik — Ljubljana. A garden, not a blog.',
+  title: 'Jan Košutnik - garden',
+  description: 'Jan Košutnik - Ljubljana. A garden, not a blog.',
   icons: { icon: '/favicon.svg' },
 }
 
