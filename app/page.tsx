@@ -160,7 +160,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="mt-[3.6rem] text-muted">
+        <footer className="mt-[3.6rem] text-muted whitespace-nowrap overflow-x-auto">
           &copy; 2026 Jan Ko&#353;utnik &middot; Made with care in Ljubljana, Slovenia. &middot;{' '}
           <a href="mailto:jan@kosutnik.com" className="text-ink hover:text-muted transition-colors">jan@kosutnik.com</a>
           {' · '}
