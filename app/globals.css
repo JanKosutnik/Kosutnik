@@ -23,7 +23,7 @@
   /* external link arrow */
   a[href^="http"]::after,
   a[href^="https"]::after {
-    content: '\2197';
+    content: '\2197\FE0E';
     font-size: 0.7em;
     opacity: 0.35;
   }
