@@ -1,6 +1,14 @@
-import SiteShell from "@/components/SiteShell";
-import { getWriting, formatDate } from "@/lib/writing";
-import { getNow, formatNowDate } from "@/lib/now";
+import GardenIcons from "@/components/GardenIcons";
+import SeasonLabel from "@/components/SeasonLabel";
+import LjubljanaClock from "@/components/LjubljanaClock";
+
+function Icon({ id, className = '' }) {
+  return (
+    <svg className={`g-icon${className ? ' ' + className : ''}`} aria-hidden="true">
+      <use href={`#${id}`} />
+    </svg>
+  );
+}
 
 const principles = [
   "Before you build something, ask if it needs to exist at all.",
@@ -11,107 +19,164 @@ const principles = [
   "Don't start from what everyone else built. Start from the problem in front of you.",
   "Count the time a tool costs you, not just the time it saves.",
   "Anyone can add. The hard part is knowing what to leave out.",
-  "Most \"must-have\" features are just habits no one ever questioned.",
+  'Most "must-have" features are just habits no one ever questioned.',
   "When something feels confusing, it's not you. It's the design.",
   "Simple isn't less. It's everything that matters and nothing that doesn't.",
   "A tool should help you finish — not keep you coming back.",
-  "Ask one thing: did this actually make life easier? If not, cut it."
+  "Ask one thing: did this actually make life easier? If not, cut it.",
 ];
 
-function groupByYear(items) {
-  return items.reduce((groups, item) => {
-    const year = item.date.slice(0, 4);
-    const entry = { ...item, displayDate: formatDate(item.date) };
-    const group = groups.find((g) => g.year === year);
-    if (group) group.items.push(entry);
-    else groups.push({ year, items: [entry] });
-    return groups;
-  }, []);
-}
-
 export default function Home() {
-  const writingGroups = groupByYear(getWriting());
-  const now = getNow();
-
   return (
-    <SiteShell>
-      <section id="about">
-        <p>My background spans user experience, software development and quality assurance — mostly to understand where products start becoming harder than they need to be.</p>
-        <p>Most problems are not technical first. They are decision problems that became technical problems later. I build small systems that stay out of the way.</p>
-        <p>Sometimes that means AI. Sometimes it means deleting a tool, changing a process or deciding that the impressive thing is the wrong thing.</p>
-      </section>
+    <>
+      <GardenIcons />
+      <div className="g-page">
 
-      <section id="principles" className="principles">
-        <h2>Principles</h2>
-        <ol>
-          {principles.map((p) => <li key={p}>{p}</li>)}
-        </ol>
-      </section>
+        <header className="g-masthead" id="top">
+          <a className="g-wordmark" href="#top">Jan Ko&#353;utnik</a>
+          <nav aria-label="Sections">
+            <a href="#tending">Tending</a>
+            <a href="#seedlings">Seedlings</a>
+            <a href="#growing">Growing</a>
+            <a href="#evergreen">Evergreen</a>
+            <a href="#inputs">Inputs</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </header>
 
-      <section id="notes" className="writing">
-        <h2>Notes</h2>
-        <div className="writing-table">
-          {writingGroups.map((group) => (
-            <div className="writing-year" key={group.year}>
-              <div className="year">{group.year}</div>
-              <ul className="posts">
-                {group.items.map((item) => (
-                  <li key={item.slug}>
-                    <a href={`/writing/${item.slug}/`}>{item.title}</a>
-                    <time className="d" dateTime={item.date}>{item.displayDate}</time>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      <section id="now" className="now">
-        <h2>Now</h2>
-        <p className="now-updated">Updated {formatNowDate(now.updated)}</p>
-        {now.reading?.filter(i => i.title).length > 0 && (
-          <div className="now-group">
-            <h3>Reading</h3>
-            <ul className="now-list">
-              {now.reading.filter(i => i.title).map((item) => (
-                <li key={item.title}><em>{item.title}</em>{item.author && ` — ${item.author}`}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {now.have_read?.filter(i => i.title).length > 0 && (
-          <div className="now-group">
-            <h3>Have read</h3>
-            <ul className="now-list">
-              {now.have_read.filter(i => i.title).map((item) => (
-                <li key={item.title}><em>{item.title}</em>{item.author && ` — ${item.author}`}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-        {now.using?.filter(i => i.name).length > 0 && (
-          <div className="now-group">
-            <h3>Using</h3>
-            <ul className="now-list">
-              {now.using.filter(i => i.name).map((item) => (
-                <li key={item.name}>{item.name}{item.note && <span className="note"> — {item.note}</span>}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-      </section>
-
-      <section id="contact" className="contact">
-        <h2>Contact</h2>
-        <p>
-          You can find me on{" "}
-          <a className="link" href="https://x.com/JanKosutnik" rel="noopener noreferrer" target="_blank">X</a>,{" "}
-          <a className="link" href="https://www.linkedin.com/in/jankosutnik" rel="noopener noreferrer" target="_blank">LinkedIn</a>{" "}
-          or reach me via{" "}
-          <a className="link" href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>.
+        <p className="g-intro">
+          This is a garden, not a blog. Things here grow at different speeds — some are seedlings I&#39;m still unsure about, a few have weathered into evergreen.
         </p>
-      </section>
-    </SiteShell>
+
+        <div className="g-legend">
+          <span><Icon id="g-seedling" className="plant" /> seedling — just planted</span>
+          <span><Icon id="g-growing" className="plant d1" /> growing — tended</span>
+          <span><Icon id="g-evergreen" className="plant d2" /> evergreen — settled</span>
+        </div>
+
+        <div className="g-bed" id="tending">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-drop" className="drop" /> Tending now</span>
+            <SeasonLabel />
+          </div>
+          <p>Between things — working out what to build next, and building small things with AI to find out. Rebuilding this site into something I actually use.</p>
+        </div>
+
+        <div className="g-bed" id="seedlings">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-seedling" className="plant" /> Seedlings</span>
+            <span className="g-gloss">questions I&#39;m holding</span>
+          </div>
+          <ul>
+            <li className="g-q">How do you count the time a tool costs you — not just the time it saves?</li>
+            <li className="g-q">When does removing a feature improve a product more than adding one?</li>
+            <li className="g-q">What&#39;s the difference between simple and merely less?</li>
+            <li className="g-q">How much of &#34;must-have&#34; is just a habit no one questioned?</li>
+          </ul>
+        </div>
+
+        <div className="g-bed" id="growing">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-growing" className="plant d1" /> Growing</span>
+            <span className="g-gloss">notes, still moving</span>
+          </div>
+          <div className="g-note"><span>On removing things</span><span className="g-d">18/05/2026</span></div>
+          <div className="g-note"><span>Notes toward a calmer interface</span><span className="g-d">02/04/2026</span></div>
+        </div>
+
+        <div className="g-bed" id="evergreen">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-evergreen" className="plant d2" /> Evergreen</span>
+            <span className="g-gloss">principles I keep returning to</span>
+          </div>
+          <ul className="g-pr">
+            {principles.map((p, i) => (
+              <li key={i}>
+                <span className="g-n">{String(i + 1).padStart(2, '0')}</span>
+                <span>{p}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="g-bed">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-seeds" className="seeds" /> Feeding the garden</span>
+            <span className="g-gloss">the few that left a mark</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.elonmuskbook.org/" target="_blank" rel="noopener noreferrer">The Book of Elon</a></span>
+            <span className="g-a">Eric Jorgenson</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://37signals.com/books" target="_blank" rel="noopener noreferrer">Rework</a></span>
+            <span className="g-a">Jason Fried &amp; DHH</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://basecamp.com/gettingreal" target="_blank" rel="noopener noreferrer">Getting Real</a></span>
+            <span className="g-a">37signals</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.nickbilton.com/books" target="_blank" rel="noopener noreferrer">Hatching Twitter</a></span>
+            <span className="g-a">Nick Bilton</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.penguinrandomhouse.com/books/549478/bad-blood-by-john-carreyrou/" target="_blank" rel="noopener noreferrer">Bad Blood</a></span>
+            <span className="g-a">John Carreyrou</span>
+          </div>
+        </div>
+
+        <div className="g-bed" id="inputs">
+          <div className="g-head">
+            <span className="g-stage"><Icon id="g-trowel" className="tool" /> Inputs</span>
+            <span className="g-gloss">tools &amp; voices</span>
+          </div>
+          <p className="g-lane">Using</p>
+          <p className="g-apps">
+            <a href="https://mymind.com/" target="_blank" rel="noopener noreferrer">mymind</a>,{' '}
+            <a href="https://culturedcode.com/things/" target="_blank" rel="noopener noreferrer">Things</a>,{' '}
+            Apple Notes,{' '}
+            <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
+          </p>
+          <p className="g-lane">Listening</p>
+          <div className="g-read">
+            <span><a href="https://www.founderspodcast.com" target="_blank" rel="noopener noreferrer">Founders</a></span>
+            <span className="g-a">David Senra</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.mfmpod.com" target="_blank" rel="noopener noreferrer">My First Million</a></span>
+            <span className="g-a">Sam Parr &amp; Shaan Puri</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.npr.org/podcasts/510313/how-i-built-this" target="_blank" rel="noopener noreferrer">How I Built This</a></span>
+            <span className="g-a">Guy Raz</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://every.to/podcast" target="_blank" rel="noopener noreferrer">AI &amp; I</a></span>
+            <span className="g-a">Dan Shipper</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.lennysnewsletter.com/podcast" target="_blank" rel="noopener noreferrer">Lenny&#39;s Podcast</a></span>
+            <span className="g-a">Lenny Rachitsky</span>
+          </div>
+          <div className="g-read">
+            <span><a href="https://www.dwarkesh.com" target="_blank" rel="noopener noreferrer">Dwarkesh Podcast</a></span>
+            <span className="g-a">Dwarkesh Patel</span>
+          </div>
+        </div>
+
+        <p className="g-foot" id="contact">
+          Reach me at <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>, or on{' '}
+          <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>{' '}
+          and <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+        </p>
+
+        <footer className="g-colophon">
+          <span>&copy; 2026 Jan Ko&#353;utnik</span>
+          <span className="g-t">Ljubljana &middot; <LjubljanaClock /></span>
+        </footer>
+
+      </div>
+    </>
   );
 }
