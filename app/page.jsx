@@ -80,8 +80,8 @@ export default function Home() {
             <span className="g-stage"><Icon id="g-growing" className="plant d1" /> Growing</span>
             <span className="g-gloss">notes, still moving</span>
           </div>
-          <div className="g-note"><span>On removing things</span><span className="g-d">18/05/2026</span></div>
-          <div className="g-note"><span>Notes toward a calmer interface</span><span className="g-d">02/04/2026</span></div>
+          <div className="g-note"><span><a href="/writing/on-removing-things/">On removing things</a></span><span className="g-d">18/05/2026</span></div>
+          <div className="g-note"><span><a href="/writing/notes-toward-a-calmer-interface/">Notes toward a calmer interface</a></span><span className="g-d">02/04/2026</span></div>
         </div>
 
         <div className="g-bed" id="evergreen">
