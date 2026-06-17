@@ -443,3 +443,102 @@ footer {
 }
 
 .g-t { font-variant-numeric: tabular-nums; }
+
+/* Icon animations */
+@media (prefers-reduced-motion: no-preference) {
+  .g-head:hover .g-icon.plant  { animation: g-sway   7s ease-in-out infinite; }
+  .g-head:hover .g-icon.drop   { animation: g-bob    5s ease-in-out infinite; }
+  .g-head:hover .g-icon.seeds  { animation: g-wobble 8s ease-in-out infinite; }
+  .g-head:hover .g-icon.tool   { animation: g-wobble 7s ease-in-out infinite; }
+  .g-legend span:hover .g-icon { animation: g-sway   7s ease-in-out infinite; }
+}
+
+/* Intro */
+.g-intro {
+  font-family: 'Newsreader', Georgia, serif;
+  font-style: italic;
+  font-size: 1.3rem;
+  line-height: 1.45;
+  margin: 1.2rem 0 0;
+  color: #34322c;
+}
+
+/* Maturity legend */
+.g-legend {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin: 1.8rem 0 0;
+  font-size: .78rem;
+  color: #807d73;
+}
+.g-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  cursor: default;
+}
+.g-legend .g-icon { width: .95rem; height: .95rem; }
+
+/* Bed (section) */
+.g-bed {
+  margin-top: 3.6rem;
+  scroll-margin-top: 5rem;
+}
+.g-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .2rem .7rem;
+  margin-bottom: 1.1rem;
+}
+.g-stage {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  font-weight: 500;
+}
+.g-gloss {
+  color: #807d73;
+  font-size: .85rem;
+  white-space: nowrap;
+}
+
+/* Seedlings */
+.g-q { padding: .3rem 0; max-width: 30rem; }
+
+/* Growing */
+.g-note {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  padding: .3rem 0;
+}
+.g-d { color: #807d73; font-size: .8rem; white-space: nowrap; }
+
+/* Evergreen principles */
+.g-pr li { display: flex; gap: .8rem; padding: .16rem 0; }
+.g-n { color: #807d73; font-size: .8rem; flex: 0 0 1.5rem; }
+
+/* Books / podcasts rows */
+.g-read {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: baseline;
+  padding: .26rem 0;
+}
+.g-a { color: #807d73; font-size: .85rem; }
+
+/* Inputs sub-labels */
+.g-lane { color: #807d73; font-size: .8rem; margin: 1.2rem 0 .35rem; }
+.g-apps { margin: 0; line-height: 1.9; }
+
+/* Contact */
+.g-foot {
+  margin-top: 3.6rem;
+  color: #807d73;
+  scroll-margin-top: 5rem;
+}
+.g-foot a { color: #1a1a18; }
