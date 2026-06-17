@@ -23,9 +23,9 @@
   /* external link arrow */
   a[href^="http"]::after,
   a[href^="https"]::after {
-    content: '\2009\2197';
-    font-size: 0.8em;
-    opacity: 0.5;
+    content: '\2197';
+    font-size: 0.7em;
+    opacity: 0.35;
   }
 
   /* icon transform-origins */
