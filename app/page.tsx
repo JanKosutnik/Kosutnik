@@ -11,8 +11,7 @@ export default function Home() {
 
         {/* Intro */}
         <p className="font-news italic text-intro text-base leading-relaxed mt-5">
-          Thinking about AI, quiet software, and what is worth building.
-          My background spans user experience, software development and quality assurance.
+          Designer and developer interested in user experience, quiet software and what is worth building.
         </p>
 
         {/* Status */}
