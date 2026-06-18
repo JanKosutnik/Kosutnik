@@ -15,7 +15,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
-        news: ['var(--font-news)', 'Georgia', 'serif'],
       },
       keyframes: {
         turn: {

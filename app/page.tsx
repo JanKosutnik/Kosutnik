@@ -10,7 +10,7 @@ export default function Home() {
       <div id="top" className="max-w-[58rem] mx-auto px-6 pt-4 pb-24">
 
         {/* Intro */}
-        <p className="font-news italic text-intro text-base leading-relaxed mt-5">
+        <p className="text-intro text-base leading-relaxed mt-5">
           Designer and developer interested in user experience, quiet software and what is worth building.
         </p>
 
