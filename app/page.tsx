@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <GardenHeader />
-      <div id="top" className="max-w-[58rem] px-6 pt-4 pb-24">
+      <div id="top" className="max-w-[58rem] mx-auto px-6 pt-4 pb-24">
 
         {/* Intro */}
         <p className="font-news italic text-intro text-base leading-relaxed mt-5">

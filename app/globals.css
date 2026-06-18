@@ -94,7 +94,7 @@ a {
 .head-inner,
 .wrap {
   max-width: var(--measure);
-  margin: 0;
+  margin: 0 auto;
   padding-inline: 7vw;
 }
 
