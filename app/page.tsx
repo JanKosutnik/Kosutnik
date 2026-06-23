@@ -1,20 +1,40 @@
-import Terminal from '@/components/terminal/Terminal'
+import type { Metadata } from 'next'
 import { sections, siteMeta } from '@/content/site'
+import SsrContent from '@/components/SsrContent'
+import Terminal from '@/components/terminal/Terminal'
+
+export const metadata: Metadata = {
+  title: siteMeta.title,
+  description: siteMeta.description,
+  openGraph: {
+    title: siteMeta.title,
+    description: siteMeta.description,
+    type: 'website',
+    locale: 'en_US',
+    siteName: siteMeta.name,
+  },
+  twitter: {
+    card: 'summary',
+    title: siteMeta.title,
+    description: siteMeta.description,
+  },
+}
 
 export default function Home() {
   return (
-    <main>
-      {/* SSR fallback: fully readable without JS — TODO: populate in Prompt 2 */}
-      <noscript>
-        <p>{siteMeta.description}</p>
-        <p>{siteMeta.location} &mdash; <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a></p>
-      </noscript>
+    <>
+      {/*
+        SSR content: always in the DOM.
+        - No JS: visible and fully readable.
+        - With JS: Terminal mounts and overlays; this div gets aria-hidden
+          via the Terminal component's useEffect so crawlers still see it.
+      */}
+      <div id="ssr-fallback">
+        <SsrContent sections={sections} meta={siteMeta} />
+      </div>
 
-      {/* Terminal client island — receives section list for navigation */}
+      {/* Client island — returns null until Prompt 3 when the shell is built */}
       <Terminal />
-
-      {/* Hidden SSR content for search engines and no-JS — TODO: render in Prompt 2 */}
-      <div aria-hidden="true" data-sections={sections.length} style={{ display: 'none' }} />
-    </main>
+    </>
   )
 }
