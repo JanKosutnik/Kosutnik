@@ -202,7 +202,7 @@ export default function Terminal() {
     } else {
       const sectionBlock = output.find((b) => b.type === 'section')
       const sectionId = sectionBlock?.type === 'section' ? sectionBlock.sectionId : null
-      setLog((prev) => [...prev, { echo: { type: 'echo', content: realCmd }, blocks: output }])
+      setLog([{ echo: { type: 'echo', content: realCmd }, blocks: output }])
       if (sectionId) setActiveSection(sectionId)
     }
 

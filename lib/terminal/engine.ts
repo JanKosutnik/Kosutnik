@@ -162,6 +162,34 @@ export function buildCommands(now: Date = new Date()): Command[] {
       },
     },
     {
+      name: 'guide',
+      aliases: ['quickstart', 'shortcuts'],
+      description: 'Show a quick reference of sections and commands',
+      execute() {
+        const sectionList = sectionIds.join('  ')
+        const lines = [
+          'Sections:',
+          `  ${sectionList}`,
+          '',
+          'Commands:',
+          '  help          Show all commands',
+          '  ls            List sections',
+          '  clear         Clear the terminal',
+          '  history       Command history',
+          '  neofetch      System info',
+          '  clock         Live Ljubljana time',
+          '  note <text>   Save a note',
+          '',
+          'Tips:',
+          '  Tab           Autocomplete',
+          '  Ctrl+K        Command palette',
+          '  Ctrl+R        Reverse search',
+          '  Arrow Up/Down History navigation',
+        ]
+        return [{ type: 'text', content: lines.join('\n') }]
+      },
+    },
+    {
       name: 'neofetch',
       description: 'Show system information',
       execute() {

@@ -1,4 +1,4 @@
-// ── Block types ──────────────────────────────────────────────
+﻿// ── Block types ──────────────────────────────────────────────
 
 export interface TextBlock      { type: 'text';      content: string }
 export interface HeadingBlock   { type: 'heading';   content: string }
@@ -65,8 +65,12 @@ export const work: Section = {
   title: 'Work',
   render(): Block[] {
     return [
-      // TODO: CONFIRM AVAILABILITY — replace with Jan's current status (available / not available)
-      { type: 'text', content: 'Open to conversations about product, design, and engineering.' },
+      { type: 'statement', content: 'I build small systems that stay out of the way.' },
+      { type: 'text', content: "Most problems are not technical first - they're decision problems that became technical problems later, so I start with the decision, not the stack. Sometimes the answer is AI. Sometimes it's deleting a tool, changing a process, or deciding the impressive thing is the wrong thing." },
+      { type: 'text', content: 'Ljubljana, Slovenia. Before this: UX, frontend and QA.' },
+      { type: 'heading', content: 'how I help' },
+      { type: 'text', content: 'Most "engineering problems" are decisions in disguise. I help find the real one, then build the smallest thing that solves it - often with AI, sometimes by removing a tool, changing a process, or talking you out of the impressive version.' },
+      { type: 'text', content: 'Having worked across UX, frontend and QA, I can follow a decision from the first sketch to the last pixel to the test that keeps it honest.' },
       { type: 'link', label: 'jan@kosutnik.com', href: 'mailto:jan@kosutnik.com' },
     ]
   },
@@ -136,9 +140,18 @@ export const reading: Section = {
   id: 'reading',
   title: 'Reading',
   render(): Block[] {
-    // now.md reading list is currently empty
     return [
-      { type: 'text', content: 'Nothing listed yet.' },
+      { type: 'text', content: 'Books I recommend' },
+      {
+        type: 'links',
+        items: [
+          { label: 'The Book of Elon - Eric Jorgenson', href: 'https://thebookofelon.com', external: true },
+          { label: 'Rework - Fried & DHH', href: 'https://basecamp.com/books/rework', external: true },
+          { label: 'Getting Real - 37signals', href: 'https://basecamp.com/books/getting-real', external: true },
+          { label: 'Hatching Twitter - Nick Bilton', href: 'https://www.hatchingtwitter.com', external: true },
+          { label: 'Bad Blood - John Carreyrou', href: 'https://www.badbloodbook.com', external: true },
+        ],
+      },
     ]
   },
 }
