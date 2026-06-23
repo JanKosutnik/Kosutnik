@@ -80,11 +80,8 @@ export const work: Section = {
   render(): Block[] {
     return [
       { type: 'statement', content: 'I build small systems that stay out of the way.' },
-      { type: 'text', content: "Most problems are not technical first - they're decision problems that became technical problems later, so I start with the decision, not the stack. Sometimes the answer is AI. Sometimes it's deleting a tool, changing a process, or deciding the impressive thing is the wrong thing." },
-      { type: 'text', content: 'Ljubljana, Slovenia. Before this: UX, frontend and QA.' },
-      { type: 'heading', content: 'how I help' },
-      { type: 'text', content: 'Most "engineering problems" are decisions in disguise. I help find the real one, then build the smallest thing that solves it - often with AI, sometimes by removing a tool, changing a process, or talking you out of the impressive version.' },
-      { type: 'text', content: 'Having worked across UX, frontend and QA, I can follow a decision from the first sketch to the last pixel to the test that keeps it honest.' },
+      { type: 'text', content: "Most problems are not technical first - they're decision problems. I start with the decision, not the stack, and build the smallest thing that solves it. Sometimes that means AI. Sometimes it's deleting a tool, changing a process, or talking you out of the impressive version." },
+      { type: 'text', content: 'Having worked across UX, frontend and QA in Ljubljana, I can follow a decision from the first sketch to the last pixel to the test that keeps it honest.' },
       { type: 'link', label: 'jan@kosutnik.com', href: 'mailto:jan@kosutnik.com' },
     ]
   },
