@@ -56,6 +56,7 @@ export const about: Section = {
         content:
           'Summer 2026 - working out what to build next. Making small tools with AI to find out.',
       },
+      { type: 'text', content: 'Ljubljana, Slovenia. Previously: UX, frontend and QA.' },
       { type: 'heading', content: 'reading' },
       { type: 'text', content: 'Books I recommend' },
       {
@@ -81,7 +82,7 @@ export const work: Section = {
     return [
       { type: 'statement', content: 'I build small systems that stay out of the way.' },
       { type: 'text', content: "Most problems are not technical first - they're decision problems. I start with the decision, not the stack, and build the smallest thing that solves it. Sometimes that means AI. Sometimes it's deleting a tool, changing a process, or talking you out of the impressive version." },
-      { type: 'text', content: 'Having worked across UX, frontend and QA in Ljubljana, I can follow a decision from the first sketch to the last pixel to the test that keeps it honest.' },
+      { type: 'text', content: 'I can follow a decision from the first sketch to the last pixel to the test that keeps it honest.' },
       { type: 'link', label: 'jan@kosutnik.com', href: 'mailto:jan@kosutnik.com' },
     ]
   },
