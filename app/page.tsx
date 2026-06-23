@@ -3,14 +3,20 @@ import { sections, siteMeta } from '@/content/site'
 import SsrContent from '@/components/SsrContent'
 import Terminal from '@/components/terminal/Terminal'
 
+const BASE_URL = 'https://kosutnik.com'
+
 export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
+  alternates: {
+    canonical: BASE_URL,
+  },
   openGraph: {
     title: siteMeta.title,
     description: siteMeta.description,
     type: 'website',
     locale: 'en_US',
+    url: BASE_URL,
     siteName: siteMeta.name,
   },
   twitter: {
@@ -24,16 +30,13 @@ export default function Home() {
   return (
     <>
       {/*
-        SSR content: always in the DOM.
-        - No JS: visible and fully readable.
-        - With JS: Terminal mounts and overlays; this div gets aria-hidden
-          via the Terminal component's useEffect so crawlers still see it.
+        SSR content: always in the DOM for no-JS users and crawlers.
+        Terminal mounts and applies aria-hidden to this div once JS runs.
       */}
       <div id="ssr-fallback">
         <SsrContent sections={sections} meta={siteMeta} />
       </div>
 
-      {/* Client island — returns null until Prompt 3 when the shell is built */}
       <Terminal />
     </>
   )

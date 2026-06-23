@@ -17,6 +17,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://kosutnik.com'),
   title: 'Jan Košutnik',
   description: 'Jan Košutnik - Ljubljana. Designer and developer.',
   icons: { icon: '/favicon.svg' },
