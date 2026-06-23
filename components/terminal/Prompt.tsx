@@ -120,11 +120,7 @@ export default function Prompt({
           <span aria-hidden="true" className="text-[var(--term-fg)]">
             {before}
             <span
-              className={`inline-block w-[2px] h-[1em] align-middle translate-y-[-1px] bg-[var(--term-cursor)] transition-opacity ${
-                focused
-                  ? 'opacity-100 motion-safe:animate-[blink_1s_step-end_infinite]'
-                  : 'opacity-20'
-              }`}
+              className="inline-block w-[2px] h-[1em] align-middle translate-y-[-1px] bg-[var(--term-cursor)] animate-[blink_1s_step-end_infinite]"
             />
             {value.slice(caretPos)}
           </span>
