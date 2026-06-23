@@ -120,8 +120,8 @@ function BlockOutput({ block }: { block: Block }) {
 function SectionOutput({ section }: { section: Section }) {
   const blocks = section.render()
   return (
-    <div>
-      <p className="text-[var(--term-accent)] font-medium mb-2">
+    <div className="flex flex-col gap-1">
+      <p className="text-[var(--term-accent)] font-medium mb-1">
         <span className="text-[var(--term-fg-muted)] mr-1" aria-hidden="true">#</span>
         {section.title}
       </p>

@@ -72,14 +72,14 @@ export default function SsrContent({ sections, meta }: SsrContentProps) {
         {sections.map((section) => {
           const blocks = section.render()
           return (
-            <section key={section.id} id={section.id} aria-labelledby={`${section.id}-heading`} className="mb-10">
+            <section key={section.id} id={section.id} aria-labelledby={`${section.id}-heading`} className="mb-14">
               <h2
                 id={`${section.id}-heading`}
                 className="font-medium text-[var(--term-accent)] mb-3"
               >
                 {section.title}
               </h2>
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-3">
                 {blocks.map((block, idx) => (
                   <BlockRenderer key={idx} block={block} idx={idx} />
                 ))}
