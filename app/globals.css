@@ -343,3 +343,46 @@ ul.posts .d {
   .orbit .planet { animation: none; }
 }
 
+/* ── Terminal theme tokens ───────────────────────────────────── */
+/* Dark theme (terminal default — warm charcoal, not pure black) */
+:root,
+[data-theme="dark"] {
+  --term-bg:        #131210;
+  --term-surface:   #1c1b18;
+  --term-border:    #2e2c28;
+  --term-fg:        #d4cfc5;
+  --term-fg-muted:  #706d66;
+  --term-accent:    #8fb4a0;
+  --term-cursor:    #e8e3d8;
+  --term-prompt:    #8fb4a0;
+  --term-selection: #2e3d35;
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --term-bg:        #fdfdfc;
+  --term-surface:   #f6f5f1;
+  --term-border:    #e5e2da;
+  --term-fg:        #1a1a18;
+  --term-fg-muted:  #807d73;
+  --term-accent:    #3c5163;
+  --term-cursor:    #1a1a18;
+  --term-prompt:    #3c5163;
+  --term-selection: #d4e0c8;
+}
+
+/* Honour system dark preference before JS loads */
+@media (prefers-color-scheme: light) {
+  :root {
+    --term-bg:        #fdfdfc;
+    --term-surface:   #f6f5f1;
+    --term-border:    #e5e2da;
+    --term-fg:        #1a1a18;
+    --term-fg-muted:  #807d73;
+    --term-accent:    #3c5163;
+    --term-cursor:    #1a1a18;
+    --term-prompt:    #3c5163;
+    --term-selection: #d4e0c8;
+  }
+}
+
