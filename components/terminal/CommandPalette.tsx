@@ -9,10 +9,13 @@ interface CommandPaletteProps {
   onClose: () => void
 }
 
+const FOCUSABLE = 'input, button, [href], [tabindex]:not([tabindex="-1"])'
+
 export default function CommandPalette({ commands, onRun, onClose }: CommandPaletteProps) {
   const [query, setQuery] = useState('')
   const [selectedIdx, setSelectedIdx] = useState(0)
   const inputRef = useRef<HTMLInputElement>(null)
+  const dialogRef = useRef<HTMLDivElement>(null)
 
   const filtered = commands
     .filter(
@@ -41,6 +44,17 @@ export default function CommandPalette({ commands, onRun, onClose }: CommandPale
           onRun(filtered[selectedIdx].name)
           onClose()
         }
+      } else if (e.key === 'Tab') {
+        // Focus trap
+        const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(FOCUSABLE)
+        if (!focusable || focusable.length === 0) return
+        const first = focusable[0]
+        const last = focusable[focusable.length - 1]
+        if (e.shiftKey) {
+          if (document.activeElement === first) { e.preventDefault(); last.focus() }
+        } else {
+          if (document.activeElement === last) { e.preventDefault(); first.focus() }
+        }
       }
     },
     [filtered, selectedIdx, onClose, onRun],
@@ -50,8 +64,10 @@ export default function CommandPalette({ commands, onRun, onClose }: CommandPale
     <div
       className="fixed inset-0 z-50 flex items-start justify-center pt-[18vh] px-4 bg-[var(--term-bg)]/60 backdrop-blur-sm"
       onClick={onClose}
+      aria-hidden="false"
     >
       <div
+        ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-label="Command palette"
@@ -69,8 +85,10 @@ export default function CommandPalette({ commands, onRun, onClose }: CommandPale
             value={query}
             onChange={(e) => { setQuery(e.target.value); setSelectedIdx(0) }}
             placeholder="Run a command..."
-            className="flex-1 bg-transparent outline-none text-[var(--term-fg)] placeholder:text-[var(--term-fg-muted)] text-sm"
+            className="flex-1 bg-transparent outline-none text-[var(--term-fg)] placeholder:text-[var(--term-fg-muted)] text-base"
             aria-label="Search commands"
+            aria-autocomplete="list"
+            aria-controls="palette-list"
             autoCapitalize="none"
             autoCorrect="off"
             spellCheck={false}
@@ -80,7 +98,7 @@ export default function CommandPalette({ commands, onRun, onClose }: CommandPale
           </kbd>
         </div>
 
-        <div className="max-h-72 overflow-y-auto" role="listbox">
+        <div id="palette-list" className="max-h-72 overflow-y-auto" role="listbox">
           {filtered.length === 0 && (
             <p className="px-3 py-6 text-[var(--term-fg-muted)] text-sm text-center">
               No commands found
@@ -93,7 +111,7 @@ export default function CommandPalette({ commands, onRun, onClose }: CommandPale
               role="option"
               aria-selected={i === selectedIdx}
               className={[
-                'w-full text-left px-3 py-2 flex items-center gap-3 transition-colors',
+                'w-full text-left px-3 py-2.5 flex items-center gap-3 transition-colors min-h-[44px]',
                 i === selectedIdx
                   ? 'bg-[var(--term-selection)]'
                   : 'hover:bg-[var(--term-border)]',
