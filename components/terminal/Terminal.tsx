@@ -57,11 +57,9 @@ function getInitialTheme(): 'dark' | 'light' {
 }
 
 function bootEntry(): LogEntry {
-  const ts = new Date().toLocaleString('en-GB', { timeZone: 'Europe/Ljubljana' })
   return {
     echo: null,
     blocks: [
-      { type: 'text', content: `Last login: ${ts} on ttys000` },
       { type: 'text', content: "Type 'help' for commands or 'ls' to list all sections." },
     ],
   }

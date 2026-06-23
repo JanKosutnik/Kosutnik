@@ -5,14 +5,9 @@ import TitleBar from '@/components/terminal/TitleBar'
 import Prompt from '@/components/terminal/Prompt'
 
 describe('TitleBar', () => {
-  it('renders the default label', () => {
+  it('renders the site name', () => {
     render(<TitleBar />)
-    expect(screen.getByText('jan@kosutnik: ~ — zsh')).toBeInTheDocument()
-  })
-
-  it('renders a custom label', () => {
-    render(<TitleBar label="custom tab" />)
-    expect(screen.getByText('custom tab')).toBeInTheDocument()
+    expect(screen.getByText('Jan Košutnik')).toBeInTheDocument()
   })
 
   it('renders a theme toggle button', () => {
@@ -40,7 +35,7 @@ describe('Prompt', () => {
 describe('Terminal', () => {
   it('renders the title bar', () => {
     render(<Terminal />)
-    expect(screen.getByText('jan@kosutnik: ~ — zsh')).toBeInTheDocument()
+    expect(screen.getByText('Jan Košutnik')).toBeInTheDocument()
   })
 
   it('renders the output log region', () => {
