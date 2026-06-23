@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import SiteShell from "@/components/SiteShell";
 import { getWriting, getWritingBySlug } from "@/lib/writing";
 
@@ -20,9 +21,9 @@ export default async function WritingPage({ params }) {
   return (
     <SiteShell>
       <article>
-        <a href="/" className="inline-block mb-8 text-muted hover:text-ink transition-colors no-underline">
+        <Link href="/" className="inline-block mb-8 text-muted hover:text-ink transition-colors no-underline">
           &larr; back
-        </a>
+        </Link>
         <h1 className="font-medium mb-1">{post.title}</h1>
         <span className="block text-muted mb-10">{post.date}</span>
         <div
