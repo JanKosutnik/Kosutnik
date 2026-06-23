@@ -20,14 +20,6 @@
     color: inherit;
   }
 
-  /* external link arrow */
-  a[href^="http"]::after,
-  a[href^="https"]::after {
-    content: '\2197\FE0E';
-    font-size: 0.7em;
-    opacity: 0.35;
-  }
-
   /* icon transform-origins */
   .icon-seedling  { transform-origin: 50% 92%; }
   .icon-drop      { transform-origin: 50% 38%; }
