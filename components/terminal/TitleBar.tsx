@@ -1,8 +1,14 @@
 interface TitleBarProps {
   label?: string
+  theme?: 'dark' | 'light'
+  onToggleTheme?: () => void
 }
 
-export default function TitleBar({ label = 'jan@kosutnik: ~ — zsh' }: TitleBarProps) {
+export default function TitleBar({
+  label = 'jan@kosutnik: ~ — zsh',
+  theme = 'dark',
+  onToggleTheme,
+}: TitleBarProps) {
   return (
     <div className="relative flex items-center h-10 px-4 shrink-0 bg-[var(--term-surface)] border-b border-[var(--term-border)]">
       <div className="flex items-center gap-[6px]" aria-hidden="true">
@@ -16,6 +22,16 @@ export default function TitleBar({ label = 'jan@kosutnik: ~ — zsh' }: TitleBar
       >
         {label}
       </span>
+      {onToggleTheme && (
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          className="ml-auto text-[var(--term-fg-muted)] hover:text-[var(--term-fg)] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)] rounded p-0.5 z-10"
+          aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
+        >
+          {theme === 'dark' ? '☀' : '☾'}
+        </button>
+      )}
     </div>
   )
 }

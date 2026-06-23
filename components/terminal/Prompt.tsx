@@ -2,6 +2,11 @@
 
 import { useRef, useState, useCallback, useEffect } from 'react'
 
+export interface ReverseSearch {
+  query: string
+  match: string
+}
+
 interface PromptProps {
   value: string
   onChange: (value: string) => void
@@ -9,6 +14,10 @@ interface PromptProps {
   onHistoryUp: () => void
   onHistoryDown: () => void
   onCtrlL: () => void
+  onTab?: () => void
+  onCtrlK?: () => void
+  onCtrlR?: () => void
+  reverseSearch?: ReverseSearch | null
 }
 
 export default function Prompt({
@@ -18,6 +27,10 @@ export default function Prompt({
   onHistoryUp,
   onHistoryDown,
   onCtrlL,
+  onTab,
+  onCtrlK,
+  onCtrlR,
+  reverseSearch,
 }: PromptProps) {
   const inputRef = useRef<HTMLInputElement>(null)
   const [caretPos, setCaretPos] = useState(0)
@@ -28,23 +41,30 @@ export default function Prompt({
     if (el) setCaretPos(el.selectionStart ?? el.value.length)
   }, [])
 
-  useEffect(() => {
-    updateCaret()
-  }, [value, updateCaret])
+  useEffect(() => { updateCaret() }, [value, updateCaret])
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
       e.preventDefault()
       onSubmit(value)
-    } else if (e.key === 'ArrowUp') {
+    } else if (e.key === 'ArrowUp' && !reverseSearch) {
       e.preventDefault()
       onHistoryUp()
-    } else if (e.key === 'ArrowDown') {
+    } else if (e.key === 'ArrowDown' && !reverseSearch) {
       e.preventDefault()
       onHistoryDown()
     } else if (e.key === 'l' && e.ctrlKey) {
       e.preventDefault()
       onCtrlL()
+    } else if (e.key === 'Tab') {
+      e.preventDefault()
+      onTab?.()
+    } else if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+      e.preventDefault()
+      onCtrlK?.()
+    } else if (e.ctrlKey && e.key === 'r') {
+      e.preventDefault()
+      onCtrlR?.()
     }
   }
 
@@ -57,13 +77,27 @@ export default function Prompt({
       className="flex items-center shrink-0 px-3 py-2 border-t border-[var(--term-border)] bg-[var(--term-surface)] cursor-text"
       onClick={() => inputRef.current?.focus()}
     >
-      <span className="text-[var(--term-accent)] shrink-0" aria-hidden="true">jan@kosutnik</span>
-      <span className="text-[var(--term-fg-muted)] shrink-0" aria-hidden="true">:</span>
-      <span className="text-[var(--term-path)] shrink-0" aria-hidden="true">~</span>
-      <span className="text-[var(--term-fg-muted)] shrink-0 mr-2" aria-hidden="true">$</span>
+      {reverseSearch ? (
+        <>
+          <span className="text-[var(--term-fg-muted)] shrink-0 mr-2" aria-hidden="true">
+            (reverse-i-search)&lsquo;
+            <span className="text-[var(--term-fg)]">{reverseSearch.query}</span>
+            &rsquo;:
+          </span>
+          <span className="text-[var(--term-fg)] truncate" aria-hidden="true">
+            {reverseSearch.match}
+          </span>
+        </>
+      ) : (
+        <>
+          <span className="text-[var(--term-accent)] shrink-0" aria-hidden="true">jan@kosutnik</span>
+          <span className="text-[var(--term-fg-muted)] shrink-0" aria-hidden="true">:</span>
+          <span className="text-[var(--term-path)] shrink-0" aria-hidden="true">~</span>
+          <span className="text-[var(--term-fg-muted)] shrink-0 mr-2" aria-hidden="true">$</span>
+        </>
+      )}
 
       <div className="relative flex-1 min-h-[2.75rem] flex items-center">
-        {/* Accessible input (visually hidden behind custom caret rendering) */}
         <input
           ref={inputRef}
           type="text"
@@ -81,22 +115,20 @@ export default function Prompt({
           spellCheck={false}
         />
 
-        {/* Visual rendering with block caret */}
-        <span aria-hidden="true" className="text-[var(--term-fg)]">
-          {before}
-          {focused && (
-            <span
-              className={`
-                inline-block w-[1ch] text-[var(--term-bg)] bg-[var(--term-cursor)]
-                motion-safe:animate-[blink_1s_step-end_infinite]
-              `}
-            >
-              {at}
-            </span>
-          )}
-          {!focused && <span className="text-[var(--term-fg)]">{at === ' ' ? '' : at}</span>}
-          {after}
-        </span>
+        {!reverseSearch && (
+          <span aria-hidden="true" className="text-[var(--term-fg)]">
+            {before}
+            {focused && (
+              <span
+                className="inline-block w-[1ch] text-[var(--term-bg)] bg-[var(--term-cursor)] motion-safe:animate-[blink_1s_step-end_infinite]"
+              >
+                {at}
+              </span>
+            )}
+            {!focused && <span className="text-[var(--term-fg)]">{at === ' ' ? '' : at}</span>}
+            {after}
+          </span>
+        )}
       </div>
     </div>
   )
