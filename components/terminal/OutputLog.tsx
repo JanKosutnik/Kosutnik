@@ -71,7 +71,7 @@ function BlockOutput({ block }: { block: Block }) {
               {block.label}
             </a>
           ) : (
-            <span className="text-[var(--term-fg-muted)] tabular-nums shrink-0 w-8">{block.label}</span>
+            <span className="text-[var(--term-fg-muted)] tabular-nums shrink-0">{block.label}</span>
           )}
           <span className="text-[var(--term-fg)]">{block.value}</span>
         </div>

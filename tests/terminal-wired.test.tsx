@@ -49,17 +49,14 @@ describe('Terminal — wired engine', () => {
     expect(within(log).getByText(/did you mean/i)).toBeInTheDocument()
   })
 
-  it('clicking a sidebar section clears log and renders that section', async () => {
+  it('typing `writing` + Enter renders the writing section', async () => {
     render(<Terminal />)
-    const writingBtn = screen.getByRole('button', { name: /writing/ })
+    const input = getInput()
     await act(async () => {
-      fireEvent.click(writingBtn)
+      fireEvent.change(input, { target: { value: 'writing' } })
+      fireEvent.keyDown(input, { key: 'Enter' })
     })
-    expect(screen.getByText('Writing')).toBeInTheDocument()
+    expect(screen.getAllByText('Writing').length).toBeGreaterThan(0)
     expect(screen.getByText('On removing things')).toBeInTheDocument()
-    // about statement should NOT be in the log (it was cleared)
-    expect(
-      screen.queryByText(/Designer and developer interested in user experience/),
-    ).not.toBeInTheDocument()
   })
 })

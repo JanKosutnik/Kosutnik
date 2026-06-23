@@ -7,7 +7,6 @@ import { createHistory, pushEntry, navigateUp, navigateDown, expandBang } from '
 import { getCompletions, applyCompletion } from '@/lib/terminal/completion'
 import type { HistoryState } from '@/lib/terminal/history'
 import TitleBar from './TitleBar'
-import Sidebar from './Sidebar'
 import OutputLog, { type LogEntry } from './OutputLog'
 import Prompt from './Prompt'
 import CompletionMenu from './CompletionMenu'
@@ -17,7 +16,6 @@ const HISTORY_KEY = 'jk:terminal:history'
 const THEME_KEY = 'jk:terminal:theme'
 const NOTES_KEY = 'jk:terminal:notes'
 const COMMANDS = buildCommands()
-const SIDEBAR_SECTIONS = sections.map((s) => ({ id: s.id, title: s.title }))
 
 function loadHistory(): string[] {
   if (typeof window === 'undefined') return []
@@ -60,7 +58,13 @@ function getInitialTheme(): 'dark' | 'light' {
 
 function bootEntry(): LogEntry {
   const ts = new Date().toLocaleString('en-GB', { timeZone: 'Europe/Ljubljana' })
-  return { echo: null, blocks: [{ type: 'text', content: `Last login: ${ts} on ttys000` }] }
+  return {
+    echo: null,
+    blocks: [
+      { type: 'text', content: `Last login: ${ts} on ttys000` },
+      { type: 'text', content: "Type 'help' for commands or 'ls' to list all sections." },
+    ],
+  }
 }
 
 function openSection(id: string): LogEntry[] {
@@ -88,19 +92,13 @@ export default function Terminal() {
   )
   const [theme, setTheme] = useState<'dark' | 'light'>(getInitialTheme)
 
-  // Completion
   const [completions, setCompletions] = useState<string[]>([])
   const [completionIdx, setCompletionIdx] = useState(0)
-
-  // Command palette
   const [paletteOpen, setPaletteOpen] = useState(false)
-
-  // Reverse search
   const [reverseMode, setReverseMode] = useState(false)
 
   const logRef = useRef<HTMLDivElement>(null)
 
-  // Persist theme
   useEffect(() => {
     if (typeof window !== 'undefined') {
       window.localStorage.setItem(THEME_KEY, theme)
@@ -111,26 +109,22 @@ export default function Terminal() {
     setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
   }, [])
 
-  // Hide SSR fallback
   useEffect(() => {
     const fallback = document.getElementById('ssr-fallback')
     if (fallback) fallback.setAttribute('aria-hidden', 'true')
     return () => { if (fallback) fallback.removeAttribute('aria-hidden') }
   }, [])
 
-  // Scroll to bottom
   useEffect(() => {
     if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight
   }, [log])
 
-  // Deep link: update hash on section change
   useEffect(() => {
     if (activeSection && window.location.hash !== `#${activeSection}`) {
       window.history.pushState(null, '', `#${activeSection}`)
     }
   }, [activeSection])
 
-  // Deep link: back/forward
   useEffect(() => {
     const handler = () => {
       const hash = window.location.hash.slice(1)
@@ -143,7 +137,6 @@ export default function Terminal() {
     return () => window.removeEventListener('popstate', handler)
   }, [])
 
-  // Completion: recompute when input changes
   const currentCompletions = useMemo(
     () => getCompletions(inputValue, COMMANDS),
     [inputValue],
@@ -159,16 +152,14 @@ export default function Terminal() {
 
   const handleTab = useCallback(() => {
     if (completions.length === 0) {
-      // open or cycle
       const items = currentCompletions
       if (items.length === 0) return
       setCompletions(items)
       setCompletionIdx(0)
     } else {
-      const next = (completionIdx + 1) % completions.length
-      setCompletionIdx(next)
+      setCompletionIdx((i) => (i + 1) % completions.length)
     }
-  }, [completions, completionIdx, currentCompletions])
+  }, [completions, currentCompletions])
 
   const handleCompletion = useCallback((item: string) => {
     setInputValue(applyCompletion(inputValue, item))
@@ -177,15 +168,10 @@ export default function Terminal() {
   }, [inputValue])
 
   const submit = useCallback((raw: string) => {
-    // In reverse search, submit the match
     const actual = reverseMode ? reverseMatch || raw : raw
-
     const trimmed = actual.trim()
     if (!trimmed) {
-      if (reverseMode) {
-        setReverseMode(false)
-        setInputValue('')
-      }
+      if (reverseMode) { setReverseMode(false); setInputValue('') }
       return
     }
 
@@ -203,15 +189,12 @@ export default function Terminal() {
     const output = executeCommand(parsed, COMMANDS, { historyEntries: newHistory.entries, notes })
     const hasClear = output.some((b) => b.type === 'clear')
 
-    // Side-effects from special blocks
     for (const block of output) {
       if (block.type === 'open-url') window.open(block.url, '_blank', 'noopener')
       if (block.type === 'note-add') {
         setNotes((prev) => { const next = [...prev, block.text]; saveNotes(next); return next })
       }
-      if (block.type === 'notes-clear') {
-        setNotes([]); saveNotes([])
-      }
+      if (block.type === 'notes-clear') { setNotes([]); saveNotes([]) }
     }
 
     if (hasClear) {
@@ -225,14 +208,6 @@ export default function Terminal() {
 
     setInputValue('')
   }, [cmdHistory, reverseMode, reverseMatch, notes])
-
-  const handleSidebarSelect = useCallback((id: string) => {
-    setLog(openSection(id))
-    setActiveSection(id)
-    setInputValue('')
-    setReverseMode(false)
-    setCompletions([])
-  }, [])
 
   const handleHistoryUp = useCallback(() => {
     const { state, value } = navigateUp(cmdHistory)
@@ -253,33 +228,14 @@ export default function Terminal() {
     setCompletions([])
   }, [])
 
-  const handleCtrlK = useCallback(() => {
-    setPaletteOpen(true)
-    setCompletions([])
-  }, [])
-
-  const handleCtrlR = useCallback(() => {
-    setReverseMode(true)
-    setInputValue('')
-    setCompletions([])
-  }, [])
-
-  const handlePaletteClose = useCallback(() => {
-    setPaletteOpen(false)
-  }, [])
-
-  const handleRunCommand = useCallback((cmd: string) => {
-    submit(cmd)
-  }, [submit])
-
-  // Close completion on Escape (routed via submit/keydown in Prompt)
-  // Clicking outside completion menu closes it
   const handleInputChange = useCallback((val: string) => {
     setInputValue(val)
     if (completions.length > 0 && !val.startsWith(completions[completionIdx]?.slice(0, val.length))) {
       setCompletions([])
     }
   }, [completions, completionIdx])
+
+  const handleRunCommand = useCallback((cmd: string) => { submit(cmd) }, [submit])
 
   return (
     <div
@@ -289,55 +245,43 @@ export default function Terminal() {
     >
       <div
         className="
-          w-full max-w-[1040px] h-[96vh] flex flex-col
+          w-full max-w-[860px] h-[96vh] flex flex-col
           border border-[var(--term-border)] rounded-[10px]
           bg-[var(--term-surface)] overflow-hidden
           font-mono
           mob:max-w-none mob:h-screen mob:h-[100dvh] mob:rounded-none mob:border-0
         "
+        onClick={() => document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()}
       >
         <TitleBar theme={theme} onToggleTheme={toggleTheme} />
 
-        <div className="flex flex-1 overflow-hidden mob:flex-col">
-          <Sidebar
-            sections={SIDEBAR_SECTIONS}
-            activeSection={activeSection}
-            onSelect={handleSidebarSelect}
-          />
+        <OutputLog
+          entries={log}
+          sections={sections}
+          logRef={logRef}
+          onRunCommand={handleRunCommand}
+        />
 
-          <div
-            className="flex flex-1 flex-col overflow-hidden"
-            onClick={() => document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()}
-          >
-            <OutputLog
-              entries={log}
-              sections={sections}
-              logRef={logRef}
-              onRunCommand={handleRunCommand}
+        <div className="relative shrink-0">
+          {completions.length > 0 && (
+            <CompletionMenu
+              items={completions}
+              selectedIndex={completionIdx}
+              onSelect={handleCompletion}
             />
-
-            <div className="relative shrink-0">
-              {completions.length > 0 && (
-                <CompletionMenu
-                  items={completions}
-                  selectedIndex={completionIdx}
-                  onSelect={handleCompletion}
-                />
-              )}
-              <Prompt
-                value={inputValue}
-                onChange={handleInputChange}
-                onSubmit={submit}
-                onHistoryUp={handleHistoryUp}
-                onHistoryDown={handleHistoryDown}
-                onCtrlL={handleClear}
-                onTab={handleTab}
-                onCtrlK={handleCtrlK}
-                onCtrlR={handleCtrlR}
-                reverseSearch={reverseMode ? { query: inputValue, match: reverseMatch } : null}
-              />
-            </div>
-          </div>
+          )}
+          <Prompt
+            value={inputValue}
+            onChange={handleInputChange}
+            onSubmit={submit}
+            onHistoryUp={handleHistoryUp}
+            onHistoryDown={handleHistoryDown}
+            onCtrlL={handleClear}
+            onTab={handleTab}
+            onCtrlK={() => { setPaletteOpen(true); setCompletions([]) }}
+            onCtrlR={() => { setReverseMode(true); setInputValue(''); setCompletions([]) }}
+            reverseSearch={reverseMode ? { query: inputValue, match: reverseMatch } : null}
+          />
         </div>
       </div>
 
@@ -345,7 +289,7 @@ export default function Terminal() {
         <CommandPalette
           commands={COMMANDS}
           onRun={handleRunCommand}
-          onClose={handlePaletteClose}
+          onClose={() => setPaletteOpen(false)}
         />
       )}
     </div>
