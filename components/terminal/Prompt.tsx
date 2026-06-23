@@ -110,7 +110,7 @@ export default function Prompt({
           onSelect={updateCaret}
           onFocus={() => { setFocused(true); updateCaret() }}
           onBlur={() => setFocused(false)}
-          className="absolute inset-0 opacity-0 w-full bg-transparent outline-none text-base"
+          className="absolute inset-0 w-full bg-transparent outline-none text-base text-transparent [caret-color:transparent] select-none"
           autoCapitalize="none"
           autoCorrect="off"
           spellCheck={false}
