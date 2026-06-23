@@ -283,6 +283,27 @@ export default function Terminal() {
             reverseSearch={reverseMode ? { query: inputValue, match: reverseMatch } : null}
           />
         </div>
+
+        <nav
+          aria-label="Sections"
+          className="shrink-0 border-t border-[var(--term-border)] px-4 py-2 flex flex-wrap gap-x-3 gap-y-1"
+          onClick={(e) => e.stopPropagation()}
+        >
+          {sections.map((s) => (
+            <button
+              key={s.id}
+              type="button"
+              onClick={() => handleRunCommand(s.id)}
+              className={`text-xs transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)] rounded ${
+                activeSection === s.id
+                  ? 'text-[var(--term-accent)]'
+                  : 'text-[var(--term-fg-muted)] hover:text-[var(--term-fg)]'
+              }`}
+            >
+              {s.id}
+            </button>
+          ))}
+        </nav>
       </div>
 
       {paletteOpen && (
