@@ -57,11 +57,10 @@ export default async function WritingPage({ params }) {
           </p>
           <div
             className="text-sm leading-relaxed
-              [&>p]:mb-4
-              [&>h2]:font-medium [&>h2]:mt-8 [&>h2]:mb-3
+              [&>p]:mb-4 [&>p]:![color:var(--term-fg)]
+              [&>h2]:font-medium [&>h2]:mt-8 [&>h2]:mb-3 [&>h2]:![color:var(--term-accent)]
               [&>ul]:pl-4 [&>ul]:mb-4 [&>ol]:pl-4 [&>ol]:mb-4
-              [&>ul>li]:mb-1 [&>ol>li]:mb-1"
-            style={{ color: "var(--term-fg)" }}
+              [&>ul>li]:mb-1 [&>ol>li]:mb-1 [&>li]:![color:var(--term-fg)]"
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
         </article>
