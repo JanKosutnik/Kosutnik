@@ -284,7 +284,8 @@ export default function Terminal() {
 
         <nav
           aria-label="Sections"
-          className="shrink-0 border-t border-[var(--term-border)] px-4 py-2 flex flex-wrap gap-x-3 gap-y-1"
+          className="shrink-0 border-t border-[var(--term-border)] px-4 pt-2 pb-2 mob:pb-4 flex flex-wrap gap-x-3 gap-y-1"
+          style={{ paddingBottom: 'max(0.5rem, env(safe-area-inset-bottom, 0.5rem))' }}
           onClick={(e) => e.stopPropagation()}
         >
           {sections.map((s) => (

@@ -101,6 +101,7 @@ export default function Prompt({
         <input
           ref={inputRef}
           type="text"
+          inputMode="text"
           aria-label="Command"
           value={value}
           onChange={(e) => { onChange(e.target.value); updateCaret() }}
@@ -118,15 +119,14 @@ export default function Prompt({
         {!reverseSearch && (
           <span aria-hidden="true" className="text-[var(--term-fg)]">
             {before}
-            {focused && (
-              <span
-                className="inline-block w-[1ch] text-[var(--term-bg)] bg-[var(--term-cursor)] motion-safe:animate-[blink_1s_step-end_infinite]"
-              >
-                {at}
-              </span>
-            )}
-            {!focused && <span className="text-[var(--term-fg)]">{at === ' ' ? '' : at}</span>}
-            {after}
+            <span
+              className={`inline-block w-[2px] h-[1em] align-middle translate-y-[-1px] bg-[var(--term-cursor)] transition-opacity ${
+                focused
+                  ? 'opacity-100 motion-safe:animate-[blink_1s_step-end_infinite]'
+                  : 'opacity-20'
+              }`}
+            />
+            {value.slice(caretPos)}
           </span>
         )}
       </div>

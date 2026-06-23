@@ -13,8 +13,6 @@ describe('SsrContent', () => {
     expect(screen.getByText('Principles')).toBeInTheDocument()
     expect(screen.getByText('Open questions')).toBeInTheDocument()
     expect(screen.getByText('Writing')).toBeInTheDocument()
-    expect(screen.getByText('Reading')).toBeInTheDocument()
-    expect(screen.getByText('Uses')).toBeInTheDocument()
     expect(screen.getByText('Contact')).toBeInTheDocument()
   })
 

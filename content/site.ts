@@ -56,6 +56,20 @@ export const about: Section = {
         content:
           'Summer 2026 - working out what to build next. Making small tools with AI to find out.',
       },
+      { type: 'heading', content: 'reading' },
+      { type: 'text', content: 'Books I recommend' },
+      {
+        type: 'links',
+        items: [
+          { label: 'The Book of Elon - Eric Jorgenson', href: 'https://thebookofelon.com', external: true },
+          { label: 'Rework - Fried & DHH', href: 'https://basecamp.com/books/rework', external: true },
+          { label: 'Getting Real - 37signals', href: 'https://basecamp.com/books/getting-real', external: true },
+          { label: 'Hatching Twitter - Nick Bilton', href: 'https://www.hatchingtwitter.com', external: true },
+          { label: 'Bad Blood - John Carreyrou', href: 'https://www.badbloodbook.com', external: true },
+        ],
+      },
+      { type: 'heading', content: 'uses' },
+      { type: 'text', content: 'Nothing listed yet.' },
     ]
   },
 }
@@ -136,36 +150,6 @@ export const writing: Section = {
   },
 }
 
-export const reading: Section = {
-  id: 'reading',
-  title: 'Reading',
-  render(): Block[] {
-    return [
-      { type: 'text', content: 'Books I recommend' },
-      {
-        type: 'links',
-        items: [
-          { label: 'The Book of Elon - Eric Jorgenson', href: 'https://thebookofelon.com', external: true },
-          { label: 'Rework - Fried & DHH', href: 'https://basecamp.com/books/rework', external: true },
-          { label: 'Getting Real - 37signals', href: 'https://basecamp.com/books/getting-real', external: true },
-          { label: 'Hatching Twitter - Nick Bilton', href: 'https://www.hatchingtwitter.com', external: true },
-          { label: 'Bad Blood - John Carreyrou', href: 'https://www.badbloodbook.com', external: true },
-        ],
-      },
-    ]
-  },
-}
-
-export const uses: Section = {
-  id: 'uses',
-  title: 'Uses',
-  render(): Block[] {
-    // now.md uses list is currently empty
-    return [
-      { type: 'text', content: 'Nothing listed yet.' },
-    ]
-  },
-}
 
 export const contact: Section = {
   id: 'contact',
@@ -191,7 +175,5 @@ export const sections: Section[] = [
   principles,
   questions,
   writing,
-  reading,
-  uses,
   contact,
 ]
