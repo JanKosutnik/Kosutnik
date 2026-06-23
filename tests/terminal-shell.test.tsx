@@ -42,15 +42,18 @@ describe('Sidebar', () => {
   })
 })
 
+const noop = () => {}
+const promptProps = { value: '', onChange: noop, onSubmit: noop, onHistoryUp: noop, onHistoryDown: noop, onCtrlL: noop }
+
 describe('Prompt', () => {
   it('renders the prompt prefix elements', () => {
-    render(<Prompt value="" onChange={() => {}} onSubmit={() => {}} />)
+    render(<Prompt {...promptProps} />)
     expect(screen.getByText('jan@kosutnik')).toBeInTheDocument()
     expect(screen.getByText('~')).toBeInTheDocument()
   })
 
   it('renders a labelled command input', () => {
-    render(<Prompt value="" onChange={() => {}} onSubmit={() => {}} />)
+    render(<Prompt {...promptProps} />)
     expect(screen.getByRole('textbox', { name: 'Command' })).toBeInTheDocument()
   })
 })
