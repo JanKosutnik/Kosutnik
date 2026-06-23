@@ -13,6 +13,9 @@ const config: Config = {
         muted: '#807d73',
         intro: '#34322c',
       },
+      screens: {
+        mob: { max: '680px' },
+      },
       fontFamily: {
         sans: ['var(--font-sans)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-mono)', 'ui-monospace', 'monospace'],

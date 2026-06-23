@@ -4,7 +4,15 @@ interface OutputLogProps {
   blocks: OutputBlock[]
 }
 
-// TODO: render role="log" aria-live="polite" output region
 export default function OutputLog({ blocks: _blocks }: OutputLogProps) {
-  return null
+  return (
+    <div
+      role="log"
+      aria-live="polite"
+      aria-label="Terminal output"
+      className="flex-1 overflow-y-auto px-4 py-3 text-[var(--term-fg)]"
+    >
+      {/* TODO: render OutputBlock[] in Prompt 5 */}
+    </div>
+  )
 }
