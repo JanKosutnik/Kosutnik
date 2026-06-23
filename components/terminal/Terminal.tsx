@@ -11,6 +11,8 @@ import OutputLog, { type LogEntry } from './OutputLog'
 import Prompt from './Prompt'
 
 const HISTORY_KEY = 'jk:terminal:history'
+const COMMANDS = buildCommands()
+const SIDEBAR_SECTIONS = sections.map((s) => ({ id: s.id, title: s.title }))
 
 function loadHistory(): string[] {
   if (typeof window === 'undefined') return []
@@ -30,29 +32,21 @@ function saveHistory(entries: string[]) {
   }
 }
 
-const COMMANDS = buildCommands()
-const SIDEBAR_SECTIONS = sections.map((s) => ({ id: s.id, title: s.title }))
-
-function runCommand(raw: string): { entries: LogEntry[]; section: string | null } {
-  const parsed = parseInput(raw)
-  const output = executeCommand(parsed, COMMANDS)
-  const hasClear = output.some((b) => b.type === 'clear')
-  const sectionBlock = output.find((b) => b.type === 'section')
-  const sectionId = sectionBlock?.type === 'section' ? sectionBlock.sectionId : null
-  if (hasClear) return { entries: [], section: null }
-  return {
-    entries: [{ echo: { type: 'echo', content: raw }, blocks: output }],
-    section: sectionId,
-  }
+function openSection(id: string): LogEntry[] {
+  const output = executeCommand(parseInput(id), COMMANDS)
+  return [{ echo: null, blocks: output }]
 }
 
 export default function Terminal() {
   const [inputValue, setInputValue] = useState('')
   const [log, setLog] = useState<LogEntry[]>(() => {
-    const output = executeCommand(parseInput('about'), COMMANDS)
-    return [{ echo: null, blocks: output }]
+    const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
+    return openSection(hash && sections.some((s) => s.id === hash) ? hash : 'about')
   })
-  const [activeSection, setActiveSection] = useState<string | null>('about')
+  const [activeSection, setActiveSection] = useState<string | null>(() => {
+    const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
+    return hash && sections.some((s) => s.id === hash) ? hash : 'about'
+  })
   const [cmdHistory, setCmdHistory] = useState<HistoryState>(() =>
     createHistory(loadHistory()),
   )
@@ -65,18 +59,35 @@ export default function Terminal() {
     return () => { if (fallback) fallback.removeAttribute('aria-hidden') }
   }, [])
 
-  // Scroll log to bottom on new entries
+  // Scroll to bottom on new entries
   useEffect(() => {
-    if (logRef.current) {
-      logRef.current.scrollTop = logRef.current.scrollHeight
-    }
+    if (logRef.current) logRef.current.scrollTop = logRef.current.scrollHeight
   }, [log])
+
+  // Deep link: update hash on section change
+  useEffect(() => {
+    if (activeSection && window.location.hash !== `#${activeSection}`) {
+      window.history.pushState(null, '', `#${activeSection}`)
+    }
+  }, [activeSection])
+
+  // Deep link: back/forward navigation
+  useEffect(() => {
+    const handler = () => {
+      const hash = window.location.hash.slice(1)
+      if (hash && sections.some((s) => s.id === hash)) {
+        setLog(openSection(hash))
+        setActiveSection(hash)
+      }
+    }
+    window.addEventListener('popstate', handler)
+    return () => window.removeEventListener('popstate', handler)
+  }, [])
 
   const submit = useCallback((raw: string) => {
     const trimmed = raw.trim()
     if (!trimmed) return
 
-    // Bang recall
     const expanded = expandBang(trimmed, cmdHistory)
     const actual = expanded ?? trimmed
 
@@ -84,22 +95,24 @@ export default function Terminal() {
     setCmdHistory(newHistory)
     saveHistory(newHistory.entries)
 
-    const { entries, section } = runCommand(actual)
+    const parsed = parseInput(actual)
+    const output = executeCommand(parsed, COMMANDS, { historyEntries: newHistory.entries })
+    const hasClear = output.some((b) => b.type === 'clear')
 
-    if (entries.length === 0) {
-      // clear
+    if (hasClear) {
       setLog([])
     } else {
-      setLog((prev) => [...prev, ...entries])
+      const sectionBlock = output.find((b) => b.type === 'section')
+      const sectionId = sectionBlock?.type === 'section' ? sectionBlock.sectionId : null
+      setLog((prev) => [...prev, { echo: { type: 'echo', content: actual }, blocks: output }])
+      if (sectionId) setActiveSection(sectionId)
     }
 
-    if (section) setActiveSection(section)
     setInputValue('')
   }, [cmdHistory])
 
   const handleSidebarSelect = useCallback((id: string) => {
-    const output = executeCommand(parseInput(id), COMMANDS)
-    setLog([{ echo: null, blocks: output }])
+    setLog(openSection(id))
     setActiveSection(id)
     setInputValue('')
   }, [])
@@ -120,6 +133,10 @@ export default function Terminal() {
     setLog([])
     setInputValue('')
   }, [])
+
+  const handleRunCommand = useCallback((cmd: string) => {
+    submit(cmd)
+  }, [submit])
 
   return (
     <div
@@ -148,7 +165,12 @@ export default function Terminal() {
             className="flex flex-1 flex-col overflow-hidden"
             onClick={() => document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()}
           >
-            <OutputLog entries={log} sections={sections} logRef={logRef} />
+            <OutputLog
+              entries={log}
+              sections={sections}
+              logRef={logRef}
+              onRunCommand={handleRunCommand}
+            />
             <Prompt
               value={inputValue}
               onChange={setInputValue}

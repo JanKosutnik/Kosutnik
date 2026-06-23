@@ -146,8 +146,8 @@ describe('executeCommand', () => {
   it('returns error + did-you-mean for close misspelling', () => {
     const result = executeCommand(parseInput('abuot'), cmds)
     expect(result[0].type).toBe('error')
-    expect(result[1].type).toBe('text')
-    expect((result[1] as { type: 'text'; content: string }).content).toMatch(/about/i)
+    expect(result[1].type).toBe('dym')
+    expect((result[1] as { type: 'dym'; suggestion: string }).suggestion).toMatch(/about/i)
   })
 
   it('returns error only (no suggestion) for unrecognisable input', () => {

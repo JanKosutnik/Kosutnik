@@ -76,9 +76,10 @@ function SectionOutput({ section }: { section: Section }) {
 interface OutputBlockRendererProps {
   block: OutputBlock
   sections: Section[]
+  onRunCommand?: (cmd: string) => void
 }
 
-function OutputBlockRenderer({ block, sections }: OutputBlockRendererProps) {
+function OutputBlockRenderer({ block, sections, onRunCommand }: OutputBlockRendererProps) {
   switch (block.type) {
     case 'text':
       return <p className="text-[var(--term-fg)] whitespace-pre-wrap">{block.content}</p>
@@ -88,6 +89,39 @@ function OutputBlockRenderer({ block, sections }: OutputBlockRendererProps) {
       const section = sections.find((s) => s.id === block.sectionId)
       return section ? <SectionOutput section={section} /> : null
     }
+    case 'dym':
+      return (
+        <p className="text-[var(--term-fg-muted)]">
+          Did you mean:{' '}
+          <button
+            type="button"
+            className="text-[var(--term-accent)] hover:opacity-80 underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)]"
+            onClick={() => onRunCommand?.(block.suggestion)}
+          >
+            {block.suggestion}
+          </button>
+          ?
+        </p>
+      )
+    case 'history':
+      return (
+        <div className="flex flex-col gap-0.5">
+          {block.entries.map((entry, i) => (
+            <div key={i} className="flex gap-3 items-baseline">
+              <span className="text-[var(--term-fg-muted)] tabular-nums w-6 text-right shrink-0">
+                {i + 1}
+              </span>
+              <button
+                type="button"
+                className="text-[var(--term-fg)] hover:text-[var(--term-accent)] text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)]"
+                onClick={() => onRunCommand?.(entry)}
+              >
+                {entry}
+              </button>
+            </div>
+          ))}
+        </div>
+      )
     case 'clear':
     case 'help':
       return null
@@ -98,9 +132,10 @@ interface OutputLogProps {
   entries: LogEntry[]
   sections: Section[]
   logRef?: React.RefObject<HTMLDivElement | null>
+  onRunCommand?: (cmd: string) => void
 }
 
-export default function OutputLog({ entries, sections, logRef }: OutputLogProps) {
+export default function OutputLog({ entries, sections, logRef, onRunCommand }: OutputLogProps) {
   return (
     <div
       ref={logRef}
@@ -122,7 +157,7 @@ export default function OutputLog({ entries, sections, logRef }: OutputLogProps)
             </p>
           )}
           {entry.blocks.map((block, j) => (
-            <OutputBlockRenderer key={j} block={block} sections={sections} />
+            <OutputBlockRenderer key={j} block={block} sections={sections} onRunCommand={onRunCommand} />
           ))}
         </div>
       ))}

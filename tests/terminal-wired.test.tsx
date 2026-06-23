@@ -1,4 +1,4 @@
-import { render, screen, fireEvent, act } from '@testing-library/react'
+import { render, screen, within, fireEvent, act } from '@testing-library/react'
 import { describe, it, expect, vi, beforeEach } from 'vitest'
 import Terminal from '@/components/terminal/Terminal'
 
@@ -44,7 +44,9 @@ describe('Terminal — wired engine', () => {
       fireEvent.keyDown(input, { key: 'Enter' })
     })
     expect(screen.getByText(/command not found/i)).toBeInTheDocument()
-    expect(screen.getByText(/did you mean.*about/i)).toBeInTheDocument()
+    // dym renders in the log as "Did you mean: [button]?"
+    const log = screen.getByRole('log')
+    expect(within(log).getByText(/did you mean/i)).toBeInTheDocument()
   })
 
   it('clicking a sidebar section clears log and renders that section', async () => {

@@ -5,6 +5,8 @@ export interface ErrorOutputBlock   { type: 'error';   content: string }
 export interface SectionOutputBlock { type: 'section'; sectionId: string }
 export interface ClearOutputBlock   { type: 'clear' }
 export interface HelpOutputBlock    { type: 'help' }
+export interface DidYouMeanBlock    { type: 'dym';     suggestion: string }
+export interface HistoryBlock       { type: 'history'; entries: string[] }
 
 export type OutputBlock =
   | TextOutputBlock
@@ -12,6 +14,8 @@ export type OutputBlock =
   | SectionOutputBlock
   | ClearOutputBlock
   | HelpOutputBlock
+  | DidYouMeanBlock
+  | HistoryBlock
 
 // ── Command model ─────────────────────────────────────────────
 
@@ -28,13 +32,11 @@ export interface Command {
   execute(args: string[]): OutputBlock[]
 }
 
-// ── History & suggestions ─────────────────────────────────────
-
-export interface HistoryEntry {
-  input: string
-  output: OutputBlock[]
-  timestamp: number
+export interface ExecuteContext {
+  historyEntries?: string[]
 }
+
+// ── History & suggestions ─────────────────────────────────────
 
 export interface Suggestion {
   value: string

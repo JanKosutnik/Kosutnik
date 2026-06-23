@@ -1,4 +1,4 @@
-import type { Command, OutputBlock, ParseResult } from './types'
+import type { Command, ExecuteContext, OutputBlock, ParseResult } from './types'
 import { sections, siteMeta } from '@/content/site'
 import { didYouMean } from './suggest'
 
@@ -123,6 +123,14 @@ export function buildCommands(now: Date = new Date()): Command[] {
         return [{ type: 'text', content: siteMeta.name }]
       },
     },
+    {
+      name: 'history',
+      description: 'List command history',
+      execute(_args) {
+        // entries are injected at runtime via ExecuteContext
+        return [{ type: 'text', content: 'No history yet.' }]
+      },
+    },
     ...sections.map<Command>((section) => ({
       name: section.id,
       description: `Show ${section.title} section`,
@@ -140,6 +148,7 @@ export function buildCommands(now: Date = new Date()): Command[] {
 export function executeCommand(
   parsed: ParseResult,
   commands: Command[],
+  ctx: ExecuteContext = {},
 ): OutputBlock[] {
   if (!parsed.command) return []
 
@@ -147,14 +156,22 @@ export function executeCommand(
   const cmd = commands.find((c) => c.name === resolved)
 
   if (!cmd) {
-    const suggestion = didYouMean(parsed.command, commands.flatMap((c) => [c.name, ...(c.aliases ?? [])]))
+    const allNames = commands.flatMap((c) => [c.name, ...(c.aliases ?? [])])
+    const suggestion = didYouMean(parsed.command, allNames)
     if (suggestion) {
       return [
         { type: 'error', content: `${parsed.command}: command not found` },
-        { type: 'text', content: `Did you mean: ${suggestion}` },
+        { type: 'dym', suggestion },
       ]
     }
     return [{ type: 'error', content: `${parsed.command}: command not found` }]
+  }
+
+  // history command needs runtime context
+  if (resolved === 'history') {
+    const entries = ctx.historyEntries ?? []
+    if (entries.length === 0) return [{ type: 'text', content: 'No history yet.' }]
+    return [{ type: 'history', entries }]
   }
 
   return cmd.execute(parsed.args)
