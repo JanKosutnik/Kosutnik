@@ -57,7 +57,15 @@ export const about: Section = {
           'Summer 2026 - working out what to build next. Making small tools with AI to find out.',
       },
       { type: 'text', content: 'Ljubljana, Slovenia. Previously: UX, frontend and QA.' },
-      { type: 'heading', content: 'reading' },
+    ]
+  },
+}
+
+export const reading: Section = {
+  id: 'reading',
+  title: 'Reading',
+  render(): Block[] {
+    return [
       { type: 'text', content: 'Books I recommend' },
       {
         type: 'links',
@@ -69,8 +77,6 @@ export const about: Section = {
           { label: 'Bad Blood - John Carreyrou', href: 'https://www.badbloodbook.com', external: true },
         ],
       },
-      { type: 'heading', content: 'uses' },
-      { type: 'text', content: 'Nothing listed yet.' },
     ]
   },
 }
@@ -173,5 +179,6 @@ export const sections: Section[] = [
   principles,
   questions,
   writing,
+  reading,
   contact,
 ]
