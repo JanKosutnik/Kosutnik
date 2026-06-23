@@ -38,7 +38,6 @@ export function resolveAlias(input: string, commands: Command[]): string {
   if (ALIASES[input]) return ALIASES[input]
   const known = commands.map((c) => c.name)
   if (known.includes(input)) return input
-  // check if any command has this as an alias
   for (const cmd of commands) {
     if (cmd.aliases?.includes(input)) return cmd.name
   }
@@ -50,6 +49,7 @@ export function resolveAlias(input: string, commands: Command[]): string {
 export function buildCommands(now: Date = new Date()): Command[] {
   const sectionIds = sections.map((s) => s.id)
   const sectionMap = Object.fromEntries(sections.map((s) => [s.id, s]))
+  const commandCount = sectionIds.length + 12 // builtins + sections
 
   const cmds: Command[] = [
     {
@@ -73,7 +73,7 @@ export function buildCommands(now: Date = new Date()): Command[] {
       name: 'ls',
       aliases: ['list', 'dir'],
       description: 'List available sections',
-      execute(_args) {
+      execute() {
         return [{ type: 'text', content: sectionIds.join('  ') }]
       },
     },
@@ -82,14 +82,10 @@ export function buildCommands(now: Date = new Date()): Command[] {
       aliases: ['more', 'read'],
       description: 'Display a section. Usage: cat <section>',
       execute(args) {
-        if (!args[0]) {
-          return [{ type: 'error', content: 'cat: missing operand' }]
-        }
+        if (!args[0]) return [{ type: 'error', content: 'cat: missing operand' }]
         const id = args[0].toLowerCase()
         const section = sectionMap[id]
-        if (!section) {
-          return [{ type: 'error', content: `cat: ${id}: no such file or section` }]
-        }
+        if (!section) return [{ type: 'error', content: `cat: ${id}: no such file or section` }]
         return [{ type: 'section', sectionId: id }]
       },
     },
@@ -105,36 +101,86 @@ export function buildCommands(now: Date = new Date()): Command[] {
       name: 'clear',
       aliases: ['quit', 'reset'],
       description: 'Clear the terminal output',
-      execute(_args) {
+      execute() {
         return [{ type: 'clear' }]
       },
     },
     {
       name: 'date',
-      description: 'Show current date and time',
-      execute(_args) {
+      description: 'Show current date and time in Ljubljana',
+      execute() {
         return [{ type: 'text', content: now.toLocaleString('en-GB', { timeZone: 'Europe/Ljubljana' }) }]
+      },
+    },
+    {
+      name: 'clock',
+      description: 'Show a live clock for Ljubljana',
+      execute() {
+        return [{ type: 'clock' }]
       },
     },
     {
       name: 'whoami',
       description: 'Identify the current user',
-      execute(_args) {
+      execute() {
         return [{ type: 'text', content: siteMeta.name }]
       },
     },
     {
       name: 'history',
       description: 'List command history',
-      execute(_args) {
-        // entries are injected at runtime via ExecuteContext
+      execute() {
         return [{ type: 'text', content: 'No history yet.' }]
+      },
+    },
+    {
+      name: 'open',
+      description: 'Open a URL or section. Usage: open <url|section>',
+      execute(args) {
+        if (!args[0]) return [{ type: 'error', content: 'open: missing argument' }]
+        const target = args[0]
+        if (sectionMap[target.toLowerCase()]) {
+          return [{ type: 'section', sectionId: target.toLowerCase() }]
+        }
+        if (target.startsWith('http') || target.startsWith('mailto:')) {
+          return [
+            { type: 'open-url', url: target },
+            { type: 'text', content: `Opening ${target} ...` },
+          ]
+        }
+        return [{ type: 'error', content: `open: ${target}: not a URL or known section` }]
+      },
+    },
+    {
+      name: 'note',
+      description: 'Save or list notes. Usage: note [text] | note clear',
+      execute(args, ctx) {
+        if (args[0] === 'clear') return [{ type: 'notes-clear' }]
+        if (args.length > 0) return [{ type: 'note-add', text: args.join(' ') }]
+        const entries = ctx?.notes ?? []
+        return [{ type: 'notes', entries }]
+      },
+    },
+    {
+      name: 'neofetch',
+      description: 'Show system information',
+      execute() {
+        const lines = [
+          `${siteMeta.name}@kosutnik`,
+          '-'.repeat(siteMeta.name.length + 10),
+          `OS:       kosutnik.dev`,
+          `Shell:    /lib/terminal`,
+          `Location: ${siteMeta.location}`,
+          `Commands: ${commandCount} available`,
+          `Contact:  ${siteMeta.email}`,
+        ]
+        return [{ type: 'text', content: lines.join('\n') }]
       },
     },
     ...sections.map<Command>((section) => ({
       name: section.id,
       description: `Show ${section.title} section`,
-      execute(_args) {
+      execute() {
         return [{ type: 'section', sectionId: section.id }]
       },
     })),
@@ -167,12 +213,11 @@ export function executeCommand(
     return [{ type: 'error', content: `${parsed.command}: command not found` }]
   }
 
-  // history command needs runtime context
   if (resolved === 'history') {
     const entries = ctx.historyEntries ?? []
     if (entries.length === 0) return [{ type: 'text', content: 'No history yet.' }]
     return [{ type: 'history', entries }]
   }
 
-  return cmd.execute(parsed.args)
+  return cmd.execute(parsed.args, ctx)
 }

@@ -15,6 +15,7 @@ import CommandPalette from './CommandPalette'
 
 const HISTORY_KEY = 'jk:terminal:history'
 const THEME_KEY = 'jk:terminal:theme'
+const NOTES_KEY = 'jk:terminal:notes'
 const COMMANDS = buildCommands()
 const SIDEBAR_SECTIONS = sections.map((s) => ({ id: s.id, title: s.title }))
 
@@ -34,6 +35,22 @@ function saveHistory(entries: string[]) {
   } catch {}
 }
 
+function loadNotes(): string[] {
+  if (typeof window === 'undefined') return []
+  try {
+    return JSON.parse(window.localStorage.getItem(NOTES_KEY) ?? '[]') as string[]
+  } catch {
+    return []
+  }
+}
+
+function saveNotes(entries: string[]) {
+  if (typeof window === 'undefined') return
+  try {
+    window.localStorage.setItem(NOTES_KEY, JSON.stringify(entries))
+  } catch {}
+}
+
 function getInitialTheme(): 'dark' | 'light' {
   if (typeof window === 'undefined') return 'dark'
   const stored = window.localStorage.getItem(THEME_KEY)
@@ -41,17 +58,27 @@ function getInitialTheme(): 'dark' | 'light' {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
 }
 
+function bootEntry(): LogEntry {
+  const ts = new Date().toLocaleString('en-GB', { timeZone: 'Europe/Ljubljana' })
+  return { echo: null, blocks: [{ type: 'text', content: `Last login: ${ts} on ttys000` }] }
+}
+
 function openSection(id: string): LogEntry[] {
   const output = executeCommand(parseInput(id), COMMANDS)
   return [{ echo: null, blocks: output }]
+}
+
+function withBoot(entries: LogEntry[]): LogEntry[] {
+  return [bootEntry(), ...entries]
 }
 
 export default function Terminal() {
   const [inputValue, setInputValue] = useState('')
   const [log, setLog] = useState<LogEntry[]>(() => {
     const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
-    return openSection(hash && sections.some((s) => s.id === hash) ? hash : 'about')
+    return withBoot(openSection(hash && sections.some((s) => s.id === hash) ? hash : 'about'))
   })
+  const [notes, setNotes] = useState<string[]>(loadNotes)
   const [activeSection, setActiveSection] = useState<string | null>(() => {
     const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
     return hash && sections.some((s) => s.id === hash) ? hash : 'about'
@@ -173,8 +200,19 @@ export default function Terminal() {
     saveHistory(newHistory.entries)
 
     const parsed = parseInput(realCmd)
-    const output = executeCommand(parsed, COMMANDS, { historyEntries: newHistory.entries })
+    const output = executeCommand(parsed, COMMANDS, { historyEntries: newHistory.entries, notes })
     const hasClear = output.some((b) => b.type === 'clear')
+
+    // Side-effects from special blocks
+    for (const block of output) {
+      if (block.type === 'open-url') window.open(block.url, '_blank', 'noopener')
+      if (block.type === 'note-add') {
+        setNotes((prev) => { const next = [...prev, block.text]; saveNotes(next); return next })
+      }
+      if (block.type === 'notes-clear') {
+        setNotes([]); saveNotes([])
+      }
+    }
 
     if (hasClear) {
       setLog([])
@@ -186,7 +224,7 @@ export default function Terminal() {
     }
 
     setInputValue('')
-  }, [cmdHistory, reverseMode, reverseMatch])
+  }, [cmdHistory, reverseMode, reverseMatch, notes])
 
   const handleSidebarSelect = useCallback((id: string) => {
     setLog(openSection(id))

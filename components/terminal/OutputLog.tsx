@@ -1,3 +1,6 @@
+'use client'
+
+import { useState, useEffect } from 'react'
 import type { OutputBlock } from '@/lib/terminal/types'
 import type { Block, Section } from '@/content/site'
 
@@ -7,6 +10,50 @@ interface EchoLine {
 }
 
 export type LogEntry = { blocks: OutputBlock[]; echo: EchoLine | null }
+
+// ── Clock ─────────────────────────────────────────────────────
+
+function Clock() {
+  const [time, setTime] = useState(() =>
+    new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Ljubljana' }),
+  )
+  useEffect(() => {
+    const id = setInterval(() => {
+      setTime(new Date().toLocaleTimeString('en-GB', { timeZone: 'Europe/Ljubljana' }))
+    }, 1000)
+    return () => clearInterval(id)
+  }, [])
+  return (
+    <p className="text-[var(--term-fg)]">
+      {time}{' '}
+      <span className="text-[var(--term-fg-muted)]">Ljubljana</span>
+    </p>
+  )
+}
+
+// ── Copy button ───────────────────────────────────────────────
+
+function CopyButton({ text }: { text: string }) {
+  const [copied, setCopied] = useState(false)
+  const handleCopy = () => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    })
+  }
+  return (
+    <button
+      type="button"
+      onClick={handleCopy}
+      className="ml-2 text-xs text-[var(--term-fg-muted)] hover:text-[var(--term-accent)] transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)] rounded"
+      aria-label={`Copy ${text}`}
+    >
+      {copied ? '✓ copied' : '⎘'}
+    </button>
+  )
+}
+
+// ── Block renderer ────────────────────────────────────────────
 
 function BlockOutput({ block }: { block: Block }) {
   switch (block.type) {
@@ -31,14 +78,20 @@ function BlockOutput({ block }: { block: Block }) {
       )
     case 'link':
       return (
-        <p className="mb-0.5">
+        <p className="mb-0.5 flex items-center gap-1">
           <a
             href={block.href}
             className="text-[var(--term-accent)] hover:opacity-80 transition-opacity"
             {...(block.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
           >
             {block.label}
+            {block.external && (
+              <span className="ml-0.5 text-[var(--term-fg-muted)]" aria-hidden="true">↗</span>
+            )}
           </a>
+          {block.href.startsWith('mailto:') && (
+            <CopyButton text={block.href.slice(7)} />
+          )}
         </p>
       )
     case 'links':
@@ -53,6 +106,9 @@ function BlockOutput({ block }: { block: Block }) {
                 {...(item.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
               >
                 {item.label}
+                {item.external && (
+                  <span className="ml-0.5 text-[var(--term-fg-muted)]" aria-hidden="true">↗</span>
+                )}
               </a>
             </span>
           ))}
@@ -65,7 +121,10 @@ function SectionOutput({ section }: { section: Section }) {
   const blocks = section.render()
   return (
     <div>
-      <p className="text-[var(--term-accent)] font-medium mb-2">{section.title}</p>
+      <p className="text-[var(--term-accent)] font-medium mb-2">
+        <span className="text-[var(--term-fg-muted)] mr-1" aria-hidden="true">#</span>
+        {section.title}
+      </p>
       {blocks.map((block, i) => (
         <BlockOutput key={i} block={block} />
       ))}
@@ -89,6 +148,27 @@ function OutputBlockRenderer({ block, sections, onRunCommand }: OutputBlockRende
       const section = sections.find((s) => s.id === block.sectionId)
       return section ? <SectionOutput section={section} /> : null
     }
+    case 'clock':
+      return <Clock />
+    case 'notes':
+      return block.entries.length === 0 ? (
+        <p className="text-[var(--term-fg-muted)]">No notes saved. Use: note &lt;text&gt;</p>
+      ) : (
+        <div className="flex flex-col gap-0.5">
+          {block.entries.map((entry, i) => (
+            <div key={i} className="flex gap-3">
+              <span className="text-[var(--term-fg-muted)] tabular-nums w-4 shrink-0">{i + 1}</span>
+              <span className="text-[var(--term-fg)]">{entry}</span>
+            </div>
+          ))}
+        </div>
+      )
+    case 'note-add':
+      return <p className="text-[var(--term-accent)]">Note saved: &ldquo;{block.text}&rdquo;</p>
+    case 'notes-clear':
+      return <p className="text-[var(--term-fg-muted)]">Notes cleared.</p>
+    case 'open-url':
+      return null
     case 'dym':
       return (
         <p className="text-[var(--term-fg-muted)]">
