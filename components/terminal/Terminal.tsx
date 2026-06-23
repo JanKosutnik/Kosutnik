@@ -249,7 +249,12 @@ export default function Terminal() {
           font-mono
           mob:max-w-none mob:h-screen mob:h-[100dvh] mob:rounded-none mob:border-0
         "
-        onClick={() => document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()}
+        onClick={(e) => {
+          const t = e.target as HTMLElement
+          if (!t.closest('button, a, input')) {
+            document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()
+          }
+        }}
       >
         <TitleBar theme={theme} onToggleTheme={toggleTheme} />
 
@@ -292,10 +297,7 @@ export default function Terminal() {
             <button
               key={s.id}
               type="button"
-              onClick={() => {
-                handleRunCommand(s.id)
-                document.querySelector<HTMLInputElement>('[aria-label="Command"]')?.focus()
-              }}
+              onClick={() => handleRunCommand(s.id)}
               className={`text-xs px-1 py-0.5 transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[var(--term-accent)] rounded ${
                 activeSection === s.id
                   ? 'text-[var(--term-accent)]'
