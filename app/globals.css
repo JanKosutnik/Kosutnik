@@ -18,6 +18,31 @@
 
   a {
     color: inherit;
+    font-size: 1em;
+  }
+
+  p {
+    margin: 0 0 1.4rem;
+    color: var(--body);
+    font-size: 1em;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 1em;
+  }
+
+  nav a {
+    color: var(--faint);
+    text-decoration: none;
+    transition: color 0.18s ease;
+  }
+
+  nav a:hover,
+  nav a.active {
+    color: var(--accent);
   }
 
   /* icon transform-origins */
@@ -28,10 +53,6 @@
 
   section[id] {
     scroll-margin-top: 5rem;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; }
   }
 }
 
@@ -67,11 +88,6 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-a {
-  color: inherit;
-  font-size: 1em;
 }
 
 /* ── Layout ── */
@@ -121,31 +137,7 @@ main > section + section {
   white-space: nowrap;
 }
 
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.2rem;
-  font-size: 1em;
-}
-
-nav a {
-  color: var(--faint);
-  text-decoration: none;
-  transition: color 0.18s ease;
-}
-
-nav a:hover,
-nav a.active {
-  color: var(--accent);
-}
-
 /* ── Typography ── */
-
-p {
-  margin: 0 0 1.4rem;
-  color: var(--body);
-  font-size: 1em;
-}
 
 #about p:last-child,
 .contact p {
