@@ -238,6 +238,7 @@ export default function Terminal() {
   return (
     <div
       data-theme={theme}
+      suppressHydrationWarning
       className="fixed inset-0 flex items-center justify-center bg-[var(--term-bg)] p-[2vh] mob:p-0"
       aria-label={`${siteMeta.name} - terminal`}
     >
