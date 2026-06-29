@@ -1,12 +1,11 @@
 import type { Metadata } from 'next'
-import { IBM_Plex_Mono } from 'next/font/google'
+import { Inter } from 'next/font/google'
 import './globals.css'
 
-const mono = IBM_Plex_Mono({
+const inter = Inter({
   subsets: ['latin'],
   weight: ['400', '500'],
-  style: ['normal', 'italic'],
-  variable: '--font-mono',
+  variable: '--font-sans',
   display: 'swap',
 })
 
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={mono.variable}>
+    <html lang="en" className={inter.variable}>
       <head>
         <meta name="color-scheme" content="light" />
       </head>

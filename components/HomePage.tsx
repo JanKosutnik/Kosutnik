@@ -153,7 +153,9 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
             Read the <a href="#principles">principles</a>. If they land, we'll probably get on.
           </QA>
           <QA q="How do I reach you?">
-            <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>.
+            <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>. Also on{' '}
+            <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a> and{' '}
+            <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
           </QA>
         </section>
 
@@ -182,7 +184,13 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
 
         <footer className="colophon">
           <span>© 2026 Jan Košutnik · Ljubljana</span>
-          <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+          <span>
+            <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
+            {' · '}
+            <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>
+            {' · '}
+            <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </span>
         </footer>
       </div>
     </div>
