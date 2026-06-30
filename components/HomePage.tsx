@@ -108,8 +108,12 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
     <div className="wrap">
       <section id="hero" onClick={onHeroClick}>
         <pre className="boot" aria-label="build log">
-          {BOOT.slice(0, n).map((line, i) => (
-            <span key={i}>{i > 0 && '\n'}<BootLine {...line} /></span>
+          <span><BootLine {...BOOT[0]} /></span>
+          {booting && n > 1 && (
+            <span key="active">{'\n'}<BootLine {...BOOT[n - 1]} /></span>
+          )}
+          {!booting && BOOT.slice(1).map((line, i) => (
+            <span key={i}>{'\n'}<BootLine {...line} /></span>
           ))}
         </pre>
         {booting && <p className="skiphint">(click to skip)</p>}
@@ -131,7 +135,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
       <div className={`content${showContent ? ' show' : ''}`}>
         <section id="about">
           <p className="lbl">about</p>
-          <p>I'm a designer and developer based in Ljubljana. Over the years I've worked on software from every angle — designing how it looks, building how it works, testing whether it holds. That taught me to spot what doesn't need to be there.</p>
+          <p>I'm Jan Košutnik, a designer and developer based in Ljubljana. Over the years I've worked on software from every angle — designing how it looks, building how it works, testing whether it holds. That taught me to spot what doesn't need to be there.</p>
           <p>I work independently now. One project at a time.</p>
         </section>
 
