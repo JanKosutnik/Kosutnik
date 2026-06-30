@@ -135,7 +135,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
       <div className={`content${showContent ? ' show' : ''}`}>
         <section id="about">
           <p className="lbl">about</p>
-          <p>I'm Jan Košutnik, a designer and developer based in Ljubljana. Over the years I've worked on software from every angle — designing how it looks, building how it works, testing whether it holds. That taught me to spot what doesn't need to be there.</p>
+          <p>I'm Jan, a designer and developer based in Ljubljana. Over the years I've worked on software from every angle — designing how it looks, building how it works, testing whether it holds. That taught me to spot what doesn't need to be there.</p>
           <p>I work independently now. One project at a time.</p>
         </section>
 
