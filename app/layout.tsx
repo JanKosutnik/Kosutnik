@@ -23,7 +23,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <meta name="color-scheme" content="light" />
       </head>
-      <body>{children}</body>
+      <body>
+        <header className="site-header">
+          <div className="site-header-inner">
+            <a href="/">Kosutnik</a>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   )
 }

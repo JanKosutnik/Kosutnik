@@ -31,6 +31,16 @@ body {
 
 a { color: inherit; }
 
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 10;
+  padding: 1.4rem 1.6rem;
+  pointer-events: none;
+}
+.site-header-inner { max-width: 40rem; margin: 0 auto; pointer-events: auto; }
+.site-header a { color: var(--ink); text-decoration: none; font-weight: 500; }
+
 .wrap { max-width: 40rem; margin: 0 auto; padding: 11vh 1.6rem 16vh; }
 
 /* ── Boot ── */
