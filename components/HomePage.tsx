@@ -10,7 +10,7 @@ type LineKind = 'cmd' | 'ok' | 'mut'
 const BOOT: Array<{ kind: LineKind; text: string }> = [
   { kind: 'cmd', text: '$ build kosutnik.com' },
   { kind: 'ok',  text: '> resolving identity ...........' },
-  { kind: 'ok',  text: '> linking principles (13) ......' },
+  { kind: 'ok',  text: '> linking principles (7) .......' },
   { kind: 'ok',  text: '> loading writing (2) ..........' },
   { kind: 'ok',  text: '> compiling services (2) .......' },
   { kind: 'ok',  text: '> stripping decoration .........' },
@@ -120,11 +120,11 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
         <div className={`result${showResult ? ' show' : ''}`}>
           <p className="result-nav">
             {'→ '}
+            <a href="#work">work</a>
+            {' · '}
             <a href="#principles">principles</a>
             {' · '}
             <a href="#writing">writing</a>
-            {' · '}
-            <a href="#work">work</a>
             {' · '}
             <a href={`mailto:${siteMeta.email}`}>email</a>
           </p>
@@ -156,10 +156,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
           <QA q="What are you available for?">
             Complexity Diagnostic (€1,200, written) and Quiet Systems (from €6,000). One at a time.
           </QA>
-          <QA q="What are you reading?">
-            <a href="https://www.elonmuskbook.org/" target="_blank" rel="noopener noreferrer">The Book of Elon</a>. Mostly for the discipline.
-          </QA>
-          <QA q="What if I'm not ready to hire?">
+<QA q="What if I'm not ready to hire?">
             Read the <a href="#principles">principles</a>. If they land, we'll probably get on.
           </QA>
           <QA q="How do I reach you?">
@@ -170,7 +167,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
         </section>
 
         <section id="principles">
-          <p className="lbl">principles (13)</p>
+          <p className="lbl">principles (7)</p>
           <ol className="pr">
             {principles.map((p, i) => (
               <li key={i}>
@@ -194,13 +191,6 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
 
         <footer className="colophon">
           <span>© 2026 Jan Košutnik · Ljubljana</span>
-          <span>
-            <a href={`mailto:${siteMeta.email}`}>{siteMeta.email}</a>
-            {' · '}
-            <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>
-            {' · '}
-            <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </span>
         </footer>
       </div>
     </div>
