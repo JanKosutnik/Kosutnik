@@ -112,9 +112,9 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
           {booting && n > 1 && (
             <span key="active">{'\n'}<BootLine {...BOOT[n - 1]} /></span>
           )}
-          {!booting && BOOT.slice(1).map((line, i) => (
-            <span key={i}>{'\n'}<BootLine {...line} /></span>
-          ))}
+          {!booting && (
+            <span>{'\n'}<BootLine {...BOOT[BOOT.length - 1]} /></span>
+          )}
         </pre>
         {booting && <p className="skiphint">(click to skip)</p>}
         <div className={`result${showResult ? ' show' : ''}`}>
