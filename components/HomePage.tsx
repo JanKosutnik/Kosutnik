@@ -154,7 +154,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
             Decks. Discovery calls. Calendars. Retainers. Newsletters.
           </QA>
           <QA q="What are you available for?">
-            Complexity Diagnostic (€1,200, 5 days, written) and Quiet Systems (from €6,000, ~2 weeks). One at a time.
+            Complexity Diagnostic (€1,200, written) and Quiet Systems (from €6,000). One at a time.
           </QA>
           <QA q="What are you reading?">
             <a href="https://www.elonmuskbook.org/" target="_blank" rel="noopener noreferrer">The Book of Elon</a>. Mostly for the discipline.
