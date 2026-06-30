@@ -33,7 +33,7 @@ function BootLine({ kind, text }: { kind: LineKind; text: string }) {
 function QA({ q, children }: { q: string; children: React.ReactNode }) {
   return (
     <div className="qa">
-      <p className="q">— {q}</p>
+      <p className="q">{q}</p>
       <p className="a">{children}</p>
     </div>
   )
