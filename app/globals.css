@@ -6,8 +6,8 @@
 
 :root {
   color-scheme: dark;
-  --bg:     #0d0f13;
-  --band:   #141619;
+  --bg:     #000;
+  --band:   #0a0a0a;
   --ink:    #e8e2d2;
   --muted:  #7f7a70;
   --faint:  #4f4c46;
