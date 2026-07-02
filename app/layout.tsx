@@ -33,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <span className="band-prompt" aria-hidden="true">$ </span>
               <span id="band-cmd">build kosutnik.com</span>
               <span id="band-caret" className="band-caret" aria-hidden="true"></span>
-              <span id="band-done"> — done in 0.3s ✓</span>
+              <span id="band-done"> - done in 0.3s ✓</span>
             </span>
 
             <nav className="band-nav" id="band-nav" aria-label="Site navigation">

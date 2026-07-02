@@ -20,7 +20,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
         <div className="section-content">
           <p>
             I'm Jan, a designer and developer based in Ljubljana. Over the years I've
-            worked on software from every angle — designing how it looks, building how it
+            worked on software from every angle - designing how it looks, building how it
             works, testing whether it holds. That taught me to spot what doesn't need to
             be there.
           </p>
@@ -112,7 +112,7 @@ export default function HomePage({ writing }: { writing: WritingPost[] }) {
               </div>
             ))}
           </div>
-          <p className="write-foot">A garden, not a blog — these grow slowly.</p>
+          <p className="write-foot">A garden, not a blog - these grow slowly.</p>
         </div>
       </section>
 
