@@ -3,102 +3,122 @@ import Link from 'next/link'
 import styles from './variant.module.css'
 
 export const metadata: Metadata = {
-  title: 'Jan Košutnik - garden',
-  description:
-    'This is a garden, not a blog. Things here grow at different speeds - some are seedlings, a few have weathered into evergreen.',
+  title: 'Jan Košutnik',
+  description: 'Designer and developer based in Ljubljana.',
   alternates: { canonical: 'https://kosutnik.com/variant/' },
 }
 
-const seedlings = [
-  'How do you count the time a tool costs you - not just the time it saves?',
-  'When does removing a feature improve a product more than adding one?',
-  "What's the difference between simple and merely less?",
-  'How much of "must-have" is just a habit no one questioned?',
-]
-
 const principles = [
-  'Before you build something, ask if it needs to exist at all.',
   'If you can remove it and nothing breaks, remove it.',
-  "A good tool stays out of your way. The best one, you forget you're using.",
+  'If you need a manual to use it, the design is making you do its job.',
   'Every feature you add is a promise to keep it working - forever.',
-  'Most "must-have" features are just habits no one ever questioned.',
-  "When something feels confusing, it's not you. It's the design.",
+  'Count the time a tool costs you, not just the time it saves.',
+  "Don't start from what everyone else built. Start from the problem in front of you.",
   "Simple isn't less. It's everything that matters and nothing that doesn't.",
+  'A tool should help you finish - not keep you coming back.',
 ]
 
-const books = [
-  { title: 'The Book of Elon', author: 'Eric Jorgenson', href: 'https://www.elonmuskbook.org/' },
-  { title: 'Rework', author: 'Jason Fried & DHH', href: 'https://37signals.com/rework/' },
-  { title: 'Getting Real', author: '37signals', href: 'https://basecamp.com/gettingreal' },
-  { title: 'Hatching Twitter', author: 'Nick Bilton', href: 'https://www.nickbilton.com/' },
-  { title: 'Bad Blood', author: 'John Carreyrou', href: 'https://www.penguinrandomhouse.com/' },
-]
-
-const listening = [
-  { title: 'Founders', author: 'David Senra', href: 'https://www.founderspodcast.com/' },
-  { title: 'My First Million', author: 'Sam Parr & Shaan Puri', href: 'https://www.mfmpod.com/' },
-  { title: 'How I Built This', author: 'Guy Raz', href: 'https://www.npr.org/series/490248027/how-i-built-this' },
-  { title: 'AI & I', author: 'Dan Shipper', href: 'https://every.to/podcast' },
-  { title: "Lenny's Podcast", author: 'Lenny Rachitsky', href: 'https://www.lennysnewsletter.com/podcast' },
-  { title: 'Dwarkesh Podcast', author: 'Dwarkesh Patel', href: 'https://www.dwarkesh.com/podcast' },
-]
+function Answer({ question, children }: { question: string; children: React.ReactNode }) {
+  return (
+    <div className={styles.answer}>
+      <h3>{question}</h3>
+      <div>{children}</div>
+    </div>
+  )
+}
 
 export default function VariantPage() {
   return (
     <>
-      <a className={styles.skipLink} href="#garden">Skip to content</a>
+      <a className={styles.skipLink} href="#content">Skip to content</a>
 
-      <main className={`variant-page ${styles.page}`} id="garden">
+      <main className={`variant-page ${styles.page}`} id="content">
         <header className={styles.masthead}>
           <a className={styles.brand} href="/variant/">Jan Košutnik</a>
 
           <details className={styles.menu}>
             <summary>Menu</summary>
-            <nav aria-label="Garden navigation">
-              <a href="#tending">Tending now</a>
-              <a href="#seedlings">Seedlings</a>
-              <a href="#growing">Growing</a>
-              <a href="#evergreen">Evergreen</a>
-              <a href="#feeding">Feeding the garden</a>
+            <nav aria-label="Page navigation">
+              <a href="#work">work</a>
+              <a href="#principles">principles</a>
+              <a href="#writing">writing</a>
             </nav>
           </details>
         </header>
 
-        <section className={styles.intro} aria-labelledby="garden-intro">
-          <h1 id="garden-intro">Jan Košutnik</h1>
-          <p>
-            This is a garden, not a blog. Things here grow at different speeds — some are seedlings I&apos;m still
-            unsure about, a few have weathered into evergreen.
-          </p>
+        <section className={styles.intro} aria-labelledby="intro-title">
+          <h1 id="intro-title">
+            I&apos;m Jan, a designer and developer based in Ljubljana. Over the years I&apos;ve worked on software from every
+            angle - designing how it looks, building how it works, testing whether it holds. That taught me to spot what
+            doesn&apos;t need to be there.
+          </h1>
+          <p>I work independently now. One project at a time.</p>
         </section>
 
-        <div className={styles.sections}>
-          <section className={styles.section} id="tending">
-            <header className={styles.sectionHeader}>
-              <h2>Tending now</h2>
-              <p>early summer</p>
-            </header>
-            <p className={styles.measure}>
-              Between things - working out what to build next, and building small things with AI to find out.
-              Rebuilding this site into something I actually use.
-            </p>
-          </section>
+        <section className={styles.section} id="work">
+          <header className={styles.sectionHeader}>
+            <span>01</span>
+            <h2>work</h2>
+          </header>
 
-          <section className={styles.section} id="seedlings">
-            <header className={styles.sectionHeader}>
-              <h2>Seedlings</h2>
-              <p>questions I&apos;m holding</p>
-            </header>
-            <ul className={styles.list}>
-              {seedlings.map((question) => <li key={question}>{question}</li>)}
-            </ul>
-          </section>
+          <div className={styles.workContent}>
+            <Answer question="What do you do?">
+              <p>I build small systems that stay out of the way. Software, processes, the occasional decision someone has been avoiding.</p>
+            </Answer>
 
-          <section className={styles.section} id="growing">
-            <header className={styles.sectionHeader}>
-              <h2>Growing</h2>
-              <p>notes, still moving</p>
-            </header>
+            <Answer question="What kind of clients?">
+              <p>Small teams whose stack got heavier than it should be. People who don&apos;t want a slide deck, and already half-know what to remove.</p>
+            </Answer>
+
+            <Answer question="How do you work?">
+              <p>Plain English. Fixed scope. Fixed fee. Three sentences in an email is the right opening move.</p>
+            </Answer>
+
+            <Answer question="What won't you do?">
+              <p>Decks. Discovery calls. Calendars. Retainers. Newsletters.</p>
+            </Answer>
+
+            <Answer question="What are you available for?">
+              <p>Complexity Diagnostic (€1,200, written) and Quiet Systems (from €6,000). One at a time.</p>
+            </Answer>
+
+            <Answer question="What if I'm not ready to hire?">
+              <p>Read the <a href="#principles">principles</a>. If they land, we&apos;ll probably get on.</p>
+            </Answer>
+
+            <Answer question="How do I reach you?">
+              <p>
+                <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>. Also on{' '}
+                <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a> and{' '}
+                <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.
+              </p>
+            </Answer>
+          </div>
+        </section>
+
+        <section className={styles.section} id="principles">
+          <header className={styles.sectionHeader}>
+            <span>02</span>
+            <h2>principles</h2>
+          </header>
+
+          <ol className={styles.principles}>
+            {principles.map((principle, index) => (
+              <li key={principle}>
+                <span>{String(index + 1).padStart(2, '0')}</span>
+                <p>{principle}</p>
+              </li>
+            ))}
+          </ol>
+        </section>
+
+        <section className={styles.section} id="writing">
+          <header className={styles.sectionHeader}>
+            <span>03</span>
+            <h2>writing</h2>
+          </header>
+
+          <div className={styles.writingContent}>
             <div className={styles.rows}>
               <Link href="/writing/on-removing-things/">
                 <span>On removing things</span>
@@ -109,75 +129,11 @@ export default function VariantPage() {
                 <time dateTime="2026-04-02">02/04/2026</time>
               </Link>
             </div>
-          </section>
+            <p>A garden, not a blog - these grow slowly.</p>
+          </div>
+        </section>
 
-          <section className={styles.section} id="evergreen">
-            <header className={styles.sectionHeader}>
-              <h2>Evergreen</h2>
-              <p>principles I keep returning to</p>
-            </header>
-            <ol className={styles.principles}>
-              {principles.map((principle, index) => (
-                <li key={principle}>
-                  <span>{String(index + 1).padStart(2, '0')}</span>
-                  <p>{principle}</p>
-                </li>
-              ))}
-            </ol>
-          </section>
-
-          <section className={styles.section} id="feeding">
-            <header className={styles.sectionHeader}>
-              <h2>Feeding the garden</h2>
-              <p>books, tools & voices</p>
-            </header>
-
-            <div className={styles.feeding}>
-              <div>
-                <h3>Books</h3>
-                <div className={styles.rows}>
-                  {books.map((book) => (
-                    <a href={book.href} key={book.title} target="_blank" rel="noopener noreferrer">
-                      <span>{book.title}</span>
-                      <span>{book.author}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-
-              <div>
-                <h3>Tools</h3>
-                <p className={styles.tools}>
-                  <a href="https://mymind.com/" target="_blank" rel="noopener noreferrer">mymind</a> ·{' '}
-                  <a href="https://culturedcode.com/things/" target="_blank" rel="noopener noreferrer">Things</a> ·{' '}
-                  Apple Notes ·{' '}
-                  <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
-                </p>
-              </div>
-
-              <div>
-                <h3>Listening</h3>
-                <div className={styles.rows}>
-                  {listening.map((item) => (
-                    <a href={item.href} key={item.title} target="_blank" rel="noopener noreferrer">
-                      <span>{item.title}</span>
-                      <span>{item.author}</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </section>
-        </div>
-
-        <footer className={styles.footer}>
-          <span>© 2026 Jan Košutnik</span>
-          <span>Made with care in Ljubljana, Slovenia.</span>
-          <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>
-          <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>
-          <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span>Ljubljana --:--</span>
-        </footer>
+        <footer className={styles.footer}>© 2026 Jan Košutnik · Ljubljana</footer>
       </main>
     </>
   )
