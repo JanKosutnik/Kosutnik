@@ -35,7 +35,9 @@ export default function VariantPage() {
   const writing = getWriting() as WritingPost[]
 
   return (
-    <div className={`variant-page ${styles.page}`}>
+    <>
+      <a className={styles.skipLink} href="#variant-content">Skip to content</a>
+      <main className={`variant-page ${styles.page}`} id="variant-content">
       <header className={styles.hero}>
         <nav className={styles.nav} aria-label="Variant navigation">
           <a className={styles.wordmark} href="/variant/">Jan Košutnik</a>
@@ -182,6 +184,7 @@ export default function VariantPage() {
           <p className={styles.colophon}>© 2026 Jan Košutnik · No tracking. No cookies.</p>
         </footer>
       </div>
-    </div>
+      </main>
+    </>
   )
 }

@@ -10,6 +10,20 @@
   color: var(--ink);
 }
 
+.skipLink {
+  position: fixed;
+  top: -5rem;
+  left: 1rem;
+  z-index: 20;
+  padding: .65rem 1rem;
+  background: #111;
+  color: #fff;
+  font-size: .875rem !important;
+  line-height: 1.25 !important;
+}
+
+.skipLink:focus { top: 1rem; }
+
 .page,
 .page * {
   font-family: var(--font-sans), system-ui, sans-serif !important;
