@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getWritingBySlug(slug)
 
   return {
-    title: post ? `${post.title} - Jan Kosutnik` : 'Not found',
+    title: post ? `${post.title} - Kosutnik` : 'Not found',
   }
 }
 
@@ -30,7 +30,7 @@ export default async function VariantWritingPage({ params }: PageProps) {
   return (
     <main className={styles.page}>
       <header className={styles.masthead}>
-        <Link className={styles.brand} href="/">Jan Košutnik</Link>
+        <Link className={styles.brand} href="/">Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
           <Link href="/#work">work</Link>
           <Link href="/#principles">principles</Link>

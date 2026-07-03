@@ -1,6 +1,6 @@
 export const siteMeta = {
-  name: 'Jan Košutnik',
-  title: 'Jan Košutnik - builds small systems that stay out of the way',
+  name: 'Kosutnik',
+  title: 'Kosutnik',
   description:
     'Jan Košutnik builds small systems that stay out of the way. Software, processes, and the occasional decision someone has been avoiding. Ljubljana.',
   location: 'Ljubljana',

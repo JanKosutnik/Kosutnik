@@ -29,7 +29,7 @@ export default function V1Site({ homeHref = '/v1/' }: { homeHref?: string }) {
     <main className={styles.page} id="content">
       <V1Interactions />
       <header className={styles.header} data-v1-header>
-        <Link className={styles.brand} href={homeHref}>Jan Košutnik</Link>
+        <Link className={styles.brand} href={homeHref}>Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
           <a href="#work" data-section="work">work</a>
           <a href="#principles" data-section="principles">principles</a>
@@ -39,7 +39,7 @@ export default function V1Site({ homeHref = '/v1/' }: { homeHref?: string }) {
 
       <section className={`${styles.grid} ${styles.intro}`} aria-labelledby="intro-title">
         <h1 id="intro-title">
-          I&apos;m Jan, a designer and developer based in Ljubljana. Over the years I&apos;ve worked on software from every
+          I am Jan (pronounced like yawn, without the w), a designer and developer based in Ljubljana. Over the years I&apos;ve worked on software from every
           angle - designing how it looks, building how it works, testing whether it holds. That taught me to spot what
           doesn&apos;t need to be there.
         </h1>
