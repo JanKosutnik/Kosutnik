@@ -47,7 +47,7 @@ export default function V1Site({ homeHref = '/v1/', color = false }: { homeHref?
       </section>
 
       <section className={styles.grid} id="work">
-        <header className={styles.sectionTitle}><span>01</span><h2>work</h2></header>
+        <header className={`${styles.sectionTitle} ${styles.workTitle}`}><span>01</span><h2>work</h2></header>
         <div className={styles.stack}>
           <Answer question="What do you do?"><p>I build small systems that stay out of the way. Software, processes, the occasional decision someone has been avoiding.</p></Answer>
           <Answer question="What kind of clients?"><p>Small teams whose stack got heavier than it should be. People who don&apos;t want a slide deck, and already half-know what to remove.</p></Answer>
@@ -62,7 +62,7 @@ export default function V1Site({ homeHref = '/v1/', color = false }: { homeHref?
       </section>
 
       <section className={styles.grid} id="principles">
-        <header className={styles.sectionTitle}><span>02</span><h2>principles</h2></header>
+        <header className={`${styles.sectionTitle} ${styles.principlesTitle}`}><span>02</span><h2>principles</h2></header>
         <ol className={styles.principles}>
           {principles.map((principle, index) => (
             <li key={principle}><span>{String(index + 1).padStart(2, '0')}</span><p>{principle}</p></li>
@@ -71,8 +71,8 @@ export default function V1Site({ homeHref = '/v1/', color = false }: { homeHref?
       </section>
 
       <section className={styles.grid} id="writing">
-        <header className={styles.sectionTitle}><span>03</span><h2>writing</h2></header>
-        <div>
+        <header className={`${styles.sectionTitle} ${styles.writingTitle}`}><span>03</span><h2>writing</h2></header>
+        <div className={styles.writingContent}>
           <div className={styles.writing}>
             {writing.map((post: { slug: string; title: string; date: string; formattedDate: string }) => (
               <Link href={`/writing/${post.slug}/`} key={post.slug}>

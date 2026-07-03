@@ -127,9 +127,9 @@
 }
 
 @media (min-width: 681px) {
-  .color #work .sectionTitle { padding-top: 2.15rem; }
-  .color #principles .sectionTitle { padding-top: 1.8rem; }
-  .color #writing .sectionTitle { padding-top: 1.9rem; }
+  .color .grid > .workTitle { padding-top: 2.15rem; }
+  .color .grid > .principlesTitle { padding-top: 1.8rem; }
+  .color .grid > .writingTitle { padding-top: 1.9rem; }
 }
 
 .color .stack { gap: 0; padding: 1.5rem 0 !important; }
@@ -138,7 +138,7 @@
 .color .principles { align-content: start; grid-auto-rows: max-content; gap: 0; padding: 1.5rem 0 !important; }
 .color .principles li { padding: .3rem 1.5rem; }
 
-.color #writing > div { padding: 1.5rem 0; }
+.color .grid > .writingContent { padding: 1.5rem 0; }
 .color .writing { gap: 0; }
 .color .writing a { padding: .4rem 1.5rem; }
 .color .note {
