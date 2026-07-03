@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { getWriting } from '@/lib/writing'
 import V1Interactions from './V1Interactions'
 import styles from './v1.module.css'
 
@@ -22,6 +23,8 @@ function Answer({ question, children }: { question: string; children: React.Reac
 }
 
 export default function V1Site({ homeHref = '/v1/' }: { homeHref?: string }) {
+  const writing = getWriting()
+
   return (
     <main className={styles.page} id="content">
       <V1Interactions />
@@ -71,8 +74,12 @@ export default function V1Site({ homeHref = '/v1/' }: { homeHref?: string }) {
         <header className={styles.sectionTitle}><span>03</span><h2>writing</h2></header>
         <div>
           <div className={styles.writing}>
-            <Link href="/writing/on-removing-things/"><span>On removing things</span><time dateTime="2026-05-18">18/05/2026</time></Link>
-            <Link href="/writing/notes-toward-a-calmer-interface/"><span>Notes toward a calmer interface</span><time dateTime="2026-04-02">02/04/2026</time></Link>
+            {writing.map((post: { slug: string; title: string; date: string; formattedDate: string }) => (
+              <Link href={`/writing/${post.slug}/`} key={post.slug}>
+                <span>{post.title}</span>
+                <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
+              </Link>
+            ))}
           </div>
           <p className={styles.note}>A garden, not a blog - these grow slowly.</p>
         </div>
