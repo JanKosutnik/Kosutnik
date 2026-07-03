@@ -30,7 +30,6 @@
   gap: .5rem 2rem;
   padding: 1.25rem 1.5rem;
   background: rgba(0, 0, 0, .82);
-  border-bottom: 1px solid var(--line);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   font-weight: 600;
