@@ -136,7 +136,7 @@
 .color .stack { gap: 0; padding: 1.5rem 0 !important; }
 .color .answer { padding: .65rem 1.5rem; }
 
-.color .principles { gap: 0; padding: 1.5rem 0 !important; }
+.color .principles { align-content: start; grid-auto-rows: max-content; gap: 0; padding: 1.5rem 0 !important; }
 .color .principles li { padding: .3rem 1.5rem; }
 
 .color #writing > div { padding: 1.5rem 0; }
