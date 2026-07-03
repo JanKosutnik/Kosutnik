@@ -47,8 +47,7 @@
   gap: 1rem;
 }
 
-.nav a,
-.answer a {
+.nav a {
   background-image: linear-gradient(currentColor, currentColor);
   background-position: 0 100%;
   background-repeat: no-repeat;
@@ -60,9 +59,7 @@
 .nav a { color: var(--muted); }
 .nav a:hover,
 .nav a:focus-visible,
-.nav a[data-active='true'],
-.answer a:hover,
-.answer a:focus-visible { background-size: 100% 1px; }
+.nav a[data-active='true'] { background-size: 100% 1px; }
 .nav a:hover,
 .nav a:focus-visible,
 .nav a[data-active='true'] { color: var(--ink); }
@@ -84,6 +81,18 @@
 .stack { display: grid; gap: 1.25rem; }
 .answer h3 { margin: 0 0 .25rem; font-weight: 600; }
 .answer p { margin: 0; }
+.answer a,
+.writing a span {
+  text-decoration-line: underline;
+  text-decoration-color: var(--muted);
+  text-decoration-thickness: 1px;
+  text-underline-offset: .16em;
+  transition: text-decoration-color 160ms ease;
+}
+.answer a:hover,
+.answer a:focus-visible,
+.writing a:hover span,
+.writing a:focus-visible span { text-decoration-color: var(--ink); }
 
 .principles {
   display: grid;
@@ -112,7 +121,7 @@
   text-decoration: none;
 }
 .writing a span,
-.writing a time { transition: color 160ms ease, transform 160ms ease; }
+.writing a time { transition: color 160ms ease, transform 160ms ease, text-decoration-color 160ms ease; }
 .writing a:hover span,
 .writing a:focus-visible span { transform: translateX(2px); }
 .writing a:hover time,
@@ -131,6 +140,7 @@
   .header,
   .nav a,
   .answer a,
+  .writing a span,
   .writing a span,
   .writing a time { transition: none; }
 }
