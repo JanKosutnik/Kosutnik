@@ -13,6 +13,9 @@ export default function V1Interactions() {
         link,
       ]),
     )
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null)
 
     const setActive = (id: string) => {
       links.forEach((link, section) => {
@@ -24,33 +27,29 @@ export default function V1Interactions() {
     }
 
     let frame = 0
-    const updateHeader = () => {
+    const updateInteractions = () => {
       cancelAnimationFrame(frame)
       frame = requestAnimationFrame(() => {
         if (header) header.dataset.scrolled = String(window.scrollY > 12)
+
+        const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 2
+        const activationLine = (header?.offsetHeight ?? 0) + window.innerHeight * 0.25
+        const activeSection = atBottom
+          ? sections.at(-1)
+          : sections.findLast((section) => section.getBoundingClientRect().top <= activationLine)
+
+        setActive(activeSection?.id ?? '')
       })
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.find((entry) => entry.isIntersecting)
-        if (visible) setActive(visible.target.id)
-      },
-      { rootMargin: '-20% 0px -65%' },
-    )
-
-    sectionIds.forEach((id) => {
-      const section = document.getElementById(id)
-      if (section) observer.observe(section)
-    })
-
-    updateHeader()
-    window.addEventListener('scroll', updateHeader, { passive: true })
+    updateInteractions()
+    window.addEventListener('scroll', updateInteractions, { passive: true })
+    window.addEventListener('resize', updateInteractions)
 
     return () => {
       cancelAnimationFrame(frame)
-      observer.disconnect()
-      window.removeEventListener('scroll', updateHeader)
+      window.removeEventListener('scroll', updateInteractions)
+      window.removeEventListener('resize', updateInteractions)
     }
   }, [])
 
