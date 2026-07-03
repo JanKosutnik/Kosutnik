@@ -116,11 +116,11 @@ export default function VariantPage() {
 
           <div className={styles.writingContent}>
             <div className={styles.rows}>
-              <Link href="/writing/on-removing-things/">
+              <Link href="/variant/writing/on-removing-things/">
                 <span>On removing things</span>
                 <time dateTime="2026-05-18">18/05/2026</time>
               </Link>
-              <Link href="/writing/notes-toward-a-calmer-interface/">
+              <Link href="/variant/writing/notes-toward-a-calmer-interface/">
                 <span>Notes toward a calmer interface</span>
                 <time dateTime="2026-04-02">02/04/2026</time>
               </Link>
