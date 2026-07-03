@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 import { siteMeta } from '@/content/site'
 import './globals.css'
 
-const inter = Inter({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
+const inter = localFont({
+  src: '../public/fonts/Inter-subset.woff2',
+  weight: '100 900',
   variable: '--font-sans',
   display: 'swap',
 })

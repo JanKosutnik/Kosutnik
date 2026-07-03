@@ -1,11 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import styles from './variant.module.css'
+import styles from './home.module.css'
 
 export const metadata: Metadata = {
   title: 'Jan Košutnik',
   description: 'Designer and developer based in Ljubljana.',
-  alternates: { canonical: 'https://kosutnik.com/variant/' },
+  alternates: { canonical: 'https://kosutnik.com/' },
 }
 
 const principles = [
@@ -32,9 +32,9 @@ export default function VariantPage() {
     <>
       <a className={styles.skipLink} href="#content">Skip to content</a>
 
-      <main className={`variant-page ${styles.page}`} id="content">
+      <main className={styles.page} id="content">
         <header className={styles.masthead}>
-          <a className={styles.brand} href="/variant/">Jan Košutnik</a>
+          <Link className={styles.brand} href="/">Jan Košutnik</Link>
           <nav className={styles.nav} aria-label="Page navigation">
             <a href="#work">work</a>
             <a href="#principles">principles</a>
@@ -116,11 +116,11 @@ export default function VariantPage() {
 
           <div className={styles.writingContent}>
             <div className={styles.rows}>
-              <Link href="/variant/writing/on-removing-things/">
+              <Link href="/writing/on-removing-things/">
                 <span>On removing things</span>
                 <time dateTime="2026-05-18">18/05/2026</time>
               </Link>
-              <Link href="/variant/writing/notes-toward-a-calmer-interface/">
+              <Link href="/writing/notes-toward-a-calmer-interface/">
                 <span>Notes toward a calmer interface</span>
                 <time dateTime="2026-04-02">02/04/2026</time>
               </Link>

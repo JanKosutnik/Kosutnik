@@ -30,17 +30,17 @@ export default async function VariantWritingPage({ params }: PageProps) {
   return (
     <main className={styles.page}>
       <header className={styles.masthead}>
-        <Link className={styles.brand} href="/variant/">Jan Košutnik</Link>
+        <Link className={styles.brand} href="/">Jan Košutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
-          <Link href="/variant/#work">work</Link>
-          <Link href="/variant/#principles">principles</Link>
-          <Link href="/variant/#writing">writing</Link>
+          <Link href="/#work">work</Link>
+          <Link href="/#principles">principles</Link>
+          <Link href="/#writing">writing</Link>
         </nav>
       </header>
 
       <article className={styles.article}>
         <header className={styles.articleHeader}>
-          <Link href="/variant/#writing">writing</Link>
+          <Link href="/#writing">writing</Link>
           <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
         </header>
         <div>
