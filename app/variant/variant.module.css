@@ -31,8 +31,9 @@
 .masthead {
   position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .5rem 2rem;
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid #000;
   font-weight: 600;
@@ -40,26 +41,14 @@
 
 .brand { text-decoration: none; }
 
-.menu { position: relative; text-align: right; }
-.menu summary { list-style: none; cursor: pointer; font-weight: 600; }
-.menu summary::-webkit-details-marker { display: none; }
-
-.menu nav {
-  position: absolute;
-  top: 2rem;
-  right: 0;
-  width: max-content;
+.nav {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: .25rem;
-  padding: .75rem;
-  background: #fff;
-  border: 1px solid #000;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.menu nav a { text-decoration: none; }
-.menu nav a:hover { text-decoration: underline; }
+.nav a { text-decoration: none; }
+.nav a:hover { text-decoration: underline; }
 
 .intro {
   width: min(100%, 62rem);

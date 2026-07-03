@@ -35,15 +35,11 @@ export default function VariantPage() {
       <main className={`variant-page ${styles.page}`} id="content">
         <header className={styles.masthead}>
           <a className={styles.brand} href="/variant/">Jan Košutnik</a>
-
-          <details className={styles.menu}>
-            <summary>Menu</summary>
-            <nav aria-label="Page navigation">
-              <a href="#work">work</a>
-              <a href="#principles">principles</a>
-              <a href="#writing">writing</a>
-            </nav>
-          </details>
+          <nav className={styles.nav} aria-label="Page navigation">
+            <a href="#work">work</a>
+            <a href="#principles">principles</a>
+            <a href="#writing">writing</a>
+          </nav>
         </header>
 
         <section className={styles.intro} aria-labelledby="intro-title">
