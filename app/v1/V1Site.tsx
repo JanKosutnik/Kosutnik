@@ -22,11 +22,11 @@ function Answer({ question, children }: { question: string; children: React.Reac
   )
 }
 
-export default function V1Site({ homeHref = '/v1/' }: { homeHref?: string }) {
+export default function V1Site({ homeHref = '/v1/', color = false }: { homeHref?: string; color?: boolean }) {
   const writing = getWriting()
 
   return (
-    <main className={styles.page} id="content">
+    <main className={`${styles.page} ${color ? styles.color : ''}`} id="content">
       <V1Interactions />
       <header className={styles.header} data-v1-header>
         <Link className={styles.brand} href={homeHref}>Kosutnik</Link>

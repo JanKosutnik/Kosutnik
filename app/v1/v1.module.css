@@ -2,6 +2,8 @@
   --surface: #000;
   --ink: #f1eee6;
   --muted: #858580;
+  --header-rest: rgba(0, 0, 0, .24);
+  --header-scrolled: rgba(0, 0, 0, .52);
   min-height: 100vh;
   max-width: 76rem;
   background: var(--surface);
@@ -15,6 +17,19 @@
 .page a { color: inherit; }
 .page ::selection { background: #d5d0c5; color: #111; }
 
+.color {
+  --surface: #102a24;
+  --ink: #fff4df;
+  --muted: #a8bcb4;
+  --header-rest: rgba(16, 42, 36, .3);
+  --header-scrolled: rgba(16, 42, 36, .72);
+  width: 100%;
+  max-width: none;
+}
+
+.color > * { max-width: 76rem; }
+.color ::selection { background: #ff8d73; color: #102a24; }
+
 .header,
 .grid {
   display: grid;
@@ -27,7 +42,7 @@
   top: 0;
   z-index: 10;
   padding: 1rem 1.25rem;
-  background: rgba(0, 0, 0, .24);
+  background: var(--header-rest);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   font-weight: 600;
@@ -35,7 +50,7 @@
 }
 
 .header[data-scrolled='true'] {
-  background: rgba(0, 0, 0, .52);
+  background: var(--header-scrolled);
   -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
 }
@@ -77,6 +92,15 @@
 .sectionTitle h2 { display: block; margin: 0; }
 .sectionTitle span { color: var(--muted); }
 .sectionTitle h2 { font-weight: 600; }
+
+.color .brand,
+.color .sectionTitle > span { color: #ff8d73; }
+.color .sectionTitle h2,
+.color .answer h3 { color: #f1ca72; }
+.color .answer a,
+.color .writing a span { color: #91ddc5; text-decoration-color: #5cae95; }
+.color .principles li > span,
+.color .writing time { color: #d9a9c8; }
 
 .stack { display: grid; gap: 1.25rem; }
 .answer h3 { margin: 0 0 .25rem; font-weight: 600; }
@@ -140,7 +164,6 @@
   .header,
   .nav a,
   .answer a,
-  .writing a span,
   .writing a span,
   .writing a time { transition: none; }
 }

@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function V1Page() {
-  return <V1Site />
+  return <V1Site color />
 }
