@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { getWriting } from '@/lib/writing'
-import SphereBackground from './SphereBackground'
 import V1Interactions from './V1Interactions'
 import styles from './v1.module.css'
 
@@ -40,12 +39,9 @@ export default function V1Site({ homeHref = '/v1/', color = false }: { homeHref?
 
       <section className={`${styles.grid} ${styles.intro}`} aria-labelledby="intro-title">
         <h1 id="intro-title">
-          <SphereBackground />
-          <span className={styles.introCopy}>
-            I am Jan, an experience designer and developer based in Ljubljana. Over the years I&apos;ve worked on software from every
-            angle - designing how it looks, building how it works, testing whether it holds. That taught me to spot what
-            doesn&apos;t need to be there.
-          </span>
+          I am Jan, an experience designer and developer based in Ljubljana. Over the years I&apos;ve worked on software from every
+          angle - designing how it looks, building how it works, testing whether it holds. That taught me to spot what
+          doesn&apos;t need to be there.
         </h1>
         <p>I work independently now. One project at a time.</p>
       </section>
