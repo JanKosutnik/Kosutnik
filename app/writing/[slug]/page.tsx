@@ -49,6 +49,9 @@ export default async function VariantWritingPage({ params }: PageProps) {
             className={styles.body}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
+          <Link className={styles.backLink} href="/#writing">
+            <span aria-hidden="true">←</span> Back to writing
+          </Link>
         </div>
       </article>
     </main>

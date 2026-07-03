@@ -70,6 +70,17 @@
 
 .body p { margin: 0 0 1.4rem; }
 
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  margin-top: 1.4rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.backLink:hover { text-decoration: underline; }
+
 @media (max-width: 720px) {
   .masthead { padding-inline: 1rem; }
 
