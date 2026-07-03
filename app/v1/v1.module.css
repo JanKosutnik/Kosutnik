@@ -64,18 +64,11 @@
 }
 
 .nav a {
-  background-image: linear-gradient(currentColor, currentColor);
-  background-position: 0 100%;
-  background-repeat: no-repeat;
-  background-size: 0 1px;
   text-decoration: none;
-  transition: background-size 160ms ease, color 160ms ease;
+  transition: color 160ms ease;
 }
 
 .nav a { color: var(--muted); }
-.nav a:hover,
-.nav a:focus-visible,
-.nav a[data-active='true'] { background-size: 100% 1px; }
 .nav a:hover,
 .nav a:focus-visible,
 .nav a[data-active='true'] { color: var(--ink); }
