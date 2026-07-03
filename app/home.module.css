@@ -113,7 +113,6 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  border-top: 1px solid var(--line);
 }
 
 .principles li {
@@ -121,21 +120,17 @@
   grid-template-columns: 2rem minmax(0, 1fr);
   gap: 1rem;
   padding: .7rem 0;
-  border-bottom: 1px solid var(--line);
 }
 
 .principles li > span { color: var(--muted); }
 .principles p { margin: 0; }
 
 .writingContent > p { margin: 1.5rem 0 0; }
-.rows { border-top: 1px solid var(--line); }
-
 .rows a {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   gap: 2rem;
   padding: .7rem 0;
-  border-bottom: 1px solid var(--line);
   text-decoration: none;
 }
 
