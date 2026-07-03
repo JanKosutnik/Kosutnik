@@ -134,10 +134,10 @@
 }
 
 .color .stack { gap: 0; padding: 0 !important; }
-.color .answer { padding: 1.5rem; }
+.color .answer { padding: .8rem 1.5rem; }
 
 .color .principles { gap: 0; padding: 0 !important; }
-.color .principles li { padding: 1.25rem 1.5rem; }
+.color .principles li { padding: .55rem 1.5rem; }
 
 .color #writing > div { padding: 0; }
 .color .writing { gap: 0; }
