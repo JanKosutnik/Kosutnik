@@ -135,20 +135,16 @@
 
 .color .stack { gap: 0; padding: 0 !important; }
 .color .answer { padding: 1.5rem; }
-.color .answer + .answer { border-top: 1px solid var(--line); }
 
 .color .principles { gap: 0; padding: 0 !important; }
 .color .principles li { padding: 1.25rem 1.5rem; }
-.color .principles li + li { border-top: 1px solid var(--line); }
 
 .color #writing > div { padding: 0; }
 .color .writing { gap: 0; }
 .color .writing a { padding: 1.25rem 1.5rem; }
-.color .writing a + a { border-top: 1px solid var(--line); }
 .color .note {
   margin: 0;
   padding: 2rem 1.5rem;
-  border-top: 1px solid var(--line);
 }
 
 .color .footer {
