@@ -120,12 +120,12 @@
 .color .intro { min-height: calc(100vh - 3.75rem); }
 .color .intro h1 {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
 }
 
 .color .intro p {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
 }
 
 .color .sectionTitle {
