@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return <V1Site homeHref="/" />
+  return <V1Site homeHref="/" color />
 }
