@@ -133,6 +133,12 @@
   align-self: start;
 }
 
+@media (min-width: 681px) {
+  .color #work .sectionTitle { padding-top: 2.15rem; }
+  .color #principles .sectionTitle { padding-top: 1.8rem; }
+  .color #writing .sectionTitle { padding-top: 1.9rem; }
+}
+
 .color .stack { gap: 0; padding: 1.5rem 0 !important; }
 .color .answer { padding: .65rem 1.5rem; }
 
