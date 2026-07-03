@@ -101,7 +101,6 @@
 
 .color .brand,
 .color .nav { padding: 1rem 1.25rem; }
-.color .nav { border-left: 1px solid var(--line); }
 
 .color .grid {
   min-height: 36rem;
@@ -215,10 +214,6 @@
   .intro { padding-top: 2rem; }
 
   .color .header { row-gap: 0; }
-  .color .nav {
-    border-top: 1px solid var(--line);
-    border-left: 0;
-  }
   .color .grid {
     min-height: 0;
     row-gap: 0;
