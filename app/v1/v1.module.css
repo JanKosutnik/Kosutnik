@@ -110,7 +110,7 @@
   scroll-margin-top: 3.75rem;
 }
 
-.color .grid > :first-child { padding: 2rem 1.5rem; }
+.color .grid > :first-child { padding: 3rem 1.5rem; }
 .color .grid > :last-child {
   border-left: 1px solid var(--line);
   padding: 2rem 1.5rem;
@@ -133,18 +133,18 @@
   align-self: start;
 }
 
-.color .stack { gap: 0; padding: 0 !important; }
-.color .answer { padding: .8rem 1.5rem; }
+.color .stack { gap: 0; padding: 1.5rem 0 !important; }
+.color .answer { padding: .65rem 1.5rem; }
 
-.color .principles { gap: 0; padding: 0 !important; }
-.color .principles li { padding: .55rem 1.5rem; }
+.color .principles { gap: 0; padding: 1.5rem 0 !important; }
+.color .principles li { padding: .35rem 1.5rem; }
 
-.color #writing > div { padding: 0; }
+.color #writing > div { padding: 1.5rem 0; }
 .color .writing { gap: 0; }
-.color .writing a { padding: 1.25rem 1.5rem; }
+.color .writing a { padding: .4rem 1.5rem; }
 .color .note {
   margin: 0;
-  padding: 2rem 1.5rem;
+  padding: 1.25rem 1.5rem 0;
 }
 
 .color .footer {
