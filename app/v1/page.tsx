@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import V1Interactions from './V1Interactions'
 import styles from './v1.module.css'
 
 export const metadata: Metadata = {
@@ -30,12 +31,13 @@ function Answer({ question, children }: { question: string; children: React.Reac
 export default function V1Page() {
   return (
     <main className={styles.page} id="content">
-      <header className={styles.header}>
+      <V1Interactions />
+      <header className={styles.header} data-v1-header>
         <Link className={styles.brand} href="/v1/">Jan Košutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
-          <a href="#work">work</a>
-          <a href="#principles">principles</a>
-          <a href="#writing">writing</a>
+          <a href="#work" data-section="work">work</a>
+          <a href="#principles" data-section="principles">principles</a>
+          <a href="#writing" data-section="writing">writing</a>
         </nav>
       </header>
 

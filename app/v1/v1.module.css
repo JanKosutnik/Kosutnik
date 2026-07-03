@@ -13,6 +13,7 @@
 
 .page * { font-size: inherit; line-height: inherit; letter-spacing: 0; }
 .page a { color: inherit; }
+.page ::selection { background: #d5d0c5; color: #111; }
 
 .header,
 .grid {
@@ -30,6 +31,13 @@
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   font-weight: 600;
+  transition: background-color 180ms ease, backdrop-filter 180ms ease;
+}
+
+.header[data-scrolled='true'] {
+  background: rgba(0, 0, 0, .94);
+  -webkit-backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px);
 }
 
 .brand { text-decoration: none; }
@@ -39,8 +47,25 @@
   gap: 1rem;
 }
 
-.nav a { text-decoration: none; }
-.nav a:hover { text-decoration: underline; }
+.nav a,
+.answer a {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0 1px;
+  text-decoration: none;
+  transition: background-size 160ms ease, color 160ms ease;
+}
+
+.nav a { color: var(--muted); }
+.nav a:hover,
+.nav a:focus-visible,
+.nav a[data-active='true'],
+.answer a:hover,
+.answer a:focus-visible { background-size: 100% 1px; }
+.nav a:hover,
+.nav a:focus-visible,
+.nav a[data-active='true'] { color: var(--ink); }
 
 .grid {
   padding: 2.25rem 1.25rem;
@@ -59,7 +84,6 @@
 .stack { display: grid; gap: 1.25rem; }
 .answer h3 { margin: 0 0 .25rem; font-weight: 600; }
 .answer p { margin: 0; }
-.answer a { text-underline-offset: .2rem; }
 
 .principles {
   display: grid;
@@ -87,7 +111,12 @@
   gap: 1rem;
   text-decoration: none;
 }
-.writing a:hover span { text-decoration: underline; }
+.writing a span,
+.writing a time { transition: color 160ms ease, transform 160ms ease; }
+.writing a:hover span,
+.writing a:focus-visible span { transform: translateX(2px); }
+.writing a:hover time,
+.writing a:focus-visible time { color: var(--ink); }
 .note { margin: 1.25rem 0 0; }
 
 .footer { padding: 2.25rem 1.25rem 1rem; color: var(--muted); }
@@ -96,4 +125,12 @@
   .header { grid-template-columns: 1fr; row-gap: .5rem; }
   .grid { grid-template-columns: 1fr; row-gap: 1.25rem; }
   .intro { padding-top: 2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .header,
+  .nav a,
+  .answer a,
+  .writing a span,
+  .writing a time { transition: none; }
 }
