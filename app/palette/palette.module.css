@@ -12,7 +12,8 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   min-height: 18rem;
   background: var(--sample-background);
-  border-bottom: 1px solid rgba(236, 235, 231, .14);
+  color: var(--sample-text);
+  border-bottom: 1px solid color-mix(in srgb, var(--sample-text) 14%, transparent);
 }
 
 .option header,
@@ -25,18 +26,21 @@
   gap: .25rem;
 }
 
-.option header span { color: #92918d; }
+.option header span { color: var(--sample-muted); }
 
 .sample {
   display: grid;
   align-content: start;
   gap: 1rem;
-  border-left: 1px solid rgba(236, 235, 231, .14);
+  border-left: 1px solid color-mix(in srgb, var(--sample-text) 14%, transparent);
 }
 
 .sample p { max-width: 40rem; margin: 0; }
 
 @media (max-width: 680px) {
   .option { grid-template-columns: 1fr; }
-  .sample { border-top: 1px solid rgba(236, 235, 231, .14); border-left: 0; }
+  .sample {
+    border-top: 1px solid color-mix(in srgb, var(--sample-text) 14%, transparent);
+    border-left: 0;
+  }
 }
