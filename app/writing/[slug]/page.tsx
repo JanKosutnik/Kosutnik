@@ -38,7 +38,7 @@ export default async function VariantWritingPage({ params }: PageProps) {
         <nav className={styles.nav} aria-label="Page navigation">
           <Link href="/#hello">hello</Link>
           <Link href="/#now">now</Link>
-          <Link href="/#notes">notes</Link>
+          <Link href="/#notes" aria-current="page">notes</Link>
           <Link href="/#principles">principles</Link>
           <Link href="/#contact">contact</Link>
         </nav>
