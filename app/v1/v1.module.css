@@ -129,6 +129,17 @@
 
 @media (min-width: 681px) {
   .color .grid > .sectionTitle { padding-top: 1.9rem; }
+
+  .color[data-section-motion='true'] .sectionTitle {
+    opacity: .38;
+    transform: translateY(.35rem);
+    transition: opacity 260ms ease, transform 260ms ease;
+  }
+
+  .color[data-section-motion='true'] [data-in-view='true'] .sectionTitle {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .color .prose { padding: 1.5rem !important; }
@@ -242,6 +253,7 @@
 @media (prefers-reduced-motion: reduce) {
   .header,
   .nav a,
+  .sectionTitle,
   .writing a span,
   .writing a time { transition: none; }
 }

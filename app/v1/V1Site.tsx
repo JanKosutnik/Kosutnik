@@ -41,7 +41,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         <p>This place changes when I do. That&apos;s the whole point.</p>
       </section>
 
-      <section className={styles.grid} id="now">
+      <section className={styles.grid} id="now" data-section-panel>
         <header className={styles.sectionTitle}><span>01</span><h2>now</h2></header>
         <div className={styles.prose}>
           <p>I live in Ljubljana and work independently. One project at a time.</p>
@@ -53,7 +53,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </div>
       </section>
 
-      <section className={styles.grid} id="notes">
+      <section className={styles.grid} id="notes" data-section-panel>
         <header className={styles.sectionTitle}><span>02</span><h2>notes</h2></header>
         <div className={styles.writingContent}>
           <div className={styles.writing}>
@@ -68,7 +68,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </div>
       </section>
 
-      <section className={styles.grid} id="principles">
+      <section className={styles.grid} id="principles" data-section-panel>
         <header className={styles.sectionTitle}><span>03</span><h2>principles</h2></header>
         <ol className={styles.principles}>
           {principles.map((principle, index) => (
@@ -77,7 +77,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </ol>
       </section>
 
-      <section className={styles.grid} id="elsewhere">
+      <section className={styles.grid} id="elsewhere" data-section-panel>
         <header className={styles.sectionTitle}><span>04</span><h2>elsewhere</h2></header>
         <div className={styles.prose}>
           <p>The internet is scattered. These are the other places I still use.</p>
