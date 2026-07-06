@@ -76,6 +76,29 @@
 .backLink:focus-visible { text-decoration-color: var(--ink); }
 .articleHeader time { color: var(--muted); }
 
+.pastPosts { margin-top: 3rem; }
+.pastPosts h2 { margin: 0 0 1rem; font-weight: 600; }
+.pastPosts ol {
+  display: grid;
+  gap: .7rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pastPosts li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+}
+
+.pastPosts a { text-decoration: none; }
+.pastPosts a:hover,
+.pastPosts a:focus-visible { text-decoration: underline; text-underline-offset: .16em; }
+.pastPosts time,
+.pastPosts p { color: var(--muted); }
+.pastPosts p { margin: 0; }
+
 .article h1 {
   margin: 0 0 2rem;
   font-weight: 600;

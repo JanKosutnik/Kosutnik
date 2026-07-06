@@ -27,6 +27,10 @@ export default async function VariantWritingPage({ params }: PageProps) {
 
   if (!post) notFound()
 
+  const pastPosts = getWriting().filter(
+    ({ date }: { date: string }) => date.localeCompare(post.date) < 0,
+  )
+
   return (
     <main className={styles.page}>
       <header className={styles.masthead}>
@@ -41,10 +45,32 @@ export default async function VariantWritingPage({ params }: PageProps) {
       </header>
 
       <article className={styles.article}>
-        <header className={styles.articleHeader}>
-          <Link href="/#notes">notes</Link>
-          <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
-        </header>
+        <aside className={styles.postAside} aria-label="Past posts">
+          <div className={styles.articleHeader}>
+            <Link href="/#notes">notes</Link>
+            <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
+          </div>
+          <section className={styles.pastPosts}>
+            <h2>Past posts</h2>
+            {pastPosts.length > 0 ? (
+              <ol>
+                {pastPosts.map(({ slug: pastSlug, title, date, formattedDate }: {
+                  slug: string
+                  title: string
+                  date: string
+                  formattedDate: string
+                }) => (
+                  <li key={pastSlug}>
+                    <Link href={`/writing/${pastSlug}/`}>{title}</Link>
+                    <time dateTime={date.replaceAll('.', '-')}>{formattedDate}</time>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <p>This is the first note.</p>
+            )}
+          </section>
+        </aside>
         <div>
           <h1>{post.title}</h1>
           <div
