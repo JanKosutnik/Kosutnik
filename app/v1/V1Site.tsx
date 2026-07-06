@@ -26,7 +26,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
           <a href="#now" data-section="now">now</a>
           <a href="#notes" data-section="notes">notes</a>
           <a href="#principles" data-section="principles">principles</a>
-          <a href="#elsewhere" data-section="elsewhere">elsewhere</a>
+          <a href="#contact" data-section="contact">contact</a>
         </nav>
       </header>
 
@@ -77,10 +77,9 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </ol>
       </section>
 
-      <section className={styles.grid} id="elsewhere" data-section-panel>
-        <header className={styles.sectionTitle}><span>04</span><h2>elsewhere</h2></header>
+      <section className={styles.grid} id="contact" data-section-panel>
+        <header className={styles.sectionTitle}><span>04</span><h2>contact</h2></header>
         <div className={styles.prose}>
-          <p>The internet is scattered. These are the other places I still use.</p>
           <p className={styles.links}>
             <a href="mailto:jan@kosutnik.com">Email</a>
             <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>

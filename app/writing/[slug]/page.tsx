@@ -40,7 +40,7 @@ export default async function VariantWritingPage({ params }: PageProps) {
           <Link href="/#now">now</Link>
           <Link href="/#notes">notes</Link>
           <Link href="/#principles">principles</Link>
-          <Link href="/#elsewhere">elsewhere</Link>
+          <Link href="/#contact">contact</Link>
         </nav>
       </header>
 
