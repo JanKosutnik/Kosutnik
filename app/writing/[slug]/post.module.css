@@ -87,15 +87,20 @@
 }
 
 .pastPosts li {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: .75rem;
 }
 
 .pastPosts a { text-decoration: none; }
 .pastPosts a:hover,
 .pastPosts a:focus-visible { text-decoration: underline; text-underline-offset: .16em; }
-.pastPosts p { color: var(--muted); }
-.pastPosts p { margin: 0; }
-
+.pastPosts time {
+  color: var(--muted);
+  font-size: .75rem !important;
+  white-space: nowrap;
+}
 .article h1 {
   margin: 0 0 2rem;
   font-weight: 600;
@@ -117,5 +122,15 @@
   .article {
     grid-template-columns: 1fr;
     padding: 3rem 1rem;
+  }
+
+  .postAside { display: contents; }
+  .articleHeader { order: 1; }
+  .postContent { order: 2; }
+  .pastPosts {
+    order: 3;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
   }
 }

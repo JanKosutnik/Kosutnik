@@ -28,7 +28,7 @@ export default async function VariantWritingPage({ params }: PageProps) {
   if (!post) notFound()
 
   const pastPosts = getWriting().filter(
-    ({ date }: { date: string }) => date.localeCompare(post.date) < 0,
+    ({ slug: noteSlug }: { slug: string }) => noteSlug !== post.slug,
   )
 
   return (
@@ -52,23 +52,22 @@ export default async function VariantWritingPage({ params }: PageProps) {
           </div>
           <section className={styles.pastPosts}>
             <h2>past notes</h2>
-            {pastPosts.length > 0 ? (
-              <ol>
-                {pastPosts.map(({ slug: pastSlug, title }: {
-                  slug: string
-                  title: string
-                }) => (
-                  <li key={pastSlug}>
-                    <Link href={`/writing/${pastSlug}/`}>{title}</Link>
-                  </li>
-                ))}
-              </ol>
-            ) : (
-              <p>This is the first note.</p>
-            )}
+            <ol>
+              {pastPosts.map(({ slug: pastSlug, title, date, formattedDate }: {
+                slug: string
+                title: string
+                date: string
+                formattedDate: string
+              }) => (
+                <li key={pastSlug}>
+                  <Link href={`/writing/${pastSlug}/`}>{title}</Link>
+                  <time dateTime={date.replaceAll('.', '-')}>{formattedDate}</time>
+                </li>
+              ))}
+            </ol>
           </section>
         </aside>
-        <div>
+        <div className={styles.postContent}>
           <h1>{post.title}</h1>
           <div
             className={styles.body}
