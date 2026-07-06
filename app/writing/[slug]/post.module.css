@@ -87,15 +87,12 @@
 }
 
 .pastPosts li {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1rem;
+  display: block;
 }
 
 .pastPosts a { text-decoration: none; }
 .pastPosts a:hover,
 .pastPosts a:focus-visible { text-decoration: underline; text-underline-offset: .16em; }
-.pastPosts time,
 .pastPosts p { color: var(--muted); }
 .pastPosts p { margin: 0; }
 

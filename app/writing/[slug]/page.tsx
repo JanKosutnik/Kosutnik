@@ -54,15 +54,12 @@ export default async function VariantWritingPage({ params }: PageProps) {
             <h2>Past posts</h2>
             {pastPosts.length > 0 ? (
               <ol>
-                {pastPosts.map(({ slug: pastSlug, title, date, formattedDate }: {
+                {pastPosts.map(({ slug: pastSlug, title }: {
                   slug: string
                   title: string
-                  date: string
-                  formattedDate: string
                 }) => (
                   <li key={pastSlug}>
                     <Link href={`/writing/${pastSlug}/`}>{title}</Link>
-                    <time dateTime={date.replaceAll('.', '-')}>{formattedDate}</time>
                   </li>
                 ))}
               </ol>
