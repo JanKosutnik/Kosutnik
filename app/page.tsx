@@ -3,7 +3,7 @@ import V1Site from './v1/V1Site'
 
 export const metadata: Metadata = {
   title: 'Kosutnik',
-  description: 'Designer and developer based in Ljubljana.',
+  description: "Jan Košutnik's notes, ideas, and principles.",
   alternates: { canonical: 'https://kosutnik.com/' },
 }
 

@@ -32,15 +32,16 @@ export default async function VariantWritingPage({ params }: PageProps) {
       <header className={styles.masthead}>
         <Link className={styles.brand} href="/">Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
-          <Link href="/#work">work</Link>
+          <Link href="/#now">now</Link>
+          <Link href="/#notes">notes</Link>
           <Link href="/#principles">principles</Link>
-          <Link href="/#writing">writing</Link>
+          <Link href="/#elsewhere">elsewhere</Link>
         </nav>
       </header>
 
       <article className={styles.article}>
         <header className={styles.articleHeader}>
-          <Link href="/#writing">writing</Link>
+          <Link href="/#notes">notes</Link>
           <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
         </header>
         <div>
@@ -49,8 +50,8 @@ export default async function VariantWritingPage({ params }: PageProps) {
             className={styles.body}
             dangerouslySetInnerHTML={{ __html: post.html }}
           />
-          <Link className={styles.backLink} href="/#writing">
-            <span aria-hidden="true">←</span> Back to writing
+          <Link className={styles.backLink} href="/#notes">
+            <span aria-hidden="true">←</span> Back to notes
           </Link>
         </div>
       </article>
