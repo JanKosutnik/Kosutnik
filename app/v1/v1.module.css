@@ -1,9 +1,9 @@
 .page {
-  --surface: #000;
-  --ink: #f1eee6;
-  --muted: #858580;
-  --header-rest: rgba(0, 0, 0, .24);
-  --header-scrolled: rgba(0, 0, 0, .52);
+  --surface: #123437;
+  --ink: #edf3ee;
+  --muted: #a6bcb8;
+  --header-rest: rgba(18, 52, 55, .24);
+  --header-scrolled: rgba(18, 52, 55, .72);
   min-height: 100vh;
   max-width: 76rem;
   background: var(--surface);
@@ -18,12 +18,12 @@
 .page ::selection { background: #d5d0c5; color: #111; }
 
 .color {
-  --surface: #000;
-  --ink: #f1eee6;
-  --muted: #858580;
-  --line: #292929;
-  --header-rest: rgba(0, 0, 0, .24);
-  --header-scrolled: rgba(0, 0, 0, .72);
+  --surface: #123437;
+  --ink: #edf3ee;
+  --muted: #a6bcb8;
+  --line: #315154;
+  --header-rest: rgba(18, 52, 55, .24);
+  --header-scrolled: rgba(18, 52, 55, .72);
   width: 100%;
   max-width: none;
   color-scheme: dark;

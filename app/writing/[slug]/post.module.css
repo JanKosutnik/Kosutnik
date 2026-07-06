@@ -1,8 +1,8 @@
 .page {
-  --surface: #000;
-  --ink: #f1eee6;
-  --line: #353535;
-  --muted: #8b8b86;
+  --surface: #123437;
+  --ink: #edf3ee;
+  --line: #315154;
+  --muted: #a6bcb8;
   min-height: 100vh;
   background: var(--surface);
   color: var(--ink);
@@ -27,7 +27,7 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   padding: 0;
-  background: rgba(0, 0, 0, .24);
+  background: rgba(18, 52, 55, .24);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line);
