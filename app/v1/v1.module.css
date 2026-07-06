@@ -2,8 +2,8 @@
   --surface: #123437;
   --ink: #edf3ee;
   --muted: #a6bcb8;
-  --header-rest: rgba(18, 52, 55, .14);
-  --header-scrolled: rgba(18, 52, 55, .58);
+  --header-rest: rgba(14, 39, 41, .14);
+  --header-scrolled: rgba(14, 39, 41, .58);
   min-height: 100vh;
   max-width: 76rem;
   background: var(--surface);
@@ -22,8 +22,8 @@
   --ink: #edf3ee;
   --muted: #a6bcb8;
   --line: #315154;
-  --header-rest: rgba(18, 52, 55, .14);
-  --header-scrolled: rgba(18, 52, 55, .58);
+  --header-rest: rgba(14, 39, 41, .14);
+  --header-scrolled: rgba(14, 39, 41, .58);
   width: 100%;
   max-width: none;
   color-scheme: dark;
