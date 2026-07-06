@@ -32,6 +32,7 @@ export default async function VariantWritingPage({ params }: PageProps) {
       <header className={styles.masthead}>
         <Link className={styles.brand} href="/">Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
+          <Link href="/#hello">hello</Link>
           <Link href="/#now">now</Link>
           <Link href="/#notes">notes</Link>
           <Link href="/#principles">principles</Link>

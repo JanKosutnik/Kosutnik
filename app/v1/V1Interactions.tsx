@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react'
 
-const sectionIds = ['now', 'notes', 'principles', 'elsewhere']
+const sectionIds = ['hello', 'now', 'notes', 'principles', 'elsewhere']
 
 export default function V1Interactions() {
   useEffect(() => {

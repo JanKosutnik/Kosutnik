@@ -22,6 +22,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
       <header className={styles.header} data-v1-header>
         <Link className={styles.brand} href={homeHref}>Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
+          <a href="#hello" data-section="hello">hello</a>
           <a href="#now" data-section="now">now</a>
           <a href="#notes" data-section="notes">notes</a>
           <a href="#principles" data-section="principles">principles</a>
@@ -29,7 +30,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </nav>
       </header>
 
-      <section className={`${styles.grid} ${styles.intro}`} aria-labelledby="intro-title">
+      <section className={`${styles.grid} ${styles.intro}`} id="hello" aria-labelledby="intro-title">
         <h1 id="intro-title">
           <span>I am Jan, a UX and product designer based in Ljubljana.</span>
           <span>
