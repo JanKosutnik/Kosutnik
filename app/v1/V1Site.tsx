@@ -33,7 +33,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         <h1 id="intro-title">
           <span>I am Jan, a UX and product designer based in Ljubljana.</span>
           <span>
-            I have worked on software from several sides: designing how it feels, building how it works, and testing
+            I have worked on software from several sides: designing how it feels, building how it works and testing
             whether it holds. That made me interested in what most software carries but does not need.
           </span>
         </h1>
@@ -43,12 +43,12 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
       <section className={styles.grid} id="now">
         <header className={styles.sectionTitle}><span>01</span><h2>now</h2></header>
         <div className={styles.prose}>
-          <p>I live in Ljubljana and work independently, one project at a time.</p>
+          <p>I live in Ljubljana and work independently. One project at a time.</p>
           <p>
-            I spend most of my time thinking about how software feels to use, where complexity sneaks in, and what
+            I spend most of my time thinking about how software feels to use, where complexity sneaks in and what
             can be removed.
           </p>
-          <p>This site is part notebook, part reference shelf. I update it when I have something worth keeping.</p>
+          <p>This site is part notebook and part reference shelf. I update it when I have something worth keeping.</p>
         </div>
       </section>
 
@@ -63,7 +63,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
               </Link>
             ))}
           </div>
-          <p className={styles.note}>A garden, not a blog. These grow slowly.</p>
+          <p className={styles.note}>A garden rather than a blog. These grow slowly.</p>
         </div>
       </section>
 
