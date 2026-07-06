@@ -4,7 +4,7 @@ import V1Interactions from './V1Interactions'
 import styles from './v1.module.css'
 
 const principles = [
-  'If you can remove it and nothing breaks, remove it.',
+  'If you can remove it without breaking anything, remove it.',
   'If you need a manual to use it, the design is making you do its job.',
   'Every feature you add is a promise to keep it working - forever.',
   'Count the time a tool costs you, not just the time it saves.',
@@ -32,9 +32,9 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
 
       <section className={`${styles.grid} ${styles.intro}`} id="hello" aria-labelledby="intro-title">
         <h1 id="intro-title">
-          <span>I am Jan, a UX and product designer based in Ljubljana.</span>
+          <span>I am Jan, a UX and product designer based in Ljubljana, Slovenia.</span>
           <span>
-            I have worked on software from several sides: designing how it feels, building how it works and testing
+            I have worked on software from several sides: designing how it feels, building how it works, and testing
             whether it holds. That made me interested in what most software carries but does not need.
           </span>
         </h1>
