@@ -45,13 +45,13 @@ export default async function VariantWritingPage({ params }: PageProps) {
       </header>
 
       <article className={styles.article}>
-        <aside className={styles.postAside} aria-label="Past notes">
+        <aside className={styles.postAside} aria-label="past notes">
           <div className={styles.articleHeader}>
             <Link href="/#notes">notes</Link>
             <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
           </div>
           <section className={styles.pastPosts}>
-            <h2>Past notes</h2>
+            <h2>past notes</h2>
             {pastPosts.length > 0 ? (
               <ol>
                 {pastPosts.map(({ slug: pastSlug, title }: {
