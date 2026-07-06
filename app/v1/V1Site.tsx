@@ -31,10 +31,13 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
 
       <section className={`${styles.grid} ${styles.intro}`} aria-labelledby="intro-title">
         <h1 id="intro-title">
-          I&apos;m Jan. This is where I keep the things I want to remember: notes from work, ideas still taking shape,
-          and a few rules I come back to when things get noisy.
+          <span>I am Jan, a UX and product designer based in Ljubljana.</span>
+          <span>
+            I have worked on software from several sides: designing how it feels, building how it works, and testing
+            whether it holds. That made me interested in what most software carries but does not need.
+          </span>
         </h1>
-        <p>It changes when I do. That&apos;s the whole point.</p>
+        <p>This place changes when I do. That&apos;s the whole point.</p>
       </section>
 
       <section className={styles.grid} id="now">

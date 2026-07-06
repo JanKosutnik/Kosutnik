@@ -111,8 +111,9 @@
 
 .color .intro { min-height: calc(100vh - 3.75rem); }
 .color .intro h1 {
-  display: flex;
-  align-items: flex-start;
+  display: grid;
+  align-content: start;
+  gap: 1rem;
 }
 
 .color .intro p {
