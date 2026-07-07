@@ -3,6 +3,7 @@ import V1Interactions from '@/app/v1/V1Interactions'
 import styles from '@/app/v1/v1.module.css'
 
 const navigation = [
+  ['about', '/#about'],
   ['notes', '/notes/'],
   ['principles', '/principles/'],
 ]

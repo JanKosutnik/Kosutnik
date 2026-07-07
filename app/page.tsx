@@ -11,11 +11,11 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  const notes = getWriting().slice(0, 3)
+  const notes = getWriting()
 
   return (
     <SiteFrame>
-      <section className={styles.grid}>
+      <section className={styles.grid} id="about">
         <header className={styles.sectionTitle}><h1>about</h1></header>
         <div className={styles.prose}>
           <p>I am Jan, a UX and product designer based in Ljubljana, Slovenia.</p>
@@ -31,7 +31,7 @@ export default function HomePage() {
       </section>
 
       <section className={styles.grid}>
-        <header className={styles.sectionTitle}><h2>latest notes</h2></header>
+        <header className={styles.sectionTitle}><h2>notes</h2></header>
         <div className={styles.writingContent}>
           <div className={styles.writing}>
             {notes.map((note: { slug: string; title: string; date: string; formattedDate: string }) => (
