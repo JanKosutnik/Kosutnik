@@ -13,6 +13,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return { title: post ? `${post.title} - Kosutnik` : 'Not found' }
 }
 
-export default async function LegacyWritingPage({ params }: PageProps) {
+export default async function NotesSlugPage({ params }: PageProps) {
   return <NotePage slug={(await params).slug} />
 }

@@ -71,7 +71,8 @@
 .nav a { color: var(--muted); }
 .nav a:hover,
 .nav a:focus-visible,
-.nav a[data-active='true'] { color: var(--ink); }
+.nav a[data-active='true'],
+.nav a[aria-current='page'] { color: var(--ink); }
 
 .grid {
   padding: 2.25rem 1.25rem;
@@ -83,8 +84,10 @@
 .intro p { margin: 0; font-weight: 400; }
 
 .sectionTitle span,
+.sectionTitle h1,
 .sectionTitle h2 { display: block; margin: 0; }
 .sectionTitle span { color: var(--muted); }
+.sectionTitle h1,
 .sectionTitle h2 { font-weight: 600; }
 
 .color .header {
@@ -189,6 +192,7 @@
 .writing time,
 .note { color: var(--muted); }
 .principles p { margin: 0; }
+.retired { color: var(--muted); text-decoration: line-through; }
 
 .writing { display: grid; gap: .55rem; }
 .writing a {

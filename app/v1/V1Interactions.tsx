@@ -29,7 +29,7 @@ export default function V1Interactions() {
     )
 
     sectionPanels.forEach((section) => sectionObserver.observe(section))
-    if (page) page.dataset.sectionMotion = 'true'
+    if (page && sectionPanels.length > 0) page.dataset.sectionMotion = 'true'
 
     const setActive = (id: string) => {
       links.forEach((link, section) => {

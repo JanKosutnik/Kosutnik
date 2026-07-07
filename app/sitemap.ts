@@ -6,8 +6,8 @@ import { getWriting } from '@/lib/writing'
 const BASE = 'https://kosutnik.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const posts = (getWriting() as { slug: string }[]).map((p) => ({
-    url: `${BASE}/writing/${p.slug}`,
+  const notes = (getWriting() as { slug: string }[]).map((note) => ({
+    url: `${BASE}/notes/${note.slug}`,
     lastModified: new Date(),
     changeFrequency: 'yearly' as const,
     priority: 0.5,
@@ -20,6 +20,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 1,
     },
-    ...posts,
+    {
+      url: `${BASE}/notes`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${BASE}/principles`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    },
+    {
+      url: `${BASE}/log`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    ...notes,
   ]
 }
