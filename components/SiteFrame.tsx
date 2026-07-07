@@ -27,8 +27,10 @@ export default function SiteFrame({
         </nav>
       </header>
       {children}
-      <footer className={styles.footer}>
-        <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>
+      <footer className={`${styles.footer} ${styles.links}`}>
+        <a href="mailto:jan@kosutnik.com">Email</a>
+        <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
       </footer>
     </main>
   )
