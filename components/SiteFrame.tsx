@@ -5,7 +5,6 @@ import styles from '@/app/v1/v1.module.css'
 const navigation = [
   ['notes', '/notes/'],
   ['principles', '/principles/'],
-  ['log', '/log/'],
 ]
 
 export default function SiteFrame({

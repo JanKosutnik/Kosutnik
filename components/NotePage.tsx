@@ -18,7 +18,6 @@ export default function NotePage({ slug }: { slug: string }) {
         <nav className={styles.nav} aria-label="Page navigation">
           <Link href="/notes/" aria-current="page">notes</Link>
           <Link href="/principles/">principles</Link>
-          <Link href="/log/">log</Link>
         </nav>
       </header>
 

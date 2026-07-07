@@ -6,7 +6,7 @@ import styles from './v1/v1.module.css'
 
 export const metadata: Metadata = {
   title: 'Kosutnik',
-  description: "Jan Košutnik's notes, principles and build log.",
+  description: "Jan Košutnik's notes and principles.",
   alternates: { canonical: 'https://kosutnik.com/' },
 }
 
