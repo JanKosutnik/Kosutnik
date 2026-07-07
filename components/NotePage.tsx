@@ -16,6 +16,7 @@ export default function NotePage({ slug }: { slug: string }) {
       <header className={styles.masthead}>
         <Link className={styles.brand} href="/">Kosutnik</Link>
         <nav className={styles.nav} aria-label="Page navigation">
+          <Link href="/#about">about</Link>
           <Link href="/notes/" aria-current="page">notes</Link>
           <Link href="/principles/">principles</Link>
         </nav>
