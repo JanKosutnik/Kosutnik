@@ -7,7 +7,7 @@ export const siteMeta = {
 }
 
 export const principles: string[] = [
-  'If you can remove it and nothing breaks, remove it.',
+  'If you can remove it without breaking anything, remove it.',
   'If you need a manual to use it, the design is making you do its job.',
   'Every feature you add is a promise to keep it working - forever.',
   'Count the time a tool costs you, not just the time it saves.',

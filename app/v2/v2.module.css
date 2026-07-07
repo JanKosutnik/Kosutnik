@@ -1,0 +1,105 @@
+.site {
+  --background: #f3f0e8;
+  --text: #1d1d1b;
+  --muted: #706d65;
+  --line: #d5d0c5;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.site * { box-sizing: border-box; }
+.site a { color: inherit; text-underline-offset: .16em; }
+
+.header,
+.main,
+.footer {
+  width: min(100% - 2rem, 46rem);
+  margin-inline: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem 2rem;
+  padding-block: 2rem 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand { font-weight: 700; text-decoration: none; }
+.header nav { display: flex; flex-wrap: wrap; gap: .25rem 1rem; }
+.header nav a { color: var(--muted); text-decoration: none; }
+.header nav a:hover,
+.header nav a:focus-visible { color: var(--text); text-decoration: underline; }
+
+.main { min-height: 68vh; padding-block: 4rem 6rem; }
+.main section + section { margin-top: 5rem; }
+.main h1,
+.main h2 { margin: 0 0 1.5rem; font-size: 1rem; line-height: inherit; }
+.main p { margin: 0; }
+
+.entries,
+.principles {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.entries { display: grid; gap: .65rem; }
+.entries li {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+}
+.entries time,
+.note time { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.directory { margin: 0; }
+.directory div {
+  display: grid;
+  grid-template-columns: 6.5rem minmax(0, 1fr);
+  gap: 1rem;
+  padding-block: .65rem;
+}
+.directory dt,
+.directory dd { margin: 0; }
+.directory dd { color: var(--muted); }
+
+.principles { display: grid; gap: 1.25rem; }
+
+.note header { margin-bottom: 2.5rem; }
+.note header h1 { margin-top: .35rem; }
+.prose p { margin: 0 0 1.25rem; }
+.note > p { margin-top: 3rem; }
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: 1.25rem 2rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+
+@media (prefers-color-scheme: dark) {
+  .site {
+    --background: #171816;
+    --text: #e8e6df;
+    --muted: #9c9a93;
+    --line: #353633;
+    color-scheme: dark;
+  }
+}
+
+@media (max-width: 620px) {
+  .header { align-items: flex-start; flex-direction: column; }
+  .main { padding-block: 3rem 4rem; }
+  .entries li,
+  .directory div { grid-template-columns: 1fr; gap: 0; }
+  .directory div + div { margin-top: 1rem; }
+  .footer { flex-direction: column; }
+}
