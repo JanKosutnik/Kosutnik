@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import SiteFrame from '@/components/SiteFrame'
-import styles from '@/app/v1/v1.module.css'
+import Link from 'next/link'
+import styles from '@/app/v2/v2.module.css'
 
 export const metadata: Metadata = { title: 'Principles - Kosutnik' }
 
@@ -16,25 +16,37 @@ const principles = [
 
 export default function PrinciplesPage() {
   return (
-    <SiteFrame current="principles">
-      <section className={styles.grid}>
-        <header className={styles.sectionTitle}><h1>principles</h1></header>
-        <div className={styles.writingContent}>
-          <p className={styles.note}>Last revised: 07/07/2026</p>
-          <ol className={styles.principles}>
-            {principles.map((principle, index) => (
-              <li
-                className={principle.status === 'retired' ? styles.retired : undefined}
-                data-status={principle.status}
-                key={principle.text}
-              >
-                <span>{String(index + 1).padStart(2, '0')}</span>
-                <p>{principle.text}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
+    <main className={styles.page}>
+      <header className={styles.header}>
+        <Link href="/">Kosutnik</Link>
+        <nav aria-label="Page navigation">
+          <Link href="/#about">about</Link>
+          <Link href="/#notes">notes</Link>
+          <Link href="/principles/" aria-current="page">principles</Link>
+        </nav>
+      </header>
+
+      <section>
+        <h1>principles</h1>
+        <p className={styles.meta}>Last revised: 07/07/2026</p>
+        <ol className={styles.principles}>
+          {principles.map((principle) => (
+            <li
+              className={principle.status === 'retired' ? styles.retired : undefined}
+              data-status={principle.status}
+              key={principle.text}
+            >
+              {principle.text}
+            </li>
+          ))}
+        </ol>
       </section>
-    </SiteFrame>
+
+      <footer>
+        <a href="mailto:jan@kosutnik.com">jan@kosutnik.com</a>
+        <a href="https://x.com/JanKosutnik" target="_blank" rel="noopener noreferrer">X</a>
+        <a href="https://www.linkedin.com/in/jankosutnik/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </footer>
+    </main>
   )
 }

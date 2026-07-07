@@ -56,10 +56,8 @@
 .nav a[aria-current='page'] { color: var(--ink); }
 
 .article {
-  width: min(100%, 62rem);
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
+  width: min(100% - 2rem, 42rem);
+  margin-inline: auto;
   padding: 4rem 1.5rem;
 }
 
@@ -67,6 +65,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 3rem;
 }
 
 .articleHeader a,
@@ -84,7 +83,7 @@
 .backLink:focus-visible { text-decoration-color: var(--ink); }
 .articleHeader time { color: var(--muted); }
 
-.pastPosts { margin-top: 3rem; }
+.pastPosts { margin-top: 4rem; }
 .pastPosts h2 { margin: 0 0 1rem; font-weight: 600; }
 .pastPosts ol {
   display: grid;
@@ -131,17 +130,6 @@
   }
 
   .article {
-    grid-template-columns: 1fr;
     padding: 3rem 1rem;
-  }
-
-  .postAside { display: contents; }
-  .articleHeader { order: 1; }
-  .postContent { order: 2; }
-  .pastPosts {
-    order: 3;
-    margin-top: 1rem;
-    padding-top: 2rem;
-    border-top: 1px solid var(--line);
   }
 }

@@ -88,6 +88,11 @@
   counter-reset: principle;
 }
 
+.meta {
+  margin: -1rem 0 1.5rem;
+  color: #999;
+}
+
 .principles li {
   display: grid;
   grid-template-columns: 1.75rem minmax(0, 1fr);
@@ -98,6 +103,11 @@
   content: counter(principle, decimal-leading-zero);
   color: #999;
   font-variant-numeric: tabular-nums;
+}
+
+.retired {
+  color: #999;
+  text-decoration: line-through;
 }
 
 .page footer {
