@@ -19,17 +19,20 @@ const principles = [
   'A tool should help you finish - not keep you coming back.',
 ]
 
-export default function V2Page() {
+export default function V2Page({ basePath = '/v2/' }: { basePath?: '/' | '/v2/' } = {}) {
   const notes = getWriting()
+  const aboutHref = `${basePath}#about`
+  const notesHref = `${basePath}#notes`
+  const principlesHref = `${basePath}#principles`
 
   return (
     <main className={styles.page}>
       <header className={styles.header}>
-        <Link href="/v2/">Kosutnik</Link>
+        <Link href={basePath}>Kosutnik</Link>
         <nav aria-label="Page navigation">
-          <a href="#about">about</a>
-          <a href="#notes">notes</a>
-          <a href="#principles">principles</a>
+          <a href={aboutHref}>about</a>
+          <a href={notesHref}>notes</a>
+          <a href={principlesHref}>principles</a>
         </nav>
       </header>
 

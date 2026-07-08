@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return <V2Page />
+  return <V2Page basePath="/" />
 }
