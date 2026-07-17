@@ -30,46 +30,40 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
         </nav>
       </header>
 
-      <section className={`${styles.grid} ${styles.intro}`} id="hello" aria-labelledby="intro-title">
+      <section className={styles.intro} id="hello" aria-labelledby="intro-title">
         <h1 id="intro-title">
-          <span>I am Jan, a UX and product designer based in Ljubljana, Slovenia.</span>
-          <span>
-            I have worked on software from several sides: designing how it feels, building how it works, and testing
-            whether it holds. That made me interested in what most software carries but does not need.
-          </span>
+          Kosutnik is Jan Košutnik&apos;s working notebook for calmer software, useful tools, and things worth removing.
         </h1>
-        <p>This place changes when I do. That&apos;s the whole point.</p>
+        <p>Not a portfolio. Not a pitch deck. A place for notes, principles, and the shape of work as it changes.</p>
       </section>
 
       <section className={styles.grid} id="now" data-section-panel>
-        <header className={styles.sectionTitle}><span>01</span><h2>now</h2></header>
+        <header className={styles.sectionTitle}><h2>now</h2></header>
         <div className={styles.prose}>
           <p>I live in Ljubljana and work independently. One project at a time.</p>
           <p>
-            I spend most of my time thinking about how software feels to use, where complexity sneaks in and what
-            can be removed.
+            I spend most of my time thinking about how software feels to use, where complexity sneaks in and what can
+            be removed.
           </p>
-          <p>This site is part notebook and part reference shelf. I update it when I have something worth keeping.</p>
         </div>
       </section>
 
       <section className={styles.grid} id="notes" data-section-panel>
-        <header className={styles.sectionTitle}><span>02</span><h2>notes</h2></header>
+        <header className={styles.sectionTitle}><h2>notes</h2></header>
         <div className={styles.writingContent}>
           <div className={styles.writing}>
             {writing.map((post: { slug: string; title: string; date: string; formattedDate: string }) => (
-              <Link href={`/writing/${post.slug}/`} key={post.slug}>
+              <Link href={`/notes/${post.slug}/`} key={post.slug}>
                 <span>{post.title}</span>
                 <time dateTime={post.date.replaceAll('.', '-')}>{post.formattedDate}</time>
               </Link>
             ))}
           </div>
-          <p className={styles.note}>A garden rather than a blog. These grow slowly.</p>
         </div>
       </section>
 
       <section className={styles.grid} id="principles" data-section-panel>
-        <header className={styles.sectionTitle}><span>03</span><h2>principles</h2></header>
+        <header className={styles.sectionTitle}><h2>principles</h2></header>
         <ol className={styles.principles}>
           {principles.map((principle, index) => (
             <li key={principle}><span>{String(index + 1).padStart(2, '0')}</span><p>{principle}</p></li>
@@ -78,7 +72,7 @@ export default function V1Site({ homeHref = '/', color = false }: { homeHref?: s
       </section>
 
       <section className={styles.grid} id="contact" data-section-panel>
-        <header className={styles.sectionTitle}><span>04</span><h2>contact</h2></header>
+        <header className={styles.sectionTitle}><h2>contact</h2></header>
         <div className={styles.prose}>
           <p className={styles.links}>
             <a href="mailto:jan@kosutnik.com">Email</a>

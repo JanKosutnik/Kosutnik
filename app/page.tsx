@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import V2Page from './v2/page'
+import V2Site from './v2/V2Site'
 
 export const metadata: Metadata = {
   title: 'Kosutnik',
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 }
 
 export default function HomePage() {
-  return <V2Page basePath="/" />
+  return <V2Site basePath="/" />
 }
